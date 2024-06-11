@@ -28,7 +28,7 @@ public class QFormServlet extends HttpServlet {
 	}*/
 
 				// メニューページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_form.jsp");
 				dispatcher.forward(request, response);
 	}
 

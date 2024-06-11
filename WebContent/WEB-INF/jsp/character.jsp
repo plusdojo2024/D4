@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>アノニくん表示 | とくめぇ～</title>
 </head>
 <body>
 <header>

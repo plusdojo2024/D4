@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>目安箱フォーム | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -33,6 +33,27 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+<!-- 宛先指定 -->
+<p>
+宛先指定<br>
+<select name = "addressOrder">
+  <option value = "keiri">経理部</option>
+  <option value = "soumu">総務部</option>
+  <option value = "jinji">人事部</option>
+</select>
+</p>
+
+<!-- 要望フォーム -->
+<p>
+要望フォーム<br>
+<input type ="text" name = "requestForm" placeholder = "1～1000字で入力してください">
+</p>
+
+<!-- 送信ボタン -->
+<input type = "submit">
+
+<!-- エラーメッセージ -->
+<span id="errorMassage"></span>
 
 </main>
 <footer>

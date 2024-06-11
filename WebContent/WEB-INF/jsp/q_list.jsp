@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>質問一覧 | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -33,6 +34,27 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+<form>
+<!-- ラジオボタン -->
+<input type="radio" name="unresolved">回答募集中<br>
+<input type="radio" name="resolved">解決済み<br>
+
+<!-- 検索窓とボタン -->
+<input type="text" name="questionWindow">
+<input type="button" name="searchButton">
+</form>
+
+<c:if test="${empty  }">
+	<p>まだデータがありません。</p>
+</c:if>
+
+<c:forEach var="e" items="${ }">
+	<form method="get" action="/D4/QListServlet">
+	
+	
+	</form>
+</c:forEach>
+
 
 </main>
 <footer>

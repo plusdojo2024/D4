@@ -12,7 +12,7 @@
 </header>
 
 	<main>
-		<form id="regist" method="post" action="/simpleBC/RegistServlet">
+		<form id="regist" method="post" action="/D4/RegistServlet">
 			<p>
 				<label>メールアドレス</label><br>
 				<input type="text" name="mail">

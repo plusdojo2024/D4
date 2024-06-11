@@ -21,7 +21,7 @@ public class QListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*
-		もしもログインしていなかったらログインサーブレットにリダイレクトする
+		//もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");

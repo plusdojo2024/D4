@@ -28,7 +28,7 @@ public class RListServlet extends HttpServlet {
 	}*/
 
 		// メニューページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_list.jsp");
 				dispatcher.forward(request, response);
 	}
 

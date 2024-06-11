@@ -37,6 +37,7 @@
 <p>
 宛先指定<br>
 <select name = "addressOrder">
+  <option value = "all">全体</option>
   <option value = "keiri">経理部</option>
   <option value = "soumu">総務部</option>
   <option value = "jinji">人事部</option>
@@ -45,8 +46,7 @@
 
 <!-- 要望フォーム -->
 <p>
-要望フォーム<br>
-<input type ="text" name = "requestForm" placeholder = "1～1000字で入力してください">
+<input type ="text" name = "requestForm" placeholder = "1000字以内で入力してください">
 </p>
 
 <!-- 送信ボタン -->

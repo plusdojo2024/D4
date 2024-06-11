@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>アノニくん到達度一覧 | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -33,6 +33,50 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+    <div class="anonis">
+        <div class="anoni">
+ 			<img src="/D4/img/anoni1.png" alt="アノニくん1">
+			<p>
+			現在<br>
+			<strong>○○人</strong>
+			</p>
+		</div>
+        <div class="anoni">
+ 			<img src="/D4/img/anoni2.png" alt="アノニくん2">
+			<p>
+			現在<br>
+			<strong>○○人</strong>
+			</p>
+		</div>
+        <div class="anoni">
+ 			<img src="/D4/img/anoni3.png" alt="アノニくん3">
+			<p>
+			現在<br>
+			<strong>○○人</strong>
+			</p>
+		</div>
+        <div class="anoni">
+ 			<img src="/D4/img/anoni3.png" alt="アノニくん3">
+			<p>
+			現在<br>
+			<strong>○○人</strong>
+			</p>
+		</div>
+        <div class="anoni">
+ 			<img src="/D4/img/anoni3.png" alt="アノニくん3">
+			<p>
+			現在<br>
+			<strong>○○人</strong>
+			</p>
+		</div>
+        <div class="anoni">
+ 			<img src="/D4/img/coming_soon.png" alt="coming soon...">
+			<p><br>
+			</p>
+		</div>
+    </div>
+
+
 
 </main>
 <footer>

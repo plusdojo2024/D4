@@ -34,6 +34,15 @@
 
 <!-- ここにプログラムを記入 -->
 
+<form class="r_list" method="get" action="/D4/RListServlet">
+  <textarea  name="requestList" rows="5" cols="100" value="${e.}" readonly="readonly"></textarea>
+  <br>
+  <div>
+    <button>もっと見る</button>
+  </div>
+</form>
+
+
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>

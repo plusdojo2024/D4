@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>質問フォーム | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -33,6 +33,13 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+
+<form>
+  <textarea name="question" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
+  <br>
+  <input type="submit" value="送信">
+  <span id="error_message"></span>
+</form>
 
 </main>
 <footer>

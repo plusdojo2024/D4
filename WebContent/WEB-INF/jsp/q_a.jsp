@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>各ページのタイトル</title>
+	<meta charset="UTF-8">
+	<title>質問詳細・回答 | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -33,6 +34,30 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+<form method="get" action="/D4/QAServlet">
+	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
+	<c:if>
+		<textarea name="question">${ }</textarea>
+		<input type="radio" name="unresolved">回答募集中<br>
+		<input type="radio" name="resolved">解決済み<br>
+	</c:if>
+	<c:if>
+		<textarea name="question" readonly="readonly">${ }</textarea>
+		<input type="radio" name="unresolved" readonly="readonly">回答募集中<br>
+		<input type="radio" name="resolved" readonly="readonly">解決済み<br>
+	</c:if>
+
+	<!-- 過去の回答を編集不可で表示 -->
+	<c:forEach var="e" items="${ }">
+		<textarea name="postAnswer" readonly="readonly">${ }</textarea><br>
+	</c:forEach>
+
+</form>
+<form method="post" action="/D4/QAServlet">
+	<!-- 回答入力欄＆送信ボタン -->
+	<input type="text" name="answerForm">
+	<input type="submit" name="submit" value="回答する">
+</form>
 
 </main>
 <footer>

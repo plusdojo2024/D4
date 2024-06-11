@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>質問一覧 | とくめぇ～</title>
+	<meta charset="UTF-8">
+	<title>質問一覧 | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -50,11 +50,13 @@
 
 <c:forEach var="e" items="${ }">
 	<form method="get" action="/D4/QListServlet">
-	
-	
+		<input type="text" name="question" value="${e.}" readonly="readonly"><br>
 	</form>
 </c:forEach>
 
+<form>
+	<input type="button" name="moreLoad" value="さらに表示">
+</form>
 
 </main>
 <footer>

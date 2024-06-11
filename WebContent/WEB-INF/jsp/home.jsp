@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>ホーム</title>
 </head>
 <body>
 <header>
@@ -33,6 +33,20 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+<h2>新規質問通知欄</h2>
+<a href="/D4/QListServlet">もっと見る</a>
+
+<h2>目安箱通知欄</h2>
+<a href="/D4/RListServlet">もっと見る</a>
+
+<form id="question" method="post">
+    <textarea name="question" placeholder="質問フォーム"></textarea>
+    <p><input type="submit" name="submit" value="送信"></p>
+    <span id="error_message"></span>
+</form>
+
+<img src="/D4/img/character.png" alt="アノニくんの画像">
+<p>育成ptの説明</p>
 
 </main>
 <footer>

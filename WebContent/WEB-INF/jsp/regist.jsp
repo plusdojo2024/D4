@@ -18,7 +18,7 @@
 				<input type="text" name="mail">
 			</p>
 			<p>
-				<label>パスワード</label><span> ※パスワードは50時まで使用可能です</span><br>
+				<label>パスワード</label><span> ※パスワードは50字まで使用可能です</span><br>
 				<input type="password" name="pw">
 			</p>
 			<p class="submit">

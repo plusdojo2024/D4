@@ -38,35 +38,35 @@
  			<img src="/D4/img/anoni1.png" alt="アノニくん1">
 			<p>
 			現在<br>
-			<strong>○○人</strong>
+			<strong>○○人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
  			<img src="/D4/img/anoni2.png" alt="アノニくん2">
 			<p>
 			現在<br>
-			<strong>○○人</strong>
+			<strong>○○人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
  			<img src="/D4/img/anoni3.png" alt="アノニくん3">
 			<p>
 			現在<br>
-			<strong>○○人</strong>
+			<strong>○○人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
  			<img src="/D4/img/anoni3.png" alt="アノニくん3">
 			<p>
 			現在<br>
-			<strong>○○人</strong>
+			<strong>○○人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
  			<img src="/D4/img/anoni3.png" alt="アノニくん3">
 			<p>
 			現在<br>
-			<strong>○○人</strong>
+			<strong>○○人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">

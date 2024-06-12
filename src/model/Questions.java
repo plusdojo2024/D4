@@ -2,9 +2,9 @@ package model;
 import java.io.Serializable;
 
 public class Questions implements Serializable{
-	private int question_id;
+	private int questions_id;
 	private String question;
-	private int user_id;
+	private int users_id;
 	private String judge;
 
 	//引数がないコンストラクタ
@@ -13,21 +13,21 @@ public class Questions implements Serializable{
 	}
 
 	//引数があるコンストラクタ
-		public Questions(int question_id,String question,int user_id,String judge) {
+		public Questions(int questions_id,String question,int users_id,String judge) {
 			super();
-			this.question_id=question_id;
+			this.questions_id=questions_id;
 			this.question=question;
-			this.user_id=user_id;
+			this.users_id=users_id;
 			this.judge=judge;
 
 		}
 
-		public int getQuestion_id() {
-			return question_id;
+		public int getquestions_id() {
+			return questions_id;
 		}
 
-		public void setQuestion_id(int question_id) {
-			this.question_id = question_id;
+		public void setquestions_id(int questions_id) {
+			this.questions_id = questions_id;
 		}
 
 		public String getQuestion() {
@@ -38,12 +38,12 @@ public class Questions implements Serializable{
 			this.question = question;
 		}
 
-		public int getUser_id() {
-			return user_id;
+		public int getUsers_id() {
+			return users_id;
 		}
 
-		public void setUser_id(int user_id) {
-			this.user_id = user_id;
+		public void setUser_id(int users_id) {
+			this.users_id = users_id;
 		}
 
 		public String getJudge() {

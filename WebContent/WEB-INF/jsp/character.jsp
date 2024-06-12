@@ -33,19 +33,35 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+
 <!-- 次の段階まであと〇〇pt -->
-<p>
-次の段階まであと pt
-</p>
+<div>
+次の段階まであと${e.grow_point}pt
+</div>
 
 <!-- 現在のポイント -->
-<p>
-現在 pt
-</p>
+<div>
+現在${e.grow_point}pt
+</div>
 
 <!-- あなたのアノニくん -->
 <p>
-あなたのアノニくん
+あなたのアノニくん<br>
+  <c:if test="${e.growpoint < 25}">
+	    <img src = "/D4/img/ jpg" alt = "第一段階">
+  </c:if>
+  <c:if test="${e.growpoint < 75}">
+	    <img src = "/D4/img/ jpg" alt = "第二段階">
+  </c:if>
+  <c:if test="${e.growpoint < 225}">
+	    <img src = "/D4/img/ jpg" alt = "第三段階">
+  </c:if>
+  <c:if test="${e.growpoint < 400}">
+	    <img src = "/D4/img/ jpg" alt = "第四段階">
+  </c:if>
+  <c:if test="${e.growpoint >= 400}" alt = "第五段階">
+	    <img src = "/D4/img/ jpg">
+  </c:if>
 </p>
 
 </main>

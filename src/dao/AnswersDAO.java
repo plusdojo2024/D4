@@ -13,9 +13,9 @@ import model.Answers;
 public class AnswersDAO {
 
 	//回答一覧
-	public List<Answers> select(Answers card) {
+	public List<Answers> select(Answers answer) {
 		Connection conn = null;
-		List<Answers> cardList = new ArrayList<Answers>();
+		List<Answers> answerList = new ArrayList<Answers>();
 
 
 		try {
@@ -23,7 +23,7 @@ public class AnswersDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
 			String sql = "SELECT * FROM Answers ORDER BY answers_id DESC ";
@@ -40,16 +40,16 @@ public class AnswersDAO {
 				rs.getString("answer"),
 				rs.getInt("user_id")
 				);
-				cardList.add(record);
+				answerList.add(record);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			answerList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			answerList = null;
 		}
 		finally {
 			// データベースを切断
@@ -59,17 +59,17 @@ public class AnswersDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					answerList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cardList;
+		return answerList;
 	}
 
 	//回答登録
-	public boolean insert(Answers card) {
+	public boolean insert(Answers answer) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -85,20 +85,20 @@ public class AnswersDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (Integer.toString(card.getQuestion_id()) != null && !Integer.toString(card.getQuestion_id()).equals("")) {
-				pStmt.setString(1, Integer.toString(card.getQuestion_id()));
+			if (Integer.toString(answer.getQuestion_id()) != null && !Integer.toString(answer.getQuestion_id()).equals("")) {
+				pStmt.setString(1, Integer.toString(answer.getQuestion_id()));
 			}
 			else {
 				pStmt.setString(1, "（未設定）");
 			}
-			if (card.getAnswer() != null && !card.getAnswer().equals("")) {
-				pStmt.setString(2, card.getAnswer());
+			if (answer.getAnswer() != null && !answer.getAnswer().equals("")) {
+				pStmt.setString(2, answer.getAnswer());
 			}
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			if (card.getUser_id() != 0) {
-				pStmt.setString(3, Integer.toString(card.getUser_id()));
+			if (answer.getUser_id() != 0) {
+				pStmt.setString(3, Integer.toString(answer.getUser_id()));
 			}
 			else {
 				pStmt.setString(3, "（未設定）");

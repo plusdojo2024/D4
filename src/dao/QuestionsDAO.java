@@ -22,10 +22,10 @@ public class QuestionsDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する（AUTO_INCREMENTのNUMBER列にはNULLを指定する）
-			String sql = "INSERT INTO Bc VALUES (NULL, ?, ?, '回答募集中')";
+			String sql = "INSERT INTO Questions VALUES (NULL, ?, ?, '回答募集中')";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -73,7 +73,7 @@ public class QuestionsDAO {
 	//一覧表示（全件表示）（sql準備・DB接続）
 	public List<Questions> select() {
 		Connection conn = null;
-		List<Questions> cardList = new ArrayList<Questions>();
+		List<Questions> questionList = new ArrayList<Questions>();
 
 
 		try {
@@ -81,7 +81,7 @@ public class QuestionsDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
 			String sql = "SELECT * FROM Questions ORDER BY questions_id DESC ";
@@ -98,16 +98,16 @@ public class QuestionsDAO {
 				rs.getInt("users_id"),
 				rs.getString("judge")
 				);
-				cardList.add(record);
+				questionList.add(record);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			questionList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			questionList = null;
 		}
 		finally {
 			// データベースを切断
@@ -117,20 +117,20 @@ public class QuestionsDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					questionList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cardList;
+		return questionList;
 	}
 
 
 	//件数指定表示（ホーム）（sql準備・DB接続）
 	public List<Questions> select_home() {
 		Connection conn = null;
-		List<Questions> cardList = new ArrayList<Questions>();
+		List<Questions> questionList = new ArrayList<Questions>();
 
 		//System.out.println(card.getNumber());
 
@@ -156,16 +156,16 @@ public class QuestionsDAO {
 				rs.getInt("users_id"),
 				rs.getString("judge")
 				);
-				cardList.add(record);
+				questionList.add(record);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			questionList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			questionList = null;
 		}
 		finally {
 			// データベースを切断
@@ -175,13 +175,13 @@ public class QuestionsDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					questionList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cardList;
+		return questionList;
 	}
 
 	// 検索機能
@@ -190,7 +190,7 @@ public class QuestionsDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<Questions> select(Questions question) {
 		Connection conn = null;
-		List<Questions> cardList = new ArrayList<Questions>();
+		List<Questions> questionList = new ArrayList<Questions>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -221,16 +221,16 @@ public class QuestionsDAO {
 		rs.getInt("users_id"),
 		rs.getString("judge")
 		);
-		cardList.add(record);
+		questionList.add(record);
 	}
 }
 catch (SQLException e) {
 	e.printStackTrace();
-	cardList = null;
+	questionList = null;
 }
 catch (ClassNotFoundException e) {
 	e.printStackTrace();
-	cardList = null;
+	questionList = null;
 }
 finally {
 	// データベースを切断
@@ -240,13 +240,13 @@ finally {
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			questionList = null;
 		}
 	}
 }
 
 // 結果を返す
-return cardList;
+return questionList;
 }
 
 }

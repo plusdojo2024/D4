@@ -23,7 +23,7 @@ create table answers (
 answers_id	integer		auto increment,
 question_id	integer		not null,
 answer		varchar (1000)	not null,
-user_id		integer		not null,
+users_id		integer		not null,
 primary key (answers_id)
 foreign key (users_id) references users(users_id)
 );

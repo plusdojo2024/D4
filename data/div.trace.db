@@ -1,0 +1,220 @@
+2024-06-12 15:24:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO[*] INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY (USERS_ID)
+)"; 期待されるステートメント "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO[*] INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY (USERS_ID)
+)"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+/* usersテーブルの作成 */
+create table users (
+users_id    integer         auto increment,
+mail        varchar (100)   not null,
+password    varchar (100)   not null,
+grow_point  integer         default 0,
+last_login_date date  not null
+primary key (users_id)
+) [42001-200]
+2024-06-12 15:26:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO_INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY ([*]USERS_ID)
+)"; 期待されるステートメント "HASH, AUTO_INCREMENT, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO_INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY ([*]USERS_ID)
+)"; expected "HASH, AUTO_INCREMENT, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+/* usersテーブルの作成 */
+create table users (
+users_id    integer         auto_increment,
+mail        varchar (100)   not null,
+password    varchar (100)   not null,
+grow_point  integer         default 0,
+last_login_date date  not null
+primary key (users_id)
+) [42001-200]
+2024-06-12 15:33:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                      
+CREATE TABLE QUESTIONS (
+QUESTIONS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+JUDGE		    VARCHAR (10)	NOT NULL DEFAULT[*] ‘回答募集中’,
+PRIMARY KEY(QUESTIONS_ID)
+FOREIGN KEY (USERS_ID) REFERENCES USERS(USERS_ID)
+)"
+Syntax error in SQL statement "                      
+CREATE TABLE QUESTIONS (
+QUESTIONS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+JUDGE		    VARCHAR (10)	NOT NULL DEFAULT[*] ‘回答募集中’,
+PRIMARY KEY(QUESTIONS_ID)
+FOREIGN KEY (USERS_ID) REFERENCES USERS(USERS_ID)
+)"; SQL statement:
+/* questionsテーブルの作成 */
+create table questions (
+questions_id	integer		auto_increment,
+question		varchar (1000)	not null,
+users_id		integer		not null,
+judge		    varchar (10)	not null default ‘回答募集中’,
+primary key(questions_id)
+foreign key (users_id) references users(users_id)
+) [42000-200]
+2024-06-12 15:33:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                    
+CREATE TABLE ANSWERS (
+ANSWERS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION_ID	INTEGER		NOT NULL,
+ANSWER		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+PRIMARY KEY (ANSWERS_ID)
+FOREIGN[*] KEY (USERS_ID) REFERENCES USERS(USERS_ID)
+)"; 期待されるステートメント "INDEX, ,, )"
+Syntax error in SQL statement "                    
+CREATE TABLE ANSWERS (
+ANSWERS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION_ID	INTEGER		NOT NULL,
+ANSWER		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+PRIMARY KEY (ANSWERS_ID)
+FOREIGN[*] KEY (USERS_ID) REFERENCES USERS(USERS_ID)
+)"; expected "INDEX, ,, )"; SQL statement:
+/* answersテーブルの作成 */
+create table answers (
+answers_id	integer		auto_increment,
+question_id	integer		not null,
+answer		varchar (1000)	not null,
+users_id		integer		not null,
+primary key (answers_id)
+foreign key (users_id) references users(users_id)
+) [42001-200]
+2024-06-12 15:33:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                     
+CREATE TABLE REQUESTS(
+    REQUESTS_ID     INTEGER AUTO_INCREMENT,
+    ADDRESS_ORDER   VARCHAR (20)    NOT NULL,
+    REQUEST         VARCHAR (1000)  NOT NULL,
+    USERS_ID        INTEGER         NOT NULL,
+    PRIMARY KEY (REQUESTS_ID)
+    FOREIGN[*] KEY (USERS_ID) REFERENCES USERS(USERS_ID)
+)"; 期待されるステートメント "INDEX, ,, )"
+Syntax error in SQL statement "                     
+CREATE TABLE REQUESTS(
+    REQUESTS_ID     INTEGER AUTO_INCREMENT,
+    ADDRESS_ORDER   VARCHAR (20)    NOT NULL,
+    REQUEST         VARCHAR (1000)  NOT NULL,
+    USERS_ID        INTEGER         NOT NULL,
+    PRIMARY KEY (REQUESTS_ID)
+    FOREIGN[*] KEY (USERS_ID) REFERENCES USERS(USERS_ID)
+)"; expected "INDEX, ,, )"; SQL statement:
+/* requestsテーブルの作成 */
+create table requests(
+    requests_id     integer auto_increment,
+    address_order   varchar (20)    not null,
+    request         varchar (1000)  not null,
+    users_id        integer         not null,
+    primary key (requests_id)
+    foreign key (users_id) references users(users_id)
+) [42001-200]
+2024-06-12 15:34:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                      
+CREATE TABLE QUESTIONS (
+QUESTIONS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+JUDGE		    VARCHAR (10)	NOT NULL DEFAULT[*] ‘回答募集中’,
+PRIMARY KEY(QUESTIONS_ID)
+
+)"
+Syntax error in SQL statement "                      
+CREATE TABLE QUESTIONS (
+QUESTIONS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+JUDGE		    VARCHAR (10)	NOT NULL DEFAULT[*] ‘回答募集中’,
+PRIMARY KEY(QUESTIONS_ID)
+
+)"; SQL statement:
+/* questionsテーブルの作成 */
+create table questions (
+questions_id	integer		auto_increment,
+question		varchar (1000)	not null,
+users_id		integer		not null,
+judge		    varchar (10)	not null default ‘回答募集中’,
+primary key(questions_id)
+
+) [42000-200]
+2024-06-12 15:38:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                      
+CREATE TABLE QUESTIONS (
+QUESTIONS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+JUDGE		    VARCHAR (10)	DEFAULT[*] ‘回答募集中’,
+PRIMARY KEY(QUESTIONS_ID)
+
+)"
+Syntax error in SQL statement "                      
+CREATE TABLE QUESTIONS (
+QUESTIONS_ID	INTEGER		AUTO_INCREMENT,
+QUESTION		VARCHAR (1000)	NOT NULL,
+USERS_ID		INTEGER		NOT NULL,
+JUDGE		    VARCHAR (10)	DEFAULT[*] ‘回答募集中’,
+PRIMARY KEY(QUESTIONS_ID)
+
+)"; SQL statement:
+/* questionsテーブルの作成 */
+create table questions (
+questions_id	integer		auto_increment,
+question		varchar (1000)	not null,
+users_id		integer		not null,
+judge		    varchar (10)	default ‘回答募集中’,
+primary key(questions_id)
+
+) [42000-200]
+2024-06-12 15:38:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ANSWERS" はすでに存在します
+Table "ANSWERS" already exists; SQL statement:
+/* answersテーブルの作成 */
+create table answers (
+answers_id	integer		auto_increment,
+question_id	integer		not null,
+answer		varchar (1000)	not null,
+users_id		integer		not null,
+primary key (answers_id)
+
+) [42101-200]
+2024-06-12 15:38:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUESTS" はすでに存在します
+Table "REQUESTS" already exists; SQL statement:
+/* requestsテーブルの作成 */
+create table requests(
+    requests_id     integer auto_increment,
+    address_order   varchar (20)    not null,
+    request         varchar (1000)  not null,
+    users_id        integer         not null,
+    primary key (requests_id)
+    
+) [42101-200]

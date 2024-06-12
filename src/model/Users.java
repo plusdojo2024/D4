@@ -1,12 +1,13 @@
 package model;
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Users implements Serializable {
 	private int users_id;
 	private String mail;
 	private String password;
 	private int grow_point;
-	private String last_login_date;
+	private Date last_login_date;
 	
 	//引数がないコンストラクタ
 	public Users() {
@@ -15,7 +16,7 @@ public class Users implements Serializable {
 	
 	//引数があるコンストラクタ
 	public Users(int users_id, String mail, String password,
-				 int grow_point, String last_login_date) {
+				 int grow_point, Date last_login_date) {
 		super();
 		this.users_id = users_id;
 		this.mail = mail;
@@ -56,11 +57,11 @@ public class Users implements Serializable {
 		this.grow_point = grow_point;
 	}
 
-	public String getLast_login_date() {
+	public Date getLast_login_date() {
 		return last_login_date;
 	}
 
-	public void setLast_login_date(String last_login_date) {
+	public void setLast_login_date(Date last_login_date) {
 		this.last_login_date = last_login_date;
 	}
 	

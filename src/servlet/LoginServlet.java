@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, "2024-06-12 14:38:00"));
+		session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, (java.sql.Date)("2024-06-12 14:38:00")));
 		response.sendRedirect("/D4/HomeServlet");
 
 		/*

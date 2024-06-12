@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,7 +37,7 @@ public class UsersDAO {
 					rs.getString("mail"),
 					rs.getString("password"),
 					rs.getInt("grow_point"),
-					rs.getString("last_login_date")
+					rs.getDate("last_login_date")
 				);
 			}
 		}
@@ -96,13 +95,13 @@ public class UsersDAO {
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			if (users.getLast_login_date() != null && !users.getLast_login_date().isEmpty()) {
-			    Date sqlDate = Date.valueOf(users.getLast_login_date()); // yyyy-MM-dd形式の文字列をjava.sql.Dateに変換
-			    pStmt.setDate(3, sqlDate);
+			if (users.getLast_login_date() != null && !users.getLast_login_date().equals("")) {
+			    //Date sqlDate = Date.valueOf(users.getLast_login_date()); // yyyy-MM-dd形式の文字列をjava.sql.Dateに変換
+			    pStmt.setDate(3, users.getLast_login_date());
 			}
 			else {
-			    Date sqlDate = Date.valueOf("2000-01-01"); // 未設定の場合でも何かしらの日付が必要
-			    pStmt.setDate(3, sqlDate);
+			    //Date sqlDate = Date.valueOf("2000-01-01"); // 未設定の場合でも何かしらの日付が必要
+			    pStmt.setString(3, "日付取得失敗！");
 			}
 
 
@@ -144,35 +143,13 @@ public class UsersDAO {
 
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
-
-			/*
-			// SELECT文を準備する
-			String sql = "SELECT grow_point FROM Users WHERE users_id = ?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, users.getUsers_id());
-			
-			// SELECT文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
-
-			// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェックする
-			rs.next();
-			int point = rs.getInt("grow_point");
-			point += 1;
-			*/
 			
 			// SQL文を準備する
-			String sql = "UPDATE Users SET company=?, department=?, position=?, namel=?, namef=?, namey=?, sex=?, zipcode=?, address=?, phone=?, fax=?, email=?, remarks=? WHERE number=?";
+			String sql = "UPDATE Users SET grow_point = grow_point + 1 WHERE users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる
-			if (card.getCompany() != null && !card.getCompany().equals("")) {
-				pStmt.setString(1, card.getCompany());
-			}
-			else {
-				pStmt.setString(1, null);
-			}
-			ResultSet rs = pStmt.executeQuery();
-
+			pStmt.setInt(1, users.getGrow_point());
+			pStmt.executeQuery();
 			
 		}
 		catch (SQLException e) {
@@ -201,7 +178,47 @@ public class UsersDAO {
 	}
 	
 	//ポイント加算（3pt）
-	
-	
-	
+	public int addPoint3(Users users) {
+		Connection conn = null;
+		int result = 3;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+
+			// SQL文を準備する
+			String sql = "UPDATE Users SET grow_point = grow_point + 3 WHERE users_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setInt(1, users.getGrow_point());
+			pStmt.executeQuery();
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					result = 0;
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 }

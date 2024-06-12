@@ -19,7 +19,7 @@ public class UsersDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SELECT文を準備する
 			String sql = "SELECT * FROM Users WHERE mail = ? AND password = ?";
@@ -67,7 +67,7 @@ public class UsersDAO {
 	}
 	
 	//ユーザー登録（sql準備・DB接続）
-	public boolean insert(Users users) {
+	public boolean insert(Users user) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -83,21 +83,21 @@ public class UsersDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (users.getMail() != null && !users.getMail().equals("")) {
-				pStmt.setString(1, users.getMail());
+			if (user.getMail() != null && !user.getMail().equals("")) {
+				pStmt.setString(1, user.getMail());
 			}
 			else {
 				pStmt.setString(1, "（未設定）");
 			}
-			if (users.getPassword() != null && !users.getPassword().equals("")) {
-				pStmt.setString(2, users.getPassword());
+			if (user.getPassword() != null && !user.getPassword().equals("")) {
+				pStmt.setString(2, user.getPassword());
 			}
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			if (users.getLast_login_date() != null && !users.getLast_login_date().equals("")) {
+			if (user.getLast_login_date() != null && !user.getLast_login_date().equals("")) {
 			    //Date sqlDate = Date.valueOf(users.getLast_login_date()); // yyyy-MM-dd形式の文字列をjava.sql.Dateに変換
-			    pStmt.setDate(3, users.getLast_login_date());
+			    pStmt.setDate(3, user.getLast_login_date());
 			}
 			else {
 			    //Date sqlDate = Date.valueOf("2000-01-01"); // 未設定の場合でも何かしらの日付が必要
@@ -133,7 +133,7 @@ public class UsersDAO {
 	}
 	
 	//ポイント加算（1pt）
-	public int addPoint(Users users) {
+	public int addPoint(Users user) {
 		Connection conn = null;
 		int result = 1;
 
@@ -148,7 +148,7 @@ public class UsersDAO {
 			String sql = "UPDATE Users SET grow_point = grow_point + 1 WHERE users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setInt(1, users.getGrow_point());
+			pStmt.setInt(1, user.getGrow_point());
 			pStmt.executeQuery();
 			
 		}
@@ -178,7 +178,7 @@ public class UsersDAO {
 	}
 	
 	//ポイント加算（3pt）
-	public int addPoint3(Users users) {
+	public int addPoint3(Users user) {
 		Connection conn = null;
 		int result = 3;
 
@@ -193,7 +193,7 @@ public class UsersDAO {
 			String sql = "UPDATE Users SET grow_point = grow_point + 3 WHERE users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setInt(1, users.getGrow_point());
+			pStmt.setInt(1, user.getGrow_point());
 			pStmt.executeQuery();
 			
 		}

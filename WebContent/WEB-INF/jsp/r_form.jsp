@@ -46,7 +46,7 @@
 
 <!-- 要望フォーム -->
 <p>
-<input type ="text" name = "requestForm" placeholder = "1000字以内で入力してください">
+<textarea name="requestForm" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
 </p>
 
 <!-- 送信ボタン -->

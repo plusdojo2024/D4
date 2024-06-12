@@ -1,0 +1,56 @@
+2024-06-12 15:24:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO[*] INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY (USERS_ID)
+)"; 期待されるステートメント "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO[*] INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY (USERS_ID)
+)"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+/* usersテーブルの作成 */
+create table users (
+users_id    integer         auto increment,
+mail        varchar (100)   not null,
+password    varchar (100)   not null,
+grow_point  integer         default 0,
+last_login_date date  not null
+primary key (users_id)
+) [42001-200]
+2024-06-12 15:26:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO_INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY ([*]USERS_ID)
+)"; 期待されるステートメント "HASH, AUTO_INCREMENT, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "                  
+CREATE TABLE USERS (
+USERS_ID    INTEGER         AUTO_INCREMENT,
+MAIL        VARCHAR (100)   NOT NULL,
+PASSWORD    VARCHAR (100)   NOT NULL,
+GROW_POINT  INTEGER         DEFAULT 0,
+LAST_LOGIN_DATE DATE  NOT NULL
+PRIMARY KEY ([*]USERS_ID)
+)"; expected "HASH, AUTO_INCREMENT, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+/* usersテーブルの作成 */
+create table users (
+users_id    integer         auto_increment,
+mail        varchar (100)   not null,
+password    varchar (100)   not null,
+grow_point  integer         default 0,
+last_login_date date  not null
+primary key (users_id)
+) [42001-200]

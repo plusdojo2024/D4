@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,11 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.IdpwDAO;
-import dao.UsersDAO;
-import model.Idpw;
-import model.LoginUser;
-import model.Result;
 import model.Users;
 
 /**
@@ -41,7 +38,15 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, (java.sql.Date)("2024-06-12 14:38:00")));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		java.util.Date date;
+		try {
+			date = dateFormat.parse("2024-06-12 16:20:18");
+			session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, (Date) date));
+		} catch (ParseException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		response.sendRedirect("/D4/HomeServlet");
 
 		/*
@@ -73,7 +78,4 @@ public class LoginServlet extends HttpServlet {
 		}
 		*/
 	}
-		
-	}
-
 }

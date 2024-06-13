@@ -15,6 +15,7 @@ import dao.QuestionsDAO;
 import dao.RequestsDAO;
 import model.Questions;
 import model.Requests;
+import model.Users;
 
 /**
  * Servlet implementation class HomeServlet
@@ -43,29 +44,29 @@ public class HomeServlet extends HttpServlet {
 		//新規質問
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String question = request.getParameter("question");
-		int users_id = request.getParameter("users_id");
-		String judge = request.getParameter("judge");
-
+		//String question = request.getParameter("question");
+		//int users_id = request.getParameter("users_id");
+		//String judge = request.getParameter("judge");
 
 		// 検索処理を行う
 		QuestionsDAO QDao = new QuestionsDAO();
-		List<Questions> questionList = QDao.select(new Questions(0,question, users_id, judge));
+		List<Questions> questionList = QDao.select_home();
 
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("questionList", questionList);
 
+		
 		//新規要望
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String address_order = request.getParameter("address_order");
-		String request = request.getParameter("request");
-		int users_id = request.getParameter("users_id");
+		//request.setCharacterEncoding("UTF-8");
+		//String address_order = request.getParameter("address_order");
+		//String request = request.getParameter("request");
+		//int users_id = request.getParameter("users_id");
 
 		// 検索処理を行う
 		RequestsDAO RDao = new RequestsDAO();
-		List<Requests> requestsList = RDao.select(new Requests(0, address_order, request, users_id));
+		List<Requests> requestsList = RDao.select_home();
 
 
 		// 検索結果をリクエストスコープに格納する
@@ -80,8 +81,29 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+		
+		//質問フォーム
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String question = request.getParameter("question");
+		Users users = (Users)session.getAttribute("id");
+		int users_id = users.getUsers_id();
+		
+		//質問送信を行う
+		QuestionsDAO QDao = new QuestionsDAO();
+		QDao.insert(new Questions(0, question, users_id, "回答募集中")) ;
+
+		// ホームページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+		dispatcher.forward(request, response);
+
+		
 	}
 
 }

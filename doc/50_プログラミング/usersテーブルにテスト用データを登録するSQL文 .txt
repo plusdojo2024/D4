@@ -1,0 +1,17 @@
+/* usersテーブルにテスト用データを登録するSQL文 */
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anoni@div.jp', hash('sha256', stringtoutf8('password1')), '2024-06-12');
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonikun@div.jp', hash('sha256', stringtoutf8('password2')), '2024-06-12');
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonichan@div.jp', hash('sha256', stringtoutf8('password3')), '2024-06-20');
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonisan@div.jp', hash('sha256', stringtoutf8('password4')), '2024-06-23');
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonisama@div.jp', hash('sha256', stringtoutf8('password5')), '2024-05-25');
+
+SELECT * FROM users;

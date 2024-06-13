@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.QuestionsDAO;
+import dao.RequestsDAO;
+import model.Questions;
+import model.Requests;
 
 /**
  * Servlet implementation class HomeServlet
@@ -20,11 +27,49 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+
 		/*
 		HttpSession session = request.getSession();
 		Users loginUser = (Users)session.getAttribute("id");
 		int users_id = loginUser.getUsers_id();
 		*/
+		
+		//新規質問
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String question = request.getParameter("question");
+		int users_id = request.getParameter("users_id");
+		String judge = request.getParameter("judge");
+
+
+		// 検索処理を行う
+		QuestionsDAO QDao = new QuestionsDAO();
+		List<Questions> questionList = QDao.select(new Questions(0,question, users_id, judge));
+
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("questionList", questionList);
+
+		//新規要望
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String address_order = request.getParameter("address_order");
+		String request = request.getParameter("request");
+		int users_id = request.getParameter("users_id");
+
+		// 検索処理を行う
+		RequestsDAO RDao = new RequestsDAO();
+		List<Requests> requestsList = RDao.select(new Requests(0, address_order, request, users_id));
+
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("requestsList", requestsList);
 
 		// ホームページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");

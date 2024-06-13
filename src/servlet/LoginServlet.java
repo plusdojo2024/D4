@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDAO;
 import model.Users;
 
 /**
@@ -35,23 +36,24 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*
 		HttpSession session = request.getSession();
 		session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, new Date(10000000000L)));
 		response.sendRedirect("/D4/HomeServlet");
+        */
 
-		/*
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String mail = request.getParameter("mail");
+		String password = request.getParameter("password");
 
 		// ログイン処理を行う
 		UsersDAO iDao = new UsersDAO();
-		Users loginUser = iDao.isLoginOK(id, pw);
+		Users loginUser = iDao.isLoginOK(mail, password);
 		if (loginUser != null) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			loginUser.setGrow_point(addPoint(loginUser)の実行結果 + loginUser.getGrow_point());
+			loginUser.setGrow_point(iDao.addPoint(loginUser) + loginUser.getGrow_point());
 
 			session.setAttribute("id", loginUser);
 
@@ -63,9 +65,9 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("result", "入力内容が正しくありません");
 
 			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 		}
-		*/
+
 	}
 }

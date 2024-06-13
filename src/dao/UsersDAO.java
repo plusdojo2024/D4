@@ -5,7 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Questions;
 import model.Users;
 
 public class UsersDAO {
@@ -65,7 +68,7 @@ public class UsersDAO {
 		// 結果を返す
 		return loginResult;
 	}
-	
+
 	//ユーザー登録（sql準備・DB接続）
 	public boolean insert(Users user) {
 		Connection conn = null;
@@ -131,7 +134,7 @@ public class UsersDAO {
 		// 結果を返す
 		return result;
 	}
-	
+
 	//ポイント加算（1pt）
 	public int addPoint(Users user) {
 		Connection conn = null;
@@ -143,14 +146,14 @@ public class UsersDAO {
 
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
-			
+
 			// SQL文を準備する
 			String sql = "UPDATE Users SET grow_point = grow_point + 1 WHERE users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setInt(1, user.getGrow_point());
 			pStmt.executeQuery();
-			
+
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -176,7 +179,7 @@ public class UsersDAO {
 		// 結果を返す
 		return result;
 	}
-	
+
 	//ポイント加算（3pt）
 	public int addPoint3(Users user) {
 		Connection conn = null;
@@ -195,7 +198,7 @@ public class UsersDAO {
 
 			pStmt.setInt(1, user.getGrow_point());
 			pStmt.executeQuery();
-			
+
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -221,4 +224,60 @@ public class UsersDAO {
 		// 結果を返す
 		return result;
 	}
+
+	//ポイント表示（sql準備・DB接続）
+	public List<Users> select() {
+		Connection conn = null;
+		List<Users> userList = new ArrayList<Users>();
+
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
+
+			// SQL文を準備する
+			String sql = "SELECT grow_point FROM Users WHERE users_id = ? ";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+
+				Users record = new Users(
+				rs.getInt("grow_point")
+				);
+				userList.add(record);
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			userList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			userList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					userList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return userList;
+	}
+
+
 }

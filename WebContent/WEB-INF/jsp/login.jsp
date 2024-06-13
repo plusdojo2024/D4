@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
                 <td>
                     <label>
                         メールアドレス<br>
-                        <input type="text" name="id">
+                        <input type="text" name="mail">
                     </label>
                 </td>
             </tr>
@@ -28,7 +29,7 @@
                 <td>
                     <label>
                         パスワード<br>
-                        <input type="password" name="pw">
+                        <input type="password" name="password">
                     </label>
                 </td>
             </tr>
@@ -36,7 +37,9 @@
                 <td colspan="2">
                     <input type="submit" name="submit" value="ログイン">
                     <input type="reset" name="reset" value="リセット">
-                    <span id="error_message"></span>
+                    <span id="error_message">
+                    <a id ="result">${result.message}</a>
+                    </span>
                 </td>
             </tr>
         </table>

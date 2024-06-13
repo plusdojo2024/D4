@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
+import model.Result;
 import model.Users;
 
 /**
@@ -63,7 +64,8 @@ public class LoginServlet extends HttpServlet {
 		}
 		else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result", "入力内容が正しくありません");
+			request.setAttribute("result",
+			new Result("ログイン失敗！", "入力内容が正しくありません。", "/D4/LoginServlet"));
 
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");

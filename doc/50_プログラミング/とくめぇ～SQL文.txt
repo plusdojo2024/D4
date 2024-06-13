@@ -121,42 +121,42 @@ INSERT INTO answers VALUES(
 
 /* requestテーブルテストデータ */
 /* 宛先（全体・経理部・総務部・人事部） */
-INSERT INTO request VALUES(
+INSERT INTO requests VALUES(
     null,       /*requests_id*/
     '全体',     /* address_order */
     '目安箱の中身ですううううううううううううううう
     ううううううううううううううううううううううう',    /* request */
-    1,          /* users_id */
+    1          /* users_id */
 );
 
-INSERT INTO request VALUES(
+INSERT INTO requests VALUES(
     null,       /*requests_id*/
     '経理部',     /* address_order */
     '目安箱の中身ですううううううううううううううう
     ううううううううううううううううううううううう',    /* request */
-    2,          /* users_id */
+    2          /* users_id */
 );
 
-INSERT INTO request VALUES(
+INSERT INTO requests VALUES(
     null,       /*requests_id*/
     '総務部',     /* address_order */
     '目安箱の中身ですううううううううううううううう
     ううううううううううううううううううううううう',    /* request */
-    3,          /* users_id */
+    3          /* users_id */
 );
 
-INSERT INTO request VALUES(
+INSERT INTO requests VALUES(
     null,       /*requests_id*/
     '人事部',     /* address_order */
     '目安箱の中身ですううううううううううううううう
     ううううううううううううううううううううううう',    /* request */
-    4,          /* users_id */
+    4          /* users_id */
 );
 
-INSERT INTO request VALUES(
+INSERT INTO requests VALUES(
     null,       /*requests_id*/
     '全体',     /* address_order */
     '目安箱の中身ですううううううううううううううう
     ううううううううううううううううううううううう',    /* request */
-    5,          /* users_id */
+    5          /* users_id */
 );

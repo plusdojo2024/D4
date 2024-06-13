@@ -4,7 +4,7 @@ users_id    integer         auto increment,
 mail        varchar (100)   not null,
 password    varchar (100)   not null,
 grow_point  integer         default 0,
-last_login_date date  not null
+last_login_date date  not null,
 primary key (users_id)
 );
 
@@ -13,9 +13,9 @@ create table questions (
 questions_id	integer		auto increment,
 question		varchar (1000)	not null,
 users_id		integer		not null,
-judge		    varchar (10)	not null default e‰ñ“š•åW’†f,
+judge		    varchar (10)	not null /* default e‰ñ“š•åW’†f */,
 primary key(questions_id)
-foreign key (users_id) references users(users_id)
+/* foreign key (users_id) references users(users_id) */
 );
 
 /* answersƒe[ƒuƒ‹‚Ìì¬ */
@@ -23,9 +23,9 @@ create table answers (
 answers_id	integer		auto increment,
 question_id	integer		not null,
 answer		varchar (1000)	not null,
-users_id		integer		not null,
+user_id		integer		not null,
 primary key (answers_id)
-foreign key (users_id) references users(users_id)
+/* foreign key (users_id) references users(users_id) */
 );
 
 
@@ -36,6 +36,6 @@ address_order 	varchar (20)	not null,
 request		    varchar (1000)	not null,
 users_id		integer		    not null,
 primary key (requests_id)
-foreign key (users_id) references users(users_id)
+/* foreign key (users_id) references users(users_id) */
 );
 

@@ -872,3 +872,53 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     
 ) [42001-200]
 >>>>>>> 28b5ba340e9635e16b3e2647561cc5114b8367e3
+2024-06-13 15:37:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUEST" が見つかりません
+Table "REQUEST" not found; SQL statement:
+INSERT INTO request VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '目安箱の中身ですううううううううううううううう
+    ううううううううううううううううううううううう',    /* request */
+    1,          /* users_id */
+) [42102-200]
+2024-06-13 15:37:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUEST" が見つかりません
+Table "REQUEST" not found; SQL statement:
+INSERT INTO request VALUES(
+    null,       /*requests_id*/
+    '経理部',     /* address_order */
+    '目安箱の中身ですううううううううううううううう
+    ううううううううううううううううううううううう',    /* request */
+    2,          /* users_id */
+) [42102-200]
+2024-06-13 15:37:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUEST" が見つかりません
+Table "REQUEST" not found; SQL statement:
+INSERT INTO request VALUES(
+    null,       /*requests_id*/
+    '総務部',     /* address_order */
+    '目安箱の中身ですううううううううううううううう
+    ううううううううううううううううううううううう',    /* request */
+    3,          /* users_id */
+) [42102-200]
+2024-06-13 15:37:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUEST" が見つかりません
+Table "REQUEST" not found; SQL statement:
+INSERT INTO request VALUES(
+    null,       /*requests_id*/
+    '人事部',     /* address_order */
+    '目安箱の中身ですううううううううううううううう
+    ううううううううううううううううううううううう',    /* request */
+    4,          /* users_id */
+) [42102-200]
+2024-06-13 15:37:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUEST" が見つかりません
+Table "REQUEST" not found; SQL statement:
+INSERT INTO request VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '目安箱の中身ですううううううううううううううう
+    ううううううううううううううううううううううう',    /* request */
+    5,          /* users_id */
+) [42102-200]

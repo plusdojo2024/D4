@@ -77,7 +77,7 @@ public class RequestsDAO {
 
 
 	//一覧表示（全件表示）（sql準備・DB接続）
-	public List<Requests> select(Requests request) {
+	public List<Requests> select() {
 		Connection conn = null;
 		List<Requests> requestList = new ArrayList<Requests>();
 

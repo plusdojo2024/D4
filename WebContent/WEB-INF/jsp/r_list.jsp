@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各ページのタイトル</title>
+<title>目安箱一覧 | とくめぇ～</title>
 </head>
 <body>
 <header>
@@ -33,14 +34,17 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+<c:forEach var="e" items="${requestList}" >
+	<form class="r_list" method="get" action="/D4/RListServlet">
+	  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
+	  	<input type="text" name="requestList" value="${e.request}">
+	  	<br>
 
-<form class="r_list" method="get" action="/D4/RListServlet">
-  <textarea  name="requestList" rows="5" cols="100" value="${e.}" readonly="readonly"></textarea>
-  <br>
-  <div>
-    <button>もっと見る</button>
-  </div>
-</form>
+	</form>
+</c:forEach>
+<div>
+	<button>もっと見る</button>
+</div>
 
 
 </main>

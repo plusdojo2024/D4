@@ -702,3 +702,116 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     '解決済み',
     
 ) [42001-200]
+2024-06-13 11:49:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                       
+INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    1,
+    '回答募集中',
+
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "                       
+INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    1,
+    '回答募集中',
+
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+/*questionsテーブルテストデータ*/
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    1,
+    '回答募集中',
+
+) [42001-200]
+2024-06-13 11:49:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    2,
+    '解決済み',
+    
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    2,
+    '解決済み',
+    
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    2,
+    '解決済み',
+    
+) [42001-200]
+2024-06-13 11:49:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    3,
+    '回答募集中',
+    
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    3,
+    '回答募集中',
+    
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    3,
+    '回答募集中',
+    
+) [42001-200]
+2024-06-13 11:49:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    4,
+    '回答募集中',
+    
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    4,
+    '回答募集中',
+    
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    4,
+    '回答募集中',
+    
+) [42001-200]
+2024-06-13 11:49:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    5,
+    '解決済み',
+    
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO QUESTIONS(QUESTIONS_ID,QUESTION,USERS_ID,JUDGE) VALUES(
+    NULL,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    5,
+    '解決済み',
+    
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    5,
+    '解決済み',
+    
+) [42001-200]

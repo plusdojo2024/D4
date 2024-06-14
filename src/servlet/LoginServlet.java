@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -85,7 +84,7 @@ public class LoginServlet extends HttpServlet {
 		else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 			request.setAttribute("result",
-			new Result("ログイン失敗！", "入力内容が正しくありません。", "/D4/LoginServlet"));
+			new Result("入力内容が正しくありません。", "/D4/LoginServlet"));
 
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");

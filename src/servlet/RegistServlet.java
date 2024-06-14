@@ -58,13 +58,14 @@ public class RegistServlet extends HttpServlet {
 
 		// 登録処理を行う
 		UsersDAO UDao = new UsersDAO();
-		if (UDao.insert(new Users(0, mail, password, 0, new Date(10000000000L)))) {	// 登録成功
+		if (UDao.insert(new Users(0, mail, password, 0, new Date(10000000000L)))) {
+			// 登録成功
 			request.setAttribute("result",
-			new Result("登録成功！", "ユーザーを登録しました。", "/D4/RegistServlet"));
+			new Result("ユーザーを登録しました。", "/D4/RegistServlet"));
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("登録失敗！", "入力内容が正しくありません。", "/D4/RegistServlet"));
+			new Result("入力内容が正しくありません。", "/D4/RegistServlet"));
 		}
 
 		// 登録ページにフォワードする

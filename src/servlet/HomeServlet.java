@@ -15,6 +15,7 @@ import dao.QuestionsDAO;
 import dao.RequestsDAO;
 import model.Questions;
 import model.Requests;
+import model.Result;
 import model.Users;
 
 /**
@@ -95,11 +96,20 @@ public class HomeServlet extends HttpServlet {
 		
 		//質問送信を行う
 		QuestionsDAO QDao = new QuestionsDAO();
-		QDao.insert(new Questions(0, question, users_id, "回答募集中")) ;
+		//QDao.insert(new Questions(0, question, users_id, "回答募集中")) ;
+		if (QDao.insert(new Questions(0, question, users_id, "回答募集中"))) {
+			// 送信成功
+			request.setAttribute("result",
+			new Result("質問送信！3ptゲット！", "/D4/HomeServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("※1～1000字で入力してください", "/D4/HomeServlet"));
+		}
 
 		// ホームページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-		dispatcher.forward(request, response);
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+		//dispatcher.forward(request, response);
 
 		
 	}

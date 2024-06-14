@@ -69,13 +69,13 @@ public class LoginServlet extends HttpServlet {
 
 		//passとDBのハッシュ値が等しければログイン成功
 		// ログイン処理を行う
-		UsersDAO iDao = new UsersDAO();
-		Users loginUser = iDao.isLoginOK(mail, pass);
+		UsersDAO UDao = new UsersDAO();
+		Users loginUser = UDao.isLoginOK(mail, pass);
 		if (loginUser != null) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, new Date(10000000000L)));
-			loginUser.setGrow_point(iDao.addPoint(loginUser) + loginUser.getGrow_point());
+			session.setAttribute("id", loginUser);
+			loginUser.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
 
 			session.setAttribute("id", loginUser);
 

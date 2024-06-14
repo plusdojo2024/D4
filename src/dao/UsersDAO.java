@@ -225,6 +225,7 @@ public class UsersDAO {
 		return result;
 	}
 
+	
 	//ポイント表示（sql準備・DB接続）
 	public List<Users> select() {
 		Connection conn = null;

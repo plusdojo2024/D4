@@ -39,3 +39,5 @@ primary key (requests_id)
 /* foreign key (users_id) references users(users_id) */
 );
 
+//Œ»İ‚Ì“ú‚É‚¿‚ğæ“¾
+UPDATE USERS SET last_login_date = current_timestamp WHERE users_id = ?;

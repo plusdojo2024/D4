@@ -72,6 +72,4 @@ public class RegistServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 		dispatcher.forward(request, response);
 	}
-
-
 }

@@ -32,9 +32,9 @@ public class QuestionsDAO {
 			if (question.getQuestion() != null && !question.getQuestion().equals("")) {
 				pStmt.setString(1, question.getQuestion());
 			}
-			else {
-				pStmt.setString(1, "（未設定）");
-			}
+			// else {
+			//	pStmt.setString(1, "");
+			// }
 			if (question.getUsers_id() != 0) {
 				pStmt.setString(2, Integer.toString(question.getUsers_id()));
 			}

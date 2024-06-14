@@ -39,7 +39,7 @@
 	<c:if test="${empty questionList}">
 		<p>一致するデータはありません。</p>
 	</c:if>
-	
+
 	<c:forEach var="e" items="${questionList}" >
 	  	<input type="text" name="requestList" value="${e.question}">
 	  	<br>
@@ -51,7 +51,7 @@
 	<c:if test="${empty requestsList}">
 		<p>一致するデータはありません。</p>
 	</c:if>
-	
+
 	<c:forEach var="e" items="${requestsList}" >
 	  	<input type="text" name="requestList" value="${e.request}">
 	  	<br>
@@ -62,7 +62,7 @@
 <form id="question" method="post">
     <textarea name="question" placeholder="質問フォーム"></textarea>
     <p><input type="submit" name="submit" value="送信"></p>
-    <span id="error_message"></span>
+    <span id="error_message"><a id ="result">${result.message}</a></span>
 </form>
 
 <img src="/D4/img/character.png" alt="アノニくんの画像">

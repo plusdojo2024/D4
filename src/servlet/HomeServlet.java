@@ -41,7 +41,7 @@ public class HomeServlet extends HttpServlet {
 		Users loginUser = (Users)session.getAttribute("id");
 		int users_id = loginUser.getUsers_id();
 		*/
-		
+
 		//新規質問
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -56,7 +56,7 @@ public class HomeServlet extends HttpServlet {
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("questionList", questionList);
 
-		
+
 		//新規要望
 		// リクエストパラメータを取得する
 		//request.setCharacterEncoding("UTF-8");
@@ -86,32 +86,61 @@ public class HomeServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-		
+
 		//質問フォーム
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String question = request.getParameter("question");
 		Users users = (Users)session.getAttribute("id");
 		int users_id = users.getUsers_id();
-		
+
 		//質問送信を行う
 		QuestionsDAO QDao = new QuestionsDAO();
 		//QDao.insert(new Questions(0, question, users_id, "回答募集中")) ;
 		if (QDao.insert(new Questions(0, question, users_id, "回答募集中"))) {
 			// 送信成功
 			request.setAttribute("result",
-			new Result("質問送信！3ptゲット！", "/D4/HomeServlet"));
+			new Result("質問送信！3ptゲット！", "/D4/home.jsp"));
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("※1～1000字で入力してください", "/D4/HomeServlet"));
+			new Result("※1～1000字で入力してください", "/D4/home.jsp"));
 		}
 
-		// ホームページにフォワードする
-		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-		//dispatcher.forward(request, response);
+		//新規質問
+				// リクエストパラメータを取得する
+				request.setCharacterEncoding("UTF-8");
+				//String question = request.getParameter("question");
+				//int users_id = request.getParameter("users_id");
+				//String judge = request.getParameter("judge");
 
-		
+				// 検索処理を行う
+				QDao = new QuestionsDAO();
+				List<Questions> questionList = QDao.select_home();
+
+				// 検索結果をリクエストスコープに格納する
+				request.setAttribute("questionList", questionList);
+
+
+				//新規要望
+				// リクエストパラメータを取得する
+				//request.setCharacterEncoding("UTF-8");
+				//String address_order = request.getParameter("address_order");
+				//String request = request.getParameter("request");
+				//int users_id = request.getParameter("users_id");
+
+				// 検索処理を行う
+				RequestsDAO RDao = new RequestsDAO();
+				List<Requests> requestsList = RDao.select_home();
+
+				// 検索結果をリクエストスコープに格納する
+				request.setAttribute("requestsList", requestsList);
+
+		// ホームページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+		dispatcher.forward(request, response);
+
+
 	}
 
 }

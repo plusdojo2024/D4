@@ -65,11 +65,11 @@ public class RegistServlet extends HttpServlet {
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("入力内容が正しくありません。", "/D4/RegistServlet"));
+			new Result("入力内容が正しくありません。", "/D4/regist.jsp"));
 		}
 
 		// 登録ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/RegistServlet");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 		dispatcher.forward(request, response);
 	}
 

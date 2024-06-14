@@ -5,12 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import model.Questions;
+import model.Idpw;
 import model.Users;
 
 public class UsersDAO {
@@ -228,44 +224,40 @@ public class UsersDAO {
 	}
 
 
-
-	/*
-	//ポイント表示（sql準備・DB接続）
-	public List<Users> select() {
+	// ログインできるならtrueを返す
+	public boolean isLoginOK(Idpw idpw) {
 		Connection conn = null;
-		List<Users> userList = new ArrayList<Users>();
-
+		boolean loginResult = false;
 
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
 
-			// SQL文を準備する
-			String sql = "SELECT grow_point FROM Users WHERE users_id = ? ";
+			// SELECT文を準備する
+			String sql = "SELECT COUNT(*) FROM Idpw WHERE id = ? AND pw = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, idpw.getId());
+			pStmt.setString(2,idpw.getPw());
 
-
-			// SQL文を実行し、結果表を取得する
+			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
-			// 結果表をコレクションにコピーする
-
-				Users record = new Users(
-				rs.getInt("grow_point")
-				);
-				userList.add(record);
-
+			// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェックする
+			rs.next();
+			if (rs.getInt("COUNT(*)") == 1) {
+				loginResult = true;
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			userList = null;
+			loginResult = false;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			userList = null;
+			loginResult = false;
 		}
 		finally {
 			// データベースを切断
@@ -275,15 +267,14 @@ public class UsersDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					userList = null;
+					loginResult = false;
 				}
 			}
 		}
 
 		// 結果を返す
-		return userList;
+		return loginResult;
 	}
-	*/
 
 
 }

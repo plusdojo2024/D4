@@ -52,7 +52,6 @@ public class HomeServlet extends HttpServlet {
 		QuestionsDAO QDao = new QuestionsDAO();
 		List<Questions> questionList = QDao.select_home();
 
-
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("questionList", questionList);
 
@@ -67,7 +66,6 @@ public class HomeServlet extends HttpServlet {
 		// 検索処理を行う
 		RequestsDAO RDao = new RequestsDAO();
 		List<Requests> requestsList = RDao.select_home();
-
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("requestsList", requestsList);

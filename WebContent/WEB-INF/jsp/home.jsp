@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +36,28 @@
 
 <!-- ここにプログラムを記入 -->
 <h2>新規質問通知欄</h2>
-<a href="/D4/QListServlet">もっと見る</a>
+	<c:if test="${empty questionList}">
+		<p>一致するデータはありません。</p>
+	</c:if>
+	
+	<c:forEach var="e" items="${questionList}" >
+	  	<input type="text" name="requestList" value="${e.question}">
+	  	<br>
+	</c:forEach>
+
+	<a href="/D4/QListServlet">もっと見る</a>
 
 <h2>目安箱通知欄</h2>
-<a href="/D4/RListServlet">もっと見る</a>
+	<c:if test="${empty requestsList}">
+		<p>一致するデータはありません。</p>
+	</c:if>
+	
+	<c:forEach var="e" items="${requestsList}" >
+	  	<input type="text" name="requestList" value="${e.request}">
+	  	<br>
+	</c:forEach>
+
+	<a href="/D4/RListServlet">もっと見る</a>
 
 <form id="question" method="post">
     <textarea name="question" placeholder="質問フォーム"></textarea>

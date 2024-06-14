@@ -139,7 +139,7 @@ public class QuestionsDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
 			String sql = "SELECT TOP 3 * FROM Questions ORDER BY questions_id DESC ";
@@ -197,7 +197,7 @@ public class QuestionsDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 	// SQL文を準備する
 	String sql = "SELECT * FROM Questions WHERE question LIKE ? ORDER BY questions_id DESC";

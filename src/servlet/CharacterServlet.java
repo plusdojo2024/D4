@@ -32,6 +32,7 @@ public class CharacterServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
+		/*
 		// 検索処理を行う
 				UsersDAO UDao = new UsersDAO();
 				List<Questions> questionList = UDao.select(grow_point);
@@ -39,6 +40,7 @@ public class CharacterServlet extends HttpServlet {
 
 				// 検索結果をリクエストスコープに格納する
 				request.setAttribute("questionList", questionList);
+				*/
 
 
 

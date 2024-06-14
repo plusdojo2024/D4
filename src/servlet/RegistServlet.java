@@ -33,7 +33,7 @@ public class RegistServlet extends HttpServlet {
 			return;
 		}
 
-		
+
 
 		// 登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
@@ -49,13 +49,13 @@ public class RegistServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-		
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 
-		
+
 		// 登録処理を行う
 		UsersDAO UDao = new UsersDAO();
 		if (UDao.insert(new Users(0, mail, password, 0, new Date(10000000000L)))) {	// 登録成功
@@ -64,7 +64,7 @@ public class RegistServlet extends HttpServlet {
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("登録失敗！", "入力内容が正しくありません。", "/simpleBC/RegistServlet"));
+			new Result("登録失敗！", "入力内容が正しくありません。", "/D4/RegistServlet"));
 		}
 
 		// 登録ページにフォワードする

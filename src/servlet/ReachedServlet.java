@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDAO;
+
 /**
  * Servlet implementation class RFormServlet
  */
@@ -28,6 +30,9 @@ public class ReachedServlet extends HttpServlet {
 			return;
 		}
 
+		UsersDAO UDao = new UsersDAO();
+		int[] human = UDao.countLevelUser();
+		request.setAttribute("human", human);
 
 		// 到達度一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reached.jsp");

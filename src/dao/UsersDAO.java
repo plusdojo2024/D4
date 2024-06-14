@@ -148,7 +148,7 @@ public class UsersDAO {
 			String sql = "UPDATE Users SET grow_point = grow_point + 1 WHERE users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setInt(1, user.getGrow_point());
+			pStmt.setInt(1, user.getUsers_id());
 			pStmt.executeQuery();
 
 		}
@@ -193,7 +193,7 @@ public class UsersDAO {
 			String sql = "UPDATE Users SET grow_point = grow_point + 3 WHERE users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setInt(1, user.getGrow_point());
+			pStmt.setInt(1, user.getUsers_id());
 			pStmt.executeQuery();
 
 		}
@@ -307,5 +307,64 @@ public class UsersDAO {
 		return Result;
 	}
 
+	//最終ログイン日の更新
+	public Users update(Users user) {
+		Connection conn = null;
+		Users loginResult = null;
 
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
+
+			// SELECT文を準備する
+			String sql = "UPDATE USERS SET last_login_date = current_timestamp WHERE users_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, user.getUsers_id());
+
+			// SELECT文を実行
+			pStmt.executeQuery();
+
+			// SELECT文を準備する
+			sql = "SELECT * FROM Users WHERE mail = ? AND password = ?";
+			pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, user.getMail());
+			pStmt.setString(2,user.getPassword());
+
+			// SELECT文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// ユーザーIDとパスワードが一致するユーザー情報を設定する
+			rs.next();
+			loginResult = new Users(
+				rs.getInt("users_id"),
+				rs.getString("mail"),
+				rs.getString("password"),
+				rs.getInt("grow_point"),
+				rs.getDate("last_login_date")
+			);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return loginResult;
+	}
 }

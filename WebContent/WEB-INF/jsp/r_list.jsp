@@ -34,11 +34,16 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
+<span id="error_message">
+  <a id ="R_result">${R_result.message}</a>
+</span>
 <c:forEach var="e" items="${requestList}" >
 	<form class="r_list" method="get" action="/D4/RListServlet">
+
 	  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
 	  	<input type="text" name="requestList" value="${e.request}">
 	  	<br>
+
 
 	</form>
 </c:forEach>

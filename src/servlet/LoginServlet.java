@@ -70,10 +70,13 @@ public class LoginServlet extends HttpServlet {
 		// ログイン処理を行う
 		UsersDAO UDao = new UsersDAO();
 		Users loginUser = UDao.isLoginOK(mail, pass);
+		loginUser = UDao.update(loginUser);
+
 		if (loginUser != null) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", loginUser);
+			//同じ日にログインしてない
 			loginUser.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
 
 			session.setAttribute("id", loginUser);

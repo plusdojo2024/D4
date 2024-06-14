@@ -34,9 +34,10 @@
 
 <!-- ここにプログラムを記入 -->
 <!-- 宛先指定 -->
+<form method="post" action="/D4/RFormServlet">
 <p>
 宛先指定<br>
-<select name = "addressOrder">
+<select name = "address_order">
   <option value = "all">全体</option>
   <option value = "keiri">経理部</option>
   <option value = "soumu">総務部</option>
@@ -46,15 +47,16 @@
 
 <!-- 要望フォーム -->
 <p>
-<textarea name="requestForm" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
+  <textarea name="request_text" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
 </p>
 
 <!-- 送信ボタン -->
 <input type = "submit">
 
 <!-- エラーメッセージ -->
-<span id="errorMassage"></span>
-
+<span id="errorMassage">
+</span>
+</form>
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>

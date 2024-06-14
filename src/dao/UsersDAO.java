@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import model.Questions;
 import model.Users;
 
@@ -79,7 +81,7 @@ public class UsersDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する（AUTO_INCREMENTのNUMBER列にはNULLを指定する）
 			String sql = "INSERT INTO Bc VALUES (NULL, ?, ?, 0, ?)";
@@ -145,7 +147,7 @@ public class UsersDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
 			String sql = "UPDATE Users SET grow_point = grow_point + 1 WHERE users_id=?";
@@ -190,7 +192,7 @@ public class UsersDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
 			String sql = "UPDATE Users SET grow_point = grow_point + 3 WHERE users_id=?";
@@ -225,7 +227,9 @@ public class UsersDAO {
 		return result;
 	}
 
-	
+
+
+	/*
 	//ポイント表示（sql準備・DB接続）
 	public List<Users> select() {
 		Connection conn = null;
@@ -279,6 +283,7 @@ public class UsersDAO {
 		// 結果を返す
 		return userList;
 	}
+	*/
 
 
 }

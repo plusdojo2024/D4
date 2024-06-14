@@ -59,14 +59,31 @@
 
 	<a href="/D4/RListServlet">もっと見る</a>
 
+<h2>質問フォーム</h2>
 <form id="question" method="post">
     <textarea name="question" placeholder="質問フォーム"></textarea>
     <p><input type="submit" name="submit" value="送信"></p>
     <span id="error_message"><a id ="result">${result.message}</a></span>
 </form>
 
-<img src="/D4/img/character.png" alt="アノニくんの画像">
+<!-- レベル別アノニくんの画像表示 -->
 <p>育成ptの説明</p>
+<c:if test="${id.grow_point < 25}">
+<img src="/D4/img/character1.png" alt="アノニくんの画像1">
+</c:if>
+<c:if test="${25<= id.grow_point && id.grow_point < 75}">
+<img src="/D4/img/character2.png" alt="アノニくんの画像2">
+</c:if>
+<c:if test="${75<= id.grow_point && id.grow_point < 225}">
+<img src="/D4/img/character3.png" alt="アノニくんの画像3">
+</c:if>
+<c:if test="${225<= id.grow_point && id.grow_point < 400}">
+<img src="/D4/img/character4.png" alt="アノニくんの画像4">
+</c:if>
+<c:if test="${400<= id.grow_point}">
+<img src="/D4/img/character5.png" alt="アノニくんの画像5">
+</c:if>
+
 
 </main>
 <footer>

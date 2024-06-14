@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.RequestsDAO;
 import model.Requests;
+import model.Result;
 import model.Users;
 
 /**
@@ -59,14 +61,21 @@ public class RFormServlet extends HttpServlet {
 		// 登録処理を行う
 		RequestsDAO rDao = new RequestsDAO();
 		rDao.insert(new Requests(0,address_order,request_text,users_id));
+
+
+
+		request.setAttribute("R_result",
+				new Result("要望送信！ご意見ありがとうございます。", "/D4/RListServlet"));
+
+				//List<Bc> cardList = bDao.select(new Bc(0, "", companyName, "", department, position, "", name, "", note));
+		List<Requests> requestsList = rDao.select();
+
+		request.setAttribute("requestList", requestsList);
+
+		// 結果ページにフォワードする
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/RListServlet");
 		response.sendRedirect("/D4/RListServlet");
 
-		/*
-		request.setAttribute("result",
-				new Result("登録成功！", "要望送信！ご意見ありがとうございます。", "リンク"));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_list.jsp");
-		dispatcher.forward(request, response);
-	    */
 	}
 
 

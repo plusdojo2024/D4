@@ -1,1 +1,129 @@
 @charset "UTF-8";
+
+/* bodyタグ */
+body {
+  font-size: 16px;
+
+}
+
+/* headersクラス */
+.headers {
+  font-size: 16px;
+
+}
+
+/* headerクラス */
+.header {
+  font-size: 16px;
+
+}
+
+/* h1タグの見出し */
+h1 {
+  font-size: 16px;
+}
+
+
+/* h2タグの見出し */
+h2 {
+  font-size: 16px;
+}
+
+/* h3タグの見出し */
+h3 {
+  font-size: 16px;
+}
+
+/* id="nav" */
+#nav {
+
+}
+
+#nav li {
+  list-style-type: none;	/* 先頭の記号をなくす */
+  padding-right: 30px;		/* 区切りを空ける */
+}
+
+#nav li a:link {
+  color: yellow;
+  text-decoration: none;
+}
+
+#nav li a:visited {
+  color: yellow;
+  text-decoration: none;
+}
+
+#nav li a:hover {
+  color: skyblue;
+  text-decoration: none;
+}
+
+#nav li a:active {
+  color: hotpink;
+  text-decoration: none;
+}
+
+
+/* id="footer" */
+#footer {
+  background-image: url(/D4/img/footer-bg.png);
+  background-repeat: repeat-x;
+  margin-top: 30px;
+  padding: 20px 0px 20px 0px;
+  font-size: smaller;
+  color: black;
+}
+
+/* エラーメッセージ */
+#error_message {
+  color: red;
+}
+
+/* 送信ボタンなど */
+input[type="submit"] {
+  border: none;
+  padding: 10px;
+  width: 150px;
+  background-color: darkred;
+  color: #ffffff;
+  font-size: 15px;
+}
+input[type="reset"] {
+  border: none;
+  padding: 10px;
+  width: 150px;
+  background-color: #a9a9a9;
+  color: #000000;
+  font-size: 15px;
+}
+
+/* login.jsp */
+
+
+/* home.jsp */
+
+
+/* q_list.jsp */
+
+
+/* q_form.jsp */
+
+
+/* q_a.jsp */
+
+
+/* r_list.jsp */
+
+
+/* r_form.jsp */
+
+
+/* character.jsp */
+
+
+/* reached.jsp */
+
+
+/* regist.jsp */
+

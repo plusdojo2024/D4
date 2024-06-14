@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.QuestionsDAO;
 import dao.UsersDAO;
 import model.Questions;
+import model.Users;
 
 /**
  * Servlet implementation class CharacterServlet
@@ -32,16 +33,25 @@ public class CharacterServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-		/*
-		// 検索処理を行う
-				UsersDAO UDao = new UsersDAO();
-				List<Questions> questionList = UDao.select(grow_point);
 
+		// あと何ptの計算
+		Users users = (Users)session.getAttribute("id");
+		int grow_point = users.getGrow_point();
+		int next_point = 0;
+		if (grow_point < 25) {
+			next_point = (25 - grow_point);
+		} else if (25 <= grow_point && grow_point < 75) {
+			next_point = (75 - grow_point);
+		} else if (75 <= grow_point && grow_point < 225) {
+			next_point = (225 - grow_point);
+		} else if (225 <= grow_point && grow_point < 400) {
+			next_point = (400 - grow_point);
+		} else {
+			next_point = 0;
+		}
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("questionList", questionList);
-				*/
-
+		// 計算結果をリクエストスコープに格納する
+		request.setAttribute("next_point", next_point);
 
 
 		// キャラクター表示ページにフォワードする

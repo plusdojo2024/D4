@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Idpw;
 import model.Users;
 
 public class UsersDAO {
@@ -224,40 +223,73 @@ public class UsersDAO {
 	}
 
 
-	// ログインできるならtrueを返す
-	public boolean isLoginOK(Idpw idpw) {
+	// 到達段階別の人数を返す
+	public int[] countLevelUser() {
 		Connection conn = null;
-		boolean loginResult = false;
+		int[] Result = {0,0,0,0,0};
 
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT COUNT(*) FROM Idpw WHERE id = ? AND pw = ?";
+			String sql = "SELECT COUNT(*) FROM Users WHERE grow_point BETWEEN 0 AND 24";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, idpw.getId());
-			pStmt.setString(2,idpw.getPw());
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
-			// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェックする
 			rs.next();
-			if (rs.getInt("COUNT(*)") == 1) {
-				loginResult = true;
-			}
+			Result[0] = rs.getInt("COUNT(*)");
+
+			// SELECT文を準備する
+			sql = "SELECT COUNT(*) FROM Users WHERE grow_point BETWEEN 25 AND 74";
+			pStmt = conn.prepareStatement(sql);
+
+			// SELECT文を実行し、結果表を取得する
+			rs = pStmt.executeQuery();
+
+			rs.next();
+			Result[1] = rs.getInt("COUNT(*)");
+
+			// SELECT文を準備する
+			sql = "SELECT COUNT(*) FROM Users WHERE grow_point BETWEEN 75 AND 224";
+			pStmt = conn.prepareStatement(sql);
+
+			// SELECT文を実行し、結果表を取得する
+			rs = pStmt.executeQuery();
+
+			rs.next();
+			Result[2] = rs.getInt("COUNT(*)");
+			// SELECT文を準備する
+			sql = "SELECT COUNT(*) FROM Users WHERE grow_point BETWEEN 225 AND 399";
+			pStmt = conn.prepareStatement(sql);
+
+			// SELECT文を実行し、結果表を取得する
+			rs = pStmt.executeQuery();
+
+			rs.next();
+			Result[3] = rs.getInt("COUNT(*)");
+
+			// SELECT文を準備する
+			sql = "SELECT COUNT(*) FROM Users WHERE grow_point >= 400";
+			pStmt = conn.prepareStatement(sql);
+
+			// SELECT文を実行し、結果表を取得する
+			rs = pStmt.executeQuery();
+
+			rs.next();
+			Result[4] = rs.getInt("COUNT(*)");
+
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			loginResult = false;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			loginResult = false;
 		}
 		finally {
 			// データベースを切断
@@ -267,13 +299,12 @@ public class UsersDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					loginResult = false;
 				}
 			}
 		}
 
 		// 結果を返す
-		return loginResult;
+		return Result;
 	}
 
 

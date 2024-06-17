@@ -50,8 +50,8 @@
 </c:if>
 
 <c:forEach var="e" items=" ${questionList}" >
-	<form method="get" action="/D4/QListServlet">
-		<input type="text" name="question" value="${e.question}" readonly="readonly"><br>
+	<form class="q_list" method="get" action="/D4/QListServlet">
+		<input type="text" name="questionList" value="${e.question}" readonly="readonly"><br>
 	</form>
 </c:forEach>
 

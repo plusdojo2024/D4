@@ -177,6 +177,52 @@ public class UsersDAO {
 		return result;
 	}
 
+	//ポイント減算（1pt）
+	public int lessPoint(Users user) {
+		Connection conn = null;
+		int result = -1;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
+
+			// SQL文を準備する
+			String sql = "UPDATE Users SET grow_point = grow_point - 1 WHERE users_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setInt(1, user.getUsers_id());
+			pStmt.executeUpdate();
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					result = 0;
+				}
+			}
+		}
+		// 結果を返す
+		return result;
+	}
+
+
+
 	//ポイント加算（3pt）
 	public int addPoint3(Users user) {
 		Connection conn = null;
@@ -320,7 +366,7 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "UPDATE USERS SET last_login_date = current_timestamp WHERE users_id =? ";
+			String sql = "UPDATE Users SET last_login_date = current_timestamp WHERE users_id =? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			int id = user.getUsers_id();//data取得確認用 OK

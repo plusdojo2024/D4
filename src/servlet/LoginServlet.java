@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -70,15 +71,33 @@ public class LoginServlet extends HttpServlet {
 		// ログイン処理を行う
 		UsersDAO UDao = new UsersDAO();
 		Users loginUser = UDao.isLoginOK(mail, pass);
-		Users loginUser2 = UDao.update(loginUser);//バグ
 
-		if (loginUser2 != null) {	// ログイン成功
+		if (loginUser != null) {	// ログイン成功
 			// セッションスコープにIDを格納する
+			loginUser = UDao.update(loginUser);
 			HttpSession session = request.getSession();
 			session.setAttribute("id", loginUser);
-			//同じ日にログインしてない
-			loginUser.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
 
+			Date last_date = loginUser.getLast_login_date();
+			long miliseconds = System.currentTimeMillis();
+			long now_time = miliseconds% 86400;
+			Date now_date = new Date(miliseconds - now_time);
+
+			//ログの確認
+			//System.out.println(last_date.toString());
+			//System.out.println(now_date.toString());
+			//System.out.println(last_date.toString().equals(now_date.toString()));
+
+			//同じ日にログインしてない
+			if(!(last_date.toString().equals(now_date.toString()))){
+				loginUser = UDao.update(loginUser);
+				loginUser.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
+			}
+			else{//同じ日にログインしている)
+				//loginUserのポイントを1減らす
+				//セッションのUser情報更新
+				loginUser.setGrow_point(UDao.lessPoint(loginUser) + loginUser.getGrow_point());
+			}
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/D4/HomeServlet");
 		}

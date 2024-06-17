@@ -49,11 +49,21 @@
 	<p>まだデータがありません。</p>
 </c:if>
 
+<span id="error_message">
+  <a id ="Question_result">${Question_result.message}</a>
+</span>
+
+<c:forEach var="e" items="${questionList}">
+	  	<input type="text" name="requestList" value="${e.question}">
+	  	<br>
+</c:forEach>
+<%--
 <c:forEach var="e" items=" ${questionList}" >
 	<form class="q_list" method="get" action="/D4/QListServlet">
-		<input type="text" name="questionList" value="${e.question}" readonly="readonly"><br>
+		<input type="text" name="questionList" value="${e.question}" ><br>
 	</form>
 </c:forEach>
+--%>
 
 <form>
 	<input type="button" name="moreLoad" value="さらに表示">

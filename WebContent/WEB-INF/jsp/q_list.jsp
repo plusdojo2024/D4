@@ -34,23 +34,24 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
-<form>
-<!-- ラジオボタン -->
-<input type="radio" name="unresolved">回答募集中<br>
-<input type="radio" name="resolved">解決済み<br>
+<form method="post" action="/D4/QListServlet">
+  <!-- ラジオボタン -->
+  <input type="radio" name="selected" value="回答募集中">回答募集中<br>
+  <input type="radio" name="selected" value="解決済み">解決済み<br>
 
-<!-- 検索窓とボタン -->
-<input type="text" name="questionWindow">
-<input type="button" name="searchButton">
+  <!-- 検索窓とボタン -->
+  <input type="text" name="questionWindow">
+  <input type="submit" name="searchButton" value="検索">
 </form>
 
-<c:if test="${empty  }">
+
+<c:if test="${empty questionList}">
 	<p>まだデータがありません。</p>
 </c:if>
 
-<c:forEach var="e" items="${ }">
-	<form method="get" action="/D4/QListServlet">
-		<input type="text" name="question" value="${e.}" readonly="readonly"><br>
+<c:forEach var="e" items=" ${questionList}" >
+	<form class="q_list" method="get" action="/D4/QListServlet">
+		<input type="text" name="questionList" value="${e.question}" readonly="readonly"><br>
 	</form>
 </c:forEach>
 

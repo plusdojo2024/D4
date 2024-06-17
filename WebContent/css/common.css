@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+/*
+<link rel="stylesheet" href="/D4/css/common.css">
+を追加
+*/
+
+
 /* bodyタグ */
 body {
   font-size: 16px;
@@ -99,7 +105,9 @@ input[type="reset"] {
 }
 
 /* login.jsp */
+#login_form {
 
+}
 
 /* home.jsp */
 

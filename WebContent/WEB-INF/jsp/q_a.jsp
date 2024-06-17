@@ -11,7 +11,9 @@
 <body>
 <header>
     <div class="headers">
-        <div class="header">アプリロゴ</div>
+        <div class="logo">
+		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+        </div>
         <div class="header">
             <a href="/D4/LogoutServlet">ログアウト</a>
         </div>

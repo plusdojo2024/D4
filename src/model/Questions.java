@@ -22,11 +22,11 @@ public class Questions implements Serializable{
 
 		}
 
-		public int getquestions_id() {
+		public int getQuestions_id() {
 			return questions_id;
 		}
 
-		public void setquestions_id(int questions_id) {
+		public void setQuestions_id(int questions_id) {
 			this.questions_id = questions_id;
 		}
 

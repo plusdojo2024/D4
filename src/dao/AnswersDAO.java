@@ -13,7 +13,7 @@ import model.Answers;
 public class AnswersDAO {
 
 	//回答一覧
-	public List<Answers> select(Answers answer) {
+	public List<Answers> select(int questions_id) {
 		Connection conn = null;
 		List<Answers> AList = new ArrayList<Answers>();
 
@@ -26,8 +26,9 @@ public class AnswersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM Answers ORDER BY answers_id DESC ";
+			String sql = "SELECT * FROM Answers WHERE questions_id = ? ORDER BY answers_id DESC ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, questions_id);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Questions;
-import model.Users;
 
 public class QuestionsDAO {
 
@@ -187,6 +186,62 @@ public class QuestionsDAO {
 
 	// 検索機能
 
+	public List<Questions> select(int questions_id) {
+		Connection conn = null;
+		List<Questions> QList = new ArrayList<Questions>();
+
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
+
+			// SQL文を準備する
+			String sql = "SELECT * FROM Questions WHERE questions_id = ? ORDER BY answers_id DESC ";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, questions_id);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Questions record = new Questions(
+				rs.getInt("questions_id"),
+				rs.getString("question"),
+				rs.getInt("user_id"),
+				rs.getString("judge")
+				);
+				QList.add(record);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			QList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			QList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					QList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return QList;
+	}
+
 
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<Questions> select(Questions question) {
@@ -263,7 +318,7 @@ return questionList;
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
 
 			// SQL文を準備する
-			String sql = "UPDATE Questions SET question=?, judge=? WHERE questions_id=?, users_id=?";
+			String sql = "UPDATE Questions SET question=?, judge=? WHERE questions_id=? AND users_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -279,10 +334,10 @@ return questionList;
 			else {
 				pStmt.setString(2, null);
 			}
-			int Qid = Questions.getQuestions_id();//data取得確認用 OK
+			int Qid = Question.getQuestions_id();
 			pStmt.setInt(3, Qid);
-			int id = Users.getUsers_id();//data取得確認用 OK
-			pStmt.setInt(4, id);//実行されない
+			int id = Question.getUsers_id();
+			pStmt.setInt(4, id);
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

@@ -1,16 +1,17 @@
 /* usersテーブルの作成 */
+drop table users if exists;
 create table users (
-users_id    integer         auto increment,
+users_id    integer         auto_increment,
 mail        varchar (100)   not null,
 password    varchar (100)   not null,
 grow_point  integer         default 0,
-last_login_date date  not null
+last_login_date date  not null,
 primary key (users_id)
 );
 
 /* questionsテーブルの作成 */
 create table questions (
-questions_id	integer		auto increment,
+questions_id	integer		auto_increment,
 question		varchar (1000)	not null,
 users_id		integer		not null,
 judge		    varchar (10)	not null /* default ‘回答募集中’ */,
@@ -19,11 +20,12 @@ primary key(questions_id)
 );
 
 /* answersテーブルの作成 */
+drop table answers if exists;
 create table answers (
-answers_id	integer		auto increment,
-question_id	integer		not null,
+answers_id	integer		auto_increment,
+questions_id	integer		not null,
 answer		varchar (1000)	not null,
-user_id		integer		not null,
+users_id		integer		not null,
 primary key (answers_id)
 /* foreign key (users_id) references users(users_id) */
 );
@@ -31,13 +33,14 @@ primary key (answers_id)
 
 /* requestsテーブルの作成 */
 create table requests (
-requests_id	    integer		    auto increment,
+requests_id	    integer		    auto_increment,
 address_order 	varchar (20)	not null,
 request		    varchar (1000)	not null,
 users_id		integer		    not null,
 primary key (requests_id)
 /* foreign key (users_id) references users(users_id) */
 );
+
 
 //現在の日にちを取得
 UPDATE USERS SET last_login_date = current_timestamp WHERE users_id = ?;

@@ -34,7 +34,7 @@
 
 <!-- ここにプログラムを記入 -->
 
-<form>
+<form method="post" action="/D4/QFormServlet">
   <textarea name="question" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
   <br>
   <input type="submit" value="送信">

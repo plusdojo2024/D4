@@ -63,7 +63,7 @@ public class QFormServlet extends HttpServlet {
 			new Result("質問送信！3ptゲット！", "/D4/QListServlet"));
 		}
 		else {												// 登録失敗
-			request.setAttribute("Q_result",
+			request.setAttribute("result",
 			new Result("※1～1000字で入力してください", "/D4/QFormServlet"));
 		}
 
@@ -73,7 +73,7 @@ public class QFormServlet extends HttpServlet {
 
 		List<Questions> questionsList = qDao.select();
 
-		request.setAttribute("questionsList", questionsList);
+		request.setAttribute("questionList", questionsList);
 
 		// 質問一覧ページにリダイレクトする
 		response.sendRedirect("/D4/QListServlet");

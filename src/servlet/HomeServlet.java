@@ -102,10 +102,10 @@ public class HomeServlet extends HttpServlet {
 			request.setAttribute("result",
 			new Result("質問送信！3ptゲット！", "/D4/home.jsp"));
 		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("※1～1000字で入力してください", "/D4/home.jsp"));
-		}
+		//else {												// 登録失敗
+			//request.setAttribute("result",
+			//new Result("※1～1000字で入力してください", "/D4/home.jsp"));
+		//}
 
 				//新規質問
 				// リクエストパラメータを取得する

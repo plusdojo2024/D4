@@ -69,19 +69,19 @@
 <!-- レベル別アノニくんの画像表示 -->
 <p>育成ptの説明</p>
 <c:if test="${id.grow_point < 25}">
-<img src="/D4/img/anoni1.png" alt="アノニくんの画像1">
+<img src="/D4/img/homeanoni1.png" alt="ホームアノニくんの画像1">
 </c:if>
 <c:if test="${25<= id.grow_point && id.grow_point < 75}">
-<img src="/D4/img/anoni2.png" alt="アノニくんの画像2">
+<img src="/D4/img/homeanoni2.png" alt="ホームアノニくんの画像2">
 </c:if>
 <c:if test="${75<= id.grow_point && id.grow_point < 225}">
-<img src="/D4/img/anoni3.png" alt="アノニくんの画像3">
+<img src="/D4/img/homeanoni3.png" alt="ホームアノニくんの画像3">
 </c:if>
 <c:if test="${225<= id.grow_point && id.grow_point < 400}">
-<img src="/D4/img/anoni4.png" alt="アノニくんの画像4">
+<img src="/D4/img/homeanoni4.png" alt="ホームアノニくんの画像4">
 </c:if>
 <c:if test="${400<= id.grow_point}">
-<img src="/D4/img/anoni5.png" alt="アノニくんの画像5">
+<img src="/D4/img/homeanoni5.png" alt="ホームアノニくんの画像5">
 </c:if>
 
 

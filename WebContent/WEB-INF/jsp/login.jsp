@@ -10,7 +10,7 @@
 <body>
 <header>
 	<div class="logo">
-		<img src="/D4/img/logo.png" alt="アプリロゴ">
+		<img src="/D4/img/icon.png" alt="アプリロゴ">
     </div>
 </header>
 <main>

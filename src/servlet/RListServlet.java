@@ -48,7 +48,17 @@ public class RListServlet extends HttpServlet {
 
 		request.setAttribute("requestList", requestsList);
 
-		request.getAttribute("R_result");
+		//request.getAttribute("R_result");
+
+
+		HttpSession session = request.getSession();
+		if(session.getAttribute("R_result") != null) {
+			request.setAttribute("Request_result",
+					new Result("要望送信！ご意見ありがとうございます。","/D4/RListServlet"));
+			session.removeAttribute("R_result");
+
+		}
+
 
 		// 目安箱一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_list.jsp");
@@ -58,21 +68,11 @@ public class RListServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*	// もしもログインしていなかったらログインサーブレットにリダイレクトする
-			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/D4/LoginServlet");
-				return;
-			}*/
-
-
-		HttpSession session = request.getSession();//あとで消す
-		if(session.getAttribute("R_result")!=null) {
-			request.setAttribute("R_result",
-					new Result("要望送信！ご意見ありがとうございます。","/D4/RListServlet"));
-		}
-
-
-
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}*/
 
 
 		// 結果ページにフォワードする

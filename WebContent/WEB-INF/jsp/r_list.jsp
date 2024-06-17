@@ -35,7 +35,7 @@
 
 <!-- ここにプログラムを記入 -->
 <span id="error_message">
-  <a id ="R_result">${R_result.message}</a>
+  <a id ="Request_result">${Request_result.message}</a>
 </span>
 <c:forEach var="e" items="${requestList}" >
 	<form class="r_list" method="get" action="/D4/RListServlet">

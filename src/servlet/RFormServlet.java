@@ -64,7 +64,7 @@ public class RFormServlet extends HttpServlet {
 
 
 
-		request.setAttribute("R_result",
+		session.setAttribute("R_result",
 				new Result("要望送信！ご意見ありがとうございます。", "/D4/RListServlet"));
 
 				//List<Bc> cardList = bDao.select(new Bc(0, "", companyName, "", department, position, "", name, "", note));
@@ -72,8 +72,7 @@ public class RFormServlet extends HttpServlet {
 
 		request.setAttribute("requestList", requestsList);
 
-		// 結果ページにフォワードする
-		//RequestDispatcher dispatcher = request.getRequestDispatcher("/RListServlet");
+		// 一覧ページにリダイレクトする
 		response.sendRedirect("/D4/RListServlet");
 
 	}

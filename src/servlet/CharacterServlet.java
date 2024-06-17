@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.QuestionsDAO;
-import dao.UsersDAO;
-import model.Questions;
 import model.Users;
 
 /**
@@ -51,6 +47,7 @@ public class CharacterServlet extends HttpServlet {
 		}
 
 		// 計算結果をリクエストスコープに格納する
+		request.setAttribute("id", (Users)session.getAttribute("id"));
 		request.setAttribute("next_point", next_point);
 
 

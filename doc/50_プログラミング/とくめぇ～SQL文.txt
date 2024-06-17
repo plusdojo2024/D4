@@ -38,7 +38,7 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
     '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
     1,
-    '回答募集中',
+    '回答募集中'
 
 );
 
@@ -46,7 +46,7 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
     '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
     2,
-    '解決済み',
+    '解決済み'
     
 );
 
@@ -54,7 +54,7 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
     '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
     3,
-    '回答募集中',
+    '回答募集中'
     
 );
 
@@ -62,7 +62,7 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
     '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
     4,
-    '回答募集中',
+    '回答募集中'
     
 );
 
@@ -70,7 +70,7 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
     '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
     5,
-    '解決済み',
+    '解決済み'
     
 );
 

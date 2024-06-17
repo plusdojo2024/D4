@@ -73,8 +73,19 @@ public class QListServlet extends HttpServlet {
 			return;
 		}
 
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		//int questions_id = Integer.parseInt(request.getParameter("questions_id"));
+		String question = request.getParameter("question");
+		int users_id = Integer.parseInt(request.getParameter("users_id"));
+		//String judge = request.getParameter("judge");
 
+		// 検索処理を行う
+		QuestionsDAO qDao = new QuestionsDAO();
+		List<Questions> questionList = qDao.select(new Questions(0, question, users_id, ""));
 
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("questionList", questionList);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
@@ -83,14 +94,3 @@ public class QListServlet extends HttpServlet {
 	}
 
 }
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-/*
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-*/
-

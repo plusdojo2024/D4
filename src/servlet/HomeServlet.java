@@ -107,7 +107,7 @@ public class HomeServlet extends HttpServlet {
 			new Result("※1～1000字で入力してください", "/D4/home.jsp"));
 		}
 
-		//新規質問
+				//新規質問
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
 				//String question = request.getParameter("question");

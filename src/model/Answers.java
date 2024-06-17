@@ -3,9 +3,9 @@ import java.io.Serializable;
 
 public class Answers implements Serializable{
 	private int answers_id;
-	private int question_id;
+	private int questions_id;
 	private String answer;
-	private int user_id;
+	private int users_id;
 
 	//引数がないコンストラクタ
 	public Answers() {
@@ -13,12 +13,12 @@ public class Answers implements Serializable{
 	}
 
 	//引数があるコンストラクタ
-	public Answers(int answers_id,int question_id,String answer,int user_id) {
+	public Answers(int answers_id,int questions_id,String answer,int users_id) {
 		super();
 		this.answers_id=answers_id;
-		this.question_id=question_id;
+		this.questions_id=questions_id;
 		this.answer=answer;
-		this.user_id=user_id;
+		this.users_id=users_id;
 
 	}
 
@@ -31,11 +31,11 @@ public class Answers implements Serializable{
 	}
 
 	public int getQuestion_id() {
-		return question_id;
+		return questions_id;
 	}
 
 	public void setQuestion_id(int question_id) {
-		this.question_id = question_id;
+		this.questions_id = question_id;
 	}
 
 	public String getAnswer() {
@@ -47,11 +47,11 @@ public class Answers implements Serializable{
 	}
 
 	public int getUser_id() {
-		return user_id;
+		return users_id;
 	}
 
 	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+		this.users_id = user_id;
 	}
 }
 

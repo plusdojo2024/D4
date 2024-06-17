@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.QuestionsDAO;
 import model.Questions;
+import model.Result;
 
 /**
  * Servlet implementation class QListServlet
@@ -42,9 +44,20 @@ public class QListServlet extends HttpServlet {
 				String judge = request.getParameter("judge");
 				*/
 
-				QuestionsDAO rDao = new QuestionsDAO();
+				QuestionsDAO qDao = new QuestionsDAO();
 				//List<Bc> cardList = bDao.select(new Bc(0, "", companyName, "", department, position, "", name, "", note));
-				List<Questions> requestsList = rDao.select();
+				List<Questions> questionList = qDao.select();
+
+				request.setAttribute("questionList", questionList);
+
+
+				HttpSession session = request.getSession();
+				if(session.getAttribute("Q_result") != null) {
+					request.setAttribute("Question_result",
+							new Result("質問送信！3ptゲット！","/D4/QListServlet"));
+					session.removeAttribute("Q_result");
+
+				}
 
 		//質問一覧ページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
@@ -52,12 +65,32 @@ public class QListServlet extends HttpServlet {
 
 	}
 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+
+
+
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+/*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+*/
 
-}

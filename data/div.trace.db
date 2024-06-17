@@ -1597,3 +1597,119 @@ UPDATE USERS SET last_login_date = current_timestamp WHERE users_id = ? [90002-1
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-06-17 11:44:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "                     
+
+INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    1,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    1,                            
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "                     
+
+INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    1,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    1,                            
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+/*answersテーブルテストデータ*/
+
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    1,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    1,              /* users_id */
+) [42001-200]
+2024-06-17 11:44:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    2,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    2,                            
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    2,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    2,                            
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    2,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    2,              /* users_id */
+) [42001-200]
+2024-06-17 11:44:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    3,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    3,                            
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    3,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    3,                            
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    3,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    3,              /* users_id */
+) [42001-200]
+2024-06-17 11:44:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    4,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    4,                            
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    4,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    4,                            
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    4,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    4,              /* users_id */
+) [42001-200]
+2024-06-17 11:44:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    5,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    5,                            
+)[*]"; 期待されるステートメント "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"
+Syntax error in SQL statement "INSERT INTO ANSWERS VALUES(
+    NULL,                           
+    5,                                
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',              
+    5,                            
+)[*]"; expected "DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    5,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    5,              /* users_id */
+) [42001-200]

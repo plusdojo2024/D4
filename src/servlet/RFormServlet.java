@@ -33,7 +33,7 @@ public class RFormServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-*/
+	*/
 
 		// 目安箱フォームページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_form.jsp");
@@ -50,10 +50,10 @@ public class RFormServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String address_order=request.getParameter("address_order");
-		String request_text=request.getParameter("request_text");//後で聞く
+		String address_order = request.getParameter("address_order");
+		String request_text = request.getParameter("request_text");
 
-		HttpSession session = request.getSession();//あとで消す
+		HttpSession session = request.getSession();
 		Users users = (Users)session.getAttribute("id");
 
 		int users_id = users.getUsers_id();
@@ -67,12 +67,11 @@ public class RFormServlet extends HttpServlet {
 		session.setAttribute("R_result",
 				new Result("要望送信！ご意見ありがとうございます。", "/D4/RListServlet"));
 
-				//List<Bc> cardList = bDao.select(new Bc(0, "", companyName, "", department, position, "", name, "", note));
 		List<Requests> requestsList = rDao.select();
 
 		request.setAttribute("requestList", requestsList);
 
-		// 一覧ページにリダイレクトする
+		// 目安箱一覧ページにリダイレクトする
 		response.sendRedirect("/D4/RListServlet");
 
 	}

@@ -149,7 +149,7 @@ public class UsersDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setInt(1, user.getUsers_id());
-			pStmt.executeQuery();
+			pStmt.executeUpdate();
 
 		}
 		catch (SQLException e) {
@@ -194,7 +194,7 @@ public class UsersDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setInt(1, user.getUsers_id());
-			pStmt.executeQuery();
+			pStmt.executeUpdate();
 
 		}
 		catch (SQLException e) {
@@ -320,31 +320,37 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "UPDATE USERS SET last_login_date = current_timestamp WHERE users_id = ?";
+			String sql = "UPDATE USERS SET last_login_date = current_timestamp WHERE users_id =? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, user.getUsers_id());
+
+			int id = user.getUsers_id();//data取得確認用 OK
+			pStmt.setInt(1, id);//実行されない
 
 			// SELECT文を実行
-			pStmt.executeQuery();
+			pStmt.executeUpdate();//327未実行によりSQLエラー(?があるから。)
+
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
 
 			// SELECT文を準備する
-			sql = "SELECT * FROM Users WHERE mail = ? AND password = ?";
+			sql = "SELECT * FROM Users WHERE users_id = ?";
 			pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, user.getMail());
-			pStmt.setString(2,user.getPassword());
+			pStmt.setInt(1, user.getUsers_id());
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			// ユーザーIDとパスワードが一致するユーザー情報を設定する
-			rs.next();
-			loginResult = new Users(
-				rs.getInt("users_id"),
-				rs.getString("mail"),
-				rs.getString("password"),
-				rs.getInt("grow_point"),
-				rs.getDate("last_login_date")
-			);
+			if (rs.next()) {
+				loginResult = new Users(
+					rs.getInt("users_id"),
+					rs.getString("mail"),
+					rs.getString("password"),
+					rs.getInt("grow_point"),
+					rs.getDate("last_login_date")
+				);
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

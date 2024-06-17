@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.AnswersDAO;
+import dao.QuestionsDAO;
 import model.Answers;
 import model.Questions;
 import model.Result;
@@ -37,6 +38,10 @@ public class QAServlet extends HttpServlet {
 		}
 		*/
 
+		//選択された質問を表示
+		HttpSession session = request.getSession();//後で消す
+		Questions questions = (Questions)session.getAttribute("Qid");
+		
 		//過去の回答を表示
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -55,7 +60,6 @@ public class QAServlet extends HttpServlet {
 		//質問一覧ページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_a.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	/**
@@ -75,7 +79,7 @@ public class QAServlet extends HttpServlet {
 	
 		HttpSession session = request.getSession();//あとで消す
 		Users users = (Users)session.getAttribute("id");
-		Questions questions = (Questions)session.getAttribute(answer);	//質問IDを格納したスコープを呼び出す
+		Questions questions = (Questions)session.getAttribute("");	//質問IDを格納したスコープを呼び出す
 	
 		int users_id = users.getUsers_id();
 		int question_id = questions.getQuestions_id();	//スコープから呼び出したquestion_idを変数に格納する
@@ -92,9 +96,21 @@ public class QAServlet extends HttpServlet {
 
 		}
 
-		List<Answers> AList = aDao.select();
+		List<Answers> AList = ADao.select();
 		request.setAttribute("AList", AList);
-	
+
+
+		//更新を行う
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String question = request.getParameter("question");
+		String judge = request.getParameter("judge");
+
+		QuestionsDAO QDao = new QuestionsDAO();
+		if (request.getParameter("update_q").equals("更新")) {
+			QDao.update(new Questions(0, question, users_id, judge));
+		}
+
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_a.jsp");
 		dispatcher.forward(request, response);

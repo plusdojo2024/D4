@@ -15,7 +15,7 @@ public class AnswersDAO {
 	//回答一覧
 	public List<Answers> select(Answers answer) {
 		Connection conn = null;
-		List<Answers> answerList = new ArrayList<Answers>();
+		List<Answers> AList = new ArrayList<Answers>();
 
 
 		try {
@@ -40,16 +40,16 @@ public class AnswersDAO {
 				rs.getString("answer"),
 				rs.getInt("user_id")
 				);
-				answerList.add(record);
+				AList.add(record);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			answerList = null;
+			AList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			answerList = null;
+			AList = null;
 		}
 		finally {
 			// データベースを切断
@@ -59,13 +59,13 @@ public class AnswersDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					answerList = null;
+					AList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return answerList;
+		return AList;
 	}
 
 	//回答登録

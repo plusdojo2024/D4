@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Questions;
+import model.Users;
 
 public class QuestionsDAO {
 
@@ -248,5 +249,66 @@ finally {
 // 結果を返す
 return questionList;
 }
+
+	// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
+	public boolean update(Questions Question) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+
+			// SQL文を準備する
+			String sql = "UPDATE Questions SET question=?, judge=? WHERE questions_id=?, users_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (Question.getQuestion() != null && !Question.getQuestion().equals("")) {
+				pStmt.setString(1, Question.getQuestion());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
+			if (Question.getJudge() != null && !Question.getJudge().equals("")) {
+				pStmt.setString(2, Question.getJudge());
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+			int Qid = Questions.getQuestions_id();//data取得確認用 OK
+			pStmt.setInt(3, Qid);
+			int id = Users.getUsers_id();//data取得確認用 OK
+			pStmt.setInt(4, id);//実行されない
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 
 }

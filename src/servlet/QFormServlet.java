@@ -62,10 +62,7 @@ public class QFormServlet extends HttpServlet {
 			session.setAttribute("Q_result",
 			new Result("質問送信！3ptゲット！", "/D4/QListServlet"));
 		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("※1～1000字で入力してください", "/D4/QFormServlet"));
-		}
+
 
 
 		//同じ日にログインしてない

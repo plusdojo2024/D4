@@ -9,7 +9,9 @@
 </head>
 <body>
 <header>
-    <div class="header">アプリロゴ</div>
+	<div class="logo">
+		<img src="/D4/img/icon.png" alt="アプリロゴ">
+    </div>
 </header>
 
 	<main>

@@ -1,4 +1,4 @@
-
+/*
  //[質問送信]ボタンをクリックしたときの処理
 	let formObj = document.getElementById('question');
 
@@ -10,7 +10,9 @@
 	}
 	errorMessageObj.textContent = null;
 };
+*/
 
+/*
 //[要望送信]ボタンをクリックしたときの処理
 	let formObj = document.getElementById('request');
  
@@ -22,7 +24,21 @@
 	}
 	errorMessageObj.textContent = null;
 };
+*/
 
+/*
+function Request(){
+	if(window.confirm('送信してよろしいですか？')){ // 確認ダイアログを表示
+		return true; // 「OK」時は送信を実行
+	}
+	else{ // 「キャンセル」時の処理
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		event.preventDefault();; // 送信を中止
+	}
+}
+*/
+
+/*
 //[回答送信]ボタンをクリックしたときの処理
 	let formObj = document.getElementById('answer');
  
@@ -34,17 +50,29 @@
 	}
 	errorMessageObj.textContent = null;
 };
+*/
 
 //もっと見るボタンを押したときの処理
+//ここには、表示するリストの数を指定
 	var moreNum = 20;
-	$('.r_list a:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
+
+//表示するリストの数以降のリストを隠す
+	$('.r_list_item:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
+
+//全てのリストを表示したら「もっとみる」ボタンをフェードアウトします。
 	$('.more').on('click', function() {
-	  $('.r_list a.is-hidden').slice(0, moreNum).removeClass('is-hidden');
+	  $('.r_list_item.is-hidden').slice(0, moreNum).removeClass('is-hidden');
 	  if ($('.r_list a.is-hidden').length == 0) {
 	    $('.more').fadeOut();
 	  }
 	});
-	
-	
-	
+
+/* リストの数が、表示するリストの数以下だった場合、「もっとみる」ボタンを非表示にします。
+$(function() {
+  var list = $(".list li").length;  
+    if (list < moreNum) {
+      $('.list-btn').addClass('is-btn-hidden');
+  }
+});
+*/
 	

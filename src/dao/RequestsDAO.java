@@ -32,20 +32,11 @@ public class RequestsDAO {
 			if (request.getAddress_order() != null && !request.getAddress_order().equals("")) {
 				pStmt.setString(1, request.getAddress_order());
 			}
-			else {
-				pStmt.setString(1, "（未設定）");
-			}
 			if (request.getRequest() != null && !request.getRequest().equals("")) {
 				pStmt.setString(2, request.getRequest());
 			}
-			else {
-				pStmt.setString(2, "（未設定）");
-			}
 			if (request.getUsers_id() != 0) {
 				pStmt.setString(3, Integer.toString(request.getUsers_id()));
-			}
-			else {
-				pStmt.setString(3, "（未設定）");
 			}
 
 			// SQL文を実行する

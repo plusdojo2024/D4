@@ -38,7 +38,7 @@
 
 <!-- ここにプログラムを記入 -->
 <!-- 宛先指定 -->
-<form method="post" action="/D4/RFormServlet">
+<form id="request" method="post" action="/D4/RFormServlet">
 <p>
 宛先指定<br>
 <select name = "address_order">
@@ -55,7 +55,7 @@
 </p>
 
 <!-- 送信ボタン -->
-<input type = "submit">
+<input type = "submit" onclick="Request();">
 
 <!-- エラーメッセージ -->
 <span id="errorMassage">
@@ -65,5 +65,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+<script src="./js/common.js"></script>
 </body>
 </html>

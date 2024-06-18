@@ -52,6 +52,28 @@ function Request(){
 };
 */
 
+window.onload = function(){
+	const moreload = document.getElementById("moreload");
+	const more = document.getElementById("more");
+
+//  if(moreload != null && more != null)的な
+	if(moreload && more) {
+		more.onclick = function(){
+			const targetArray = document.querySelectorAll("list_item.is-hidden");
+			const length = targetArray.length;
+			if(length <= 20) {
+				more.style.display = "none";
+			}
+			for(let i = 0; (i < 20 && i < length); i++) {
+				const target = targetArray[i];
+				target.classList.remove("is-hidden");
+			}
+		};
+		more.click();
+	}
+}
+
+
 //もっと見るボタンを押したときの処理
 //ここには、表示するリストの数を指定
 	var moreNum = 20;

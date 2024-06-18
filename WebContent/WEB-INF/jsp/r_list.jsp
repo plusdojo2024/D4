@@ -42,19 +42,20 @@
 <span id="error_message">
   <a id ="Request_result">${Request_result.message}</a>
 </span>
+<div id="moreload">
 <ul class="r_list">
 	<c:forEach var="e" items="${requestList}" >
 		  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
 	
-		<li class="r_list_item"><a>${e.request}</a></li>
+		<li class="list_item is-hidden"><a>${e.request}</a></li>
 	
 		  	<br>
 	</c:forEach>
 </ul>
-<div class="more">
+<div id="more">
 	<button>もっと見る</button>
 </div>
-
+</div>
 
 </main>
 <footer>

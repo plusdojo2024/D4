@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ホーム | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>

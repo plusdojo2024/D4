@@ -5,11 +5,15 @@
 を追加
 */
 
+html {
+	font-size: 16px;
+	font-family: 'Dela Gothic One';
+}
 
 /* bodyタグ */
 body {
-  font-size: 16px;
-
+	font-size: 16px;
+	background-color: #f0f8ff;
 }
 
 /* headersクラス */
@@ -22,6 +26,12 @@ body {
 .header {
   font-size: 16px;
 
+}
+
+/**/
+.logo img{
+	max-width: 200px;  /* 最大幅を500ピクセルに設定 */
+	height: auto;      /* 高さを自動調整 */
 }
 
 /* h1タグの見出し */

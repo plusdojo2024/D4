@@ -40,14 +40,14 @@
 <form method="post" action="/D4/QAServlet">
 	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
 	<c:if var="t" test="${id.users_id == Qid.users_id}">
-		<textarea name="question">${t.question}</textarea>
-		<input type="radio" name="unresolved">回答募集中<br>
-		<input type="radio" name="resolved">解決済み<br>
+		<textarea name="question">${QList.question}</textarea>
+		<input type="radio" name="unresolved">回答募集中
+		<input type="radio" name="resolved">解決済み
 		<input type="submit" name="update_q" value="更新">
 	</c:if>
 	<c:if var="t" test="${id.users_id != Qid.users_id}">
-		<textarea name="question" readonly="readonly">${t.question}</textarea>
-		<input type="radio" name="unresolved" readonly="readonly">回答募集中<br>
+		<textarea name="question" readonly="readonly">${QList.question}</textarea>
+		<input type="radio" name="unresolved" readonly="readonly">回答募集中
 		<input type="radio" name="resolved" readonly="readonly">解決済み
 	</c:if>
 

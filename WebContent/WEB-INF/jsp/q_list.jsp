@@ -56,9 +56,9 @@
 </span>
 
 <c:forEach var="e" items="${questionList}">
-	<form class="q_list" method="get" action="/D4/QListServlet">
+	<form class="q_list" method="post" action="/D4/QListServlet">
 	    <input type="text" name="questions_id" value="${e.questions_id}">
-	  	<input type="text" name="requestList" value="${e.question}">
+	  	<input type="submit" name="requestList" value="${e.question}">
 	  	<br>
 	</form>
 </c:forEach>

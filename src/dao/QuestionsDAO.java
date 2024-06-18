@@ -199,7 +199,7 @@ public class QuestionsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM Questions WHERE questions_id = ? ORDER BY answers_id DESC ";
+			String sql = "SELECT * FROM Questions WHERE questions_id = ?  ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, questions_id);
 

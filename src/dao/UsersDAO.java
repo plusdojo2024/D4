@@ -37,7 +37,8 @@ public class UsersDAO {
 					rs.getString("mail"),
 					rs.getString("password"),
 					rs.getInt("grow_point"),
-					rs.getDate("last_login_date")
+					rs.getDate("last_login_date"),
+					rs.getInt("master_code")
 				);
 			}
 		}
@@ -79,7 +80,7 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する（AUTO_INCREMENTのNUMBER列にはNULLを指定する）
-			String sql = "INSERT INTO Users VALUES (NULL, ?, ?, 0, ?)";
+			String sql = "INSERT INTO Users VALUES (NULL, ?, ?, 0, ?, 0)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -394,7 +395,8 @@ public class UsersDAO {
 					rs.getString("mail"),
 					rs.getString("password"),
 					rs.getInt("grow_point"),
-					rs.getDate("last_login_date")
+					rs.getDate("last_login_date"),
+					rs.getInt("master_code")
 				);
 			}
 		}

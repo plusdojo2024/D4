@@ -72,29 +72,4 @@ window.onload = function(){
 		more.click();
 	}
 }
-
-
-//もっと見るボタンを押したときの処理
-//ここには、表示するリストの数を指定
-	var moreNum = 20;
-
-//表示するリストの数以降のリストを隠す
-	$('.r_list_item:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
-
-//全てのリストを表示したら「もっとみる」ボタンをフェードアウトします。
-	$('.more').on('click', function() {
-	  $('.r_list_item.is-hidden').slice(0, moreNum).removeClass('is-hidden');
-	  if ($('.r_list a.is-hidden').length == 0) {
-	    $('.more').fadeOut();
-	  }
-	});
-
-/* リストの数が、表示するリストの数以下だった場合、「もっとみる」ボタンを非表示にします。
-$(function() {
-  var list = $(".list li").length;  
-    if (list < moreNum) {
-      $('.list-btn').addClass('is-btn-hidden');
-  }
-});
-*/
 	

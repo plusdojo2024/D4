@@ -41,8 +41,9 @@ body {
 	margin-left: 20px;
 	position: sticky;
 	top: 25px;
+	bottom: 25px;
 	width: 30%;
-	height: 300px;
+	height: 420px;
 	background-color: #88b5d3;
 	color: #FFFFFF;
 }

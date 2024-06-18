@@ -16,25 +16,29 @@
 		  <img src="/D4/img/icon.png" alt="アプリロゴ">
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="window.location='/D4/LogoutServlet'" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
 <main>
-<nav>
-    <ul>
-        <li><a href="/D4/HomeServlet">ホーム</a></li>
-        <a>質問</a>
-        <li><a href="/D4/QListServlet">一覧</a></li>
-        <li><a href="/D4/QFormServlet">質問をする</a></li>
-        <a>目安箱</a>
-        <li><a href="/D4/RListServlet">一覧</a></li>
-        <li><a href="/D4/RFormServlet">要望を送る</a></li>
-        <a>育成</a>
-        <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
-        <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
+<nav class="nav">
+    <ul class="menu">
+        <li><a href="/D4/HomeServlet" class="major home">ホーム</a></li>
+        
+        <li><a class="major">質問</a><br>
+        <a href="/D4/QListServlet" class="link">一覧</a><br>
+        <a href="/D4/QFormServlet" class="link">質問をする</a></li>
+        
+        <li><a class="major">目安箱</a><br>
+        <a href="/D4/RListServlet" class="link">一覧</a><br>
+        <a href="/D4/RFormServlet" class="link">要望を送る</a></li>
+        
+        <li><a class="major">育成</a><br>
+        <a href="/D4/CharacterServlet" class="link">アノニくんに会いに行く</a><br>
+        <a href="/D4/ReachedServlet" class="link">アノニくん到達段階</a></li>
+        
         <c:if test="${id.master_code == 1}">
-        <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        <li class="major"><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
         </c:if>
     </ul>
 </nav>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.QuestionsDAO;
 import model.Questions;
 import model.Result;
+import model.Users;
 
 /**
  * Servlet implementation class QListServlet
@@ -72,17 +73,17 @@ public class QListServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-
+        Users users = (Users)session.getAttribute("id");
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		//int questions_id = Integer.parseInt(request.getParameter("questions_id"));
-		String question = request.getParameter("question");
-		int users_id = Integer.parseInt(request.getParameter("users_id"));
-		//String judge = request.getParameter("judge");
+		String question = request.getParameter("questionWindow");
+		int users_id = users.getUsers_id();
+		String judge = request.getParameter("selected");
 
 		// 検索処理を行う
 		QuestionsDAO qDao = new QuestionsDAO();
-		List<Questions> questionList = qDao.select(new Questions(0, question, users_id, ""));
+		List<Questions> questionList = qDao.select(new Questions(0, question,users_id,judge));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("questionList", questionList);

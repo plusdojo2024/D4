@@ -256,7 +256,7 @@ public class QuestionsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 	// SQL文を準備する
-	String sql = "SELECT * FROM Questions WHERE question LIKE ? ORDER BY questions_id DESC";
+	String sql = "SELECT * FROM Questions WHERE question LIKE ? AND judge LIKE ? ORDER BY questions_id DESC";
 	PreparedStatement pStmt = conn.prepareStatement(sql);
 	// SQL文を完成させる
 	if (question.getQuestion() != null) {
@@ -264,6 +264,12 @@ public class QuestionsDAO {
 	}
 	else {
 		pStmt.setString(1, "%");
+	}
+	if (question.getJudge() != null) {
+		pStmt.setString(2, "%" + question.getJudge() + "%");
+	}
+	else {
+		pStmt.setString(2, "%");
 	}
 
 	// SQL文を実行し、結果表を取得する

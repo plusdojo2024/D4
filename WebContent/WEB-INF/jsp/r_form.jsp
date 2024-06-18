@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>目安箱フォーム | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>

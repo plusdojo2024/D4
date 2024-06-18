@@ -6,10 +6,12 @@ mail        varchar (100)   not null,
 password    varchar (100)   not null,
 grow_point  integer         default 0,
 last_login_date date  not null,
+master_code integer  not null default 0,
 primary key (users_id)
 );
 
 /* questionsテーブルの作成 */
+drop table users if exists;
 create table questions (
 questions_id	integer		auto_increment,
 question		varchar (1000)	not null,
@@ -32,6 +34,7 @@ primary key (answers_id)
 
 
 /* requestsテーブルの作成 */
+drop table users if exists;
 create table requests (
 requests_id	    integer		    auto_increment,
 address_order 	varchar (20)	not null,

@@ -80,7 +80,9 @@ public class QListServlet extends HttpServlet {
 		String question = request.getParameter("questionWindow");
 		int users_id = users.getUsers_id();
 		String judge = request.getParameter("selected");
+		int questions_id = Integer.parseInt(request.getParameter("questions_id"));
 
+		if(request.getParameter("submit").equals("更新")){
 		// 検索処理を行う
 		QuestionsDAO qDao = new QuestionsDAO();
 		List<Questions> questionList = qDao.select(new Questions(0, question,users_id,judge));
@@ -91,7 +93,11 @@ public class QListServlet extends HttpServlet {
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
 		dispatcher.forward(request, response);
-
+		}
+		else {
+			session.setAttribute("q_id",questions_id);
+			response.sendRedirect("/D4/QAServlet");
+		}
 	}
 
 }

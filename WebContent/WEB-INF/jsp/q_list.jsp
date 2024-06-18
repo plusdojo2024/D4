@@ -43,7 +43,7 @@
 
   <!-- 検索窓とボタン -->
   <input type="text" name="questionWindow">
-  <input type="submit" name="searchButton" value="検索">
+  <input type="submit" name="submit" value="検索">
 </form>
 
 
@@ -56,9 +56,9 @@
 </span>
 
 <c:forEach var="e" items="${questionList}">
-	<form class="q_list" method="post" action="/D4/QListServlet">
+	<form class="q_list" name="q_list" method="post" action="/D4/QListServlet">
 	    <input type="text" name="questions_id" value="${e.questions_id}">
-	  	<input type="submit" name="requestList" value="${e.question}">
+	  	<input type="submit" name="submit" value="${e.question}">
 	  	<br>
 	</form>
 </c:forEach>

@@ -37,9 +37,9 @@ public class AnswersDAO {
 			while (rs.next()) {
 				Answers record = new Answers(
 				rs.getInt("answers_id"),
-				rs.getInt("question_id"),
+				rs.getInt("questions_id"),
 				rs.getString("answer"),
-				rs.getInt("user_id")
+				rs.getInt("users_id")
 				);
 				AList.add(record);
 			}

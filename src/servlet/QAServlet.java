@@ -39,17 +39,24 @@ public class QAServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int questions_id = Integer.parseInt(request.getParameter("questions_id"));
+		int questions_id = (int)session.getAttribute("q_id");
+		session.removeAttribute("q_id");
+
+
+		request.setAttribute("id",session.getAttribute("id"));
 
 		// 選択された質問とその回答を表示
 		QuestionsDAO QDao = new QuestionsDAO();
 		List<Questions> QList = QDao.select(questions_id);
 
+		Questions question = QList.get(0);
+		request.setAttribute("Qid",question);
+
 		AnswersDAO ADao = new AnswersDAO();
 		List<Answers> AList = ADao.select(questions_id);
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("QList", QList);
+		request.setAttribute("QList", question);
 		request.setAttribute("AList", AList);
 
 

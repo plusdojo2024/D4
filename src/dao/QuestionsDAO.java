@@ -211,7 +211,7 @@ public class QuestionsDAO {
 				Questions record = new Questions(
 				rs.getInt("questions_id"),
 				rs.getString("question"),
-				rs.getInt("user_id"),
+				rs.getInt("users_id"),
 				rs.getString("judge")
 				);
 				QList.add(record);

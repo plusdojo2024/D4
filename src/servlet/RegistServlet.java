@@ -33,7 +33,7 @@ public class RegistServlet extends HttpServlet {
 			return;
 		}
 
-
+		request.setAttribute("id", (Users)session.getAttribute("id"));
 
 		// 登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");

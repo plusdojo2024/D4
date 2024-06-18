@@ -27,33 +27,34 @@ public class RFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	/*	// もしもログインしていなかったらログインサーブレットにリダイレクトする
+	// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-	*/
+		request.setAttribute("id", (Users)session.getAttribute("id"));
 
 		// 目安箱フォームページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_form.jsp");
 		dispatcher.forward(request, response);
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*	// もしもログインしていなかったらログインサーブレットにリダイレクトする
+			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
 			if (session.getAttribute("id") == null) {
 				response.sendRedirect("/D4/LoginServlet");
 				return;
-			}*/
+			}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String address_order = request.getParameter("address_order");
 		String request_text = request.getParameter("request_text");
 
-		HttpSession session = request.getSession();
+		// HttpSession session = request.getSession();
 		Users users = (Users)session.getAttribute("id");
 
 		int users_id = users.getUsers_id();

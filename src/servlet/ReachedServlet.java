@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
+import model.Users;
 
 /**
  * Servlet implementation class RFormServlet
@@ -29,6 +30,7 @@ public class ReachedServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
+		request.setAttribute("id", (Users)session.getAttribute("id"));
 
 		UsersDAO UDao = new UsersDAO();
 		int[] human = UDao.countLevelUser();

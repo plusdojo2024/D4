@@ -32,7 +32,9 @@
         <a>育成</a>
         <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
         <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
+        <c:if test="${id.master_code == 1}">
         <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        </c:if>
     </ul>
 </nav>
 

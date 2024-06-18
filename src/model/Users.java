@@ -8,21 +8,23 @@ public class Users implements Serializable {
 	private String password;
 	private int grow_point;
 	private Date last_login_date;
-	
+	private int master_code;
+
 	//引数がないコンストラクタ
 	public Users() {
-		
+
 	}
-	
+
 	//引数があるコンストラクタ
 	public Users(int users_id, String mail, String password,
-				 int grow_point, Date last_login_date) {
+				 int grow_point, Date last_login_date, int master_code) {
 		super();
 		this.users_id = users_id;
 		this.mail = mail;
 		this.password = password;
 		this.grow_point = grow_point;
 		this.last_login_date = last_login_date;
+		this.master_code = master_code;
 	}
 
 	public int getUsers_id() {
@@ -64,5 +66,13 @@ public class Users implements Serializable {
 	public void setLast_login_date(Date last_login_date) {
 		this.last_login_date = last_login_date;
 	}
-	
+
+	public int getMaster_code() {
+		return master_code;
+	}
+
+	public void setMaster_code(int master_code) {
+		this.master_code = master_code;
+	}
+
 }

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>目安箱一覧 | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>
@@ -31,7 +32,9 @@
         <a>育成</a>
         <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
         <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
+        <c:if test="${id.master_code == 1}">
         <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        </c:if>
     </ul>
 </nav>
 
@@ -39,17 +42,16 @@
 <span id="error_message">
   <a id ="Request_result">${Request_result.message}</a>
 </span>
-<c:forEach var="e" items="${requestList}" >
-	<form class="r_list" method="get" action="/D4/RListServlet">
-
-	  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
-	  	<input type="text" name="requestList" value="${e.request}">
-	  	<br>
-
-
-	</form>
-</c:forEach>
-<div>
+<div class="r_list">
+	<c:forEach var="e" items="${requestList}" >
+		  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
+	
+		  	<a>${e.request}</a>
+	
+		  	<br>
+	</c:forEach>
+	</div>
+<div class="more">
 	<button>もっと見る</button>
 </div>
 
@@ -58,5 +60,8 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+
+<script src="./js/common.js"></script>
+
 </body>
 </html>

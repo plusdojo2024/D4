@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.RequestsDAO;
 import model.Requests;
 import model.Result;
+import model.Users;
 
 /**
  * Servlet implementation class RListServlet
@@ -26,13 +27,14 @@ public class RListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/* もしもログインしていなかったらログインサーブレットにリダイレクトする
+		//もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-		*/
+
+		request.setAttribute("id", (Users)session.getAttribute("id"));
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -51,7 +53,7 @@ public class RListServlet extends HttpServlet {
 		//request.getAttribute("R_result");
 
 
-		HttpSession session = request.getSession();
+		// HttpSession session = request.getSession();
 		if(session.getAttribute("R_result") != null) {
 			request.setAttribute("Request_result",
 					new Result("要望送信！ご意見ありがとうございます。","/D4/RListServlet"));
@@ -67,12 +69,12 @@ public class RListServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*	// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
-		}*/
+		}
 
 
 		// 結果ページにフォワードする

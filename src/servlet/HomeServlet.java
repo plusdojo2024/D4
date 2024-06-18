@@ -36,6 +36,8 @@ public class HomeServlet extends HttpServlet {
 			return;
 		}
 
+		request.setAttribute("id", (Users)session.getAttribute("id"));
+
 		/*
 		HttpSession session = request.getSession();
 		Users loginUser = (Users)session.getAttribute("id");

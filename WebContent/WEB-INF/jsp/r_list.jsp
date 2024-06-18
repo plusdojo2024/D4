@@ -12,7 +12,7 @@
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
             <a href="/D4/LogoutServlet">ログアウト</a>
@@ -46,9 +46,9 @@
 <ul class="r_list">
 	<c:forEach var="e" items="${requestList}" >
 		  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
-	
+
 		<li class="list_item is-hidden"><a>${e.request}</a></li>
-	
+
 		  	<br>
 	</c:forEach>
 </ul>

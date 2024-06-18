@@ -13,7 +13,6 @@
 	errorMessageObj.textContent = null;
 };
 
-
 /*
 //[要望送信]ボタンをクリックしたときの処理
 	let formObj = document.getElementById('request');

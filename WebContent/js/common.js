@@ -59,7 +59,7 @@ window.onload = function(){
 //  if(moreload != null && more != null)的な
 	if(moreload && more) {
 		more.onclick = function(){
-			const targetArray = document.querySelectorAll("list_item.is-hidden");
+			const targetArray = document.querySelectorAll(".list_item.is-hidden");
 			const length = targetArray.length;
 			if(length <= 20) {
 				more.style.display = "none";
@@ -72,4 +72,3 @@ window.onload = function(){
 		more.click();
 	}
 }
-	

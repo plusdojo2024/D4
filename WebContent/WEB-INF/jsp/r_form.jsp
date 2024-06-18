@@ -51,14 +51,14 @@
 
 <!-- 要望フォーム -->
 <p>
-  <textarea name="request_text" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
+  <textarea id ="request_text" name="request_text" rows="5" cols="100" placeholder="1000字以内で入力してください" ></textarea>
 </p>
 
 <!-- 送信ボタン -->
-<input type = "submit" onclick="Request();">
+<input type = "submit" name="submit" value="送信">
 
 <!-- エラーメッセージ -->
-<span id="errorMassage">
+<span id="errorMessage">
 </span>
 </form>
 </main>

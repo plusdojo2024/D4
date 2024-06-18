@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.QuestionsDAO;
+import dao.UsersDAO;
 import model.Questions;
 import model.Result;
 import model.Users;
@@ -55,14 +56,25 @@ public class QFormServlet extends HttpServlet {
 		Users users = (Users)session.getAttribute("id");
 		int users_id = users.getUsers_id();
 
+
+		UsersDAO UDao = new UsersDAO();
+		//Users QUser = UDao.update(users);
+
+
 		// 質問送信を行う
 		QuestionsDAO qDao = new QuestionsDAO();
 		if (qDao.insert(new Questions(0, question, users_id, "回答募集中"))) {
 			// 送信成功
 			session.setAttribute("Q_result",
 			new Result("質問送信！3ptゲット！", "/D4/QListServlet"));
+
+
+			Users QUser = UDao.update(users);
+			QUser.setGrow_point(UDao.addPoint3(QUser)+ QUser.getGrow_point());
+			session.setAttribute("id",QUser);
 		}
 
+		 //
 
 
 		//同じ日にログインしてない

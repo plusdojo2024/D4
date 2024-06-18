@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("id", loginUser);
 
 			Date last_date = loginUser.getLast_login_date();
-			long miliseconds = System.currentTimeMillis();
+			long miliseconds = System.currentTimeMillis() + 32400000;
 			long now_time = miliseconds% 86400;
 			Date now_date = new Date(miliseconds - now_time);
 

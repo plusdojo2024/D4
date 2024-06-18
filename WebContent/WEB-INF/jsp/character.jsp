@@ -7,12 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>アノニくん表示 | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
             <a href="/D4/LogoutServlet">ログアウト</a>
@@ -54,19 +55,19 @@
 <p>
 あなたのアノニくん<br>
   <c:if test="${id.grow_point < 25}">
-	    <img src = "/D4/img/anoni1.png" alt = "第一段階">
+	    <img src = "/D4/img/anoni1.png" width=900px alt = "第一段階">
   </c:if>
   <c:if test="${25 <= id.grow_point && id.grow_point < 75}">
-	    <img src = "/D4/img/anoni2.png" alt = "第二段階">
+	    <img src = "/D4/img/anoni2.png" width=370px alt = "第二段階">
   </c:if>
   <c:if test="${75 <= id.grow_point && id.grow_point < 225}">
-	    <img src = "/D4/img/anoni3.png" alt = "第三段階">
+	    <img src = "/D4/img/anoni3.png" width=370px alt = "第三段階">
   </c:if>
   <c:if test="${225 <= id.grow_point && id.grow_point < 400}">
-	    <img src = "/D4/img/anoni4.png" alt = "第四段階">
+	    <img src = "/D4/img/anoni4.png" width=370px alt = "第四段階">
   </c:if>
   <c:if test="${id.grow_point >= 400}">
-	    <img src = "/D4/img/anoni5.png" alt = "第五段階">
+	    <img src = "/D4/img/anoni5.png" width=370px alt = "第五段階">
   </c:if>
 </p>
 
@@ -74,5 +75,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+<script src="./js/common.js"></script>
 </body>
 </html>

@@ -6,12 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>登録フォーム | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
             <a href="/D4/LogoutServlet">ログアウト</a>
@@ -69,6 +70,9 @@
 
 		</form>
 	</main>
-
+<footer>
+    <p class="copyright">&copy; DIV</p>
+</footer>
+<script src="./js/common.js"></script>
 </body>
 </html>

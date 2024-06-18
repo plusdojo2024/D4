@@ -5,12 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>アノニくん到達度一覧 | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
             <a href="/D4/LogoutServlet">ログアウト</a>
@@ -39,42 +40,42 @@
 <!-- ここにプログラムを記入 -->
     <div class="anonis">
         <div class="anoni">
- 			<img src="/D4/img/anoni1.png" alt="アノニくん1">
+ 			<img src="/D4/img/anoni1.png" width=300px alt="アノニくん1">
 			<p>
 			現在<br>
 			<strong>${human[0]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
- 			<img src="/D4/img/anoni2.png" alt="アノニくん2">
+ 			<img src="/D4/img/anoni2.png" width=200px alt="アノニくん2">
 			<p>
 			現在<br>
 			<strong>${human[1]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
- 			<img src="/D4/img/anoni3.png" alt="アノニくん3">
+ 			<img src="/D4/img/anoni3.png" width=200px alt="アノニくん3">
 			<p>
 			現在<br>
 			<strong>${human[2]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
- 			<img src="/D4/img/anoni3.png" alt="アノニくん3">
+ 			<img src="/D4/img/anoni3.png" width=200px alt="アノニくん3">
 			<p>
 			現在<br>
 			<strong>${human[3]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
- 			<img src="/D4/img/anoni3.png" alt="アノニくん3">
+ 			<img src="/D4/img/anoni3.png" width=200px alt="アノニくん3">
 			<p>
 			現在<br>
 			<strong>${human[4]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
- 			<img src="/D4/img/coming_soon.png" alt="coming soon...">
+ 			<img src="/D4/img/coming_soon.png" width=200px alt="coming soon...">
 			<p><br>
 			</p>
 		</div>
@@ -86,5 +87,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+<script src="./js/common.js"></script>
 </body>
 </html>

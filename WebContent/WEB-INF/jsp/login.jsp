@@ -10,7 +10,7 @@
 <body>
 <header>
 	<div class="logo">
-		<img src="/D4/img/icon.png" alt="アプリロゴ">
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
     </div>
 </header>
 <main>

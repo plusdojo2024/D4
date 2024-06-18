@@ -283,7 +283,7 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "SELECT COUNT(*) FROM Users WHERE grow_point BETWEEN 0 AND 24";
+			String sql = "SELECT COUNT(*) FROM Users WHERE grow_point < 25";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SELECT文を実行し、結果表を取得する

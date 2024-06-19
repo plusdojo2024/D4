@@ -12,7 +12,12 @@
 <header>
     <div class="headers">
         <div class="logo">
-		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          <c:if test="${id.master_code == 0}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          </c:if>
+          <c:if test="${id.master_code == 1}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
+          </c:if>
         </div>
         <div class="header">
             <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
@@ -37,6 +42,7 @@
         </c:if>
     </ul>
 </nav>
+
 
 <!-- ここにプログラムを記入 -->
 <span id="error_message">

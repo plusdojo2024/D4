@@ -12,7 +12,12 @@
 <header>
     <div class="headers">
         <div class="logo">
-		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          <c:if test="${id.master_code == 0}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          </c:if>
+          <c:if test="${id.master_code == 1}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
+          </c:if>
         </div>
         <div class="header">
             <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
@@ -32,9 +37,12 @@
         <a>育成</a>
         <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
         <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
+        <c:if test="${id.master_code == 1}">
         <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        </c:if>
     </ul>
 </nav>
+
 
 <!-- ここにプログラムを記入 -->
 <form method="post" action="/D4/QListServlet">

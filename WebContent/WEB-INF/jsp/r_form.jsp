@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,15 @@
 <header>
     <div class="headers">
         <div class="logo">
-		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          <c:if test="${id.master_code == 0}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          </c:if>
+          <c:if test="${id.master_code == 1}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
+          </c:if>
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
@@ -35,8 +41,9 @@
         <c:if test="${id.master_code == 1}">
         <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
         </c:if>
-     </ul>
+    </ul>
 </nav>
+
 
 <!-- ここにプログラムを記入 -->
 <!-- 宛先指定 -->
@@ -60,13 +67,13 @@
 <input type = "submit" name="submit" value="送信">
 
 <!-- エラーメッセージ -->
-<span id="errorMessage">
+<span id="error_message">
 </span>
 </form>
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
-<script src="./js/common.js"></script>
+<script src="./js/r_form.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@ public class QAServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		int questions_id = (int)session.getAttribute("q_id");
-		session.removeAttribute("q_id");
+
 
 
 		request.setAttribute("id",session.getAttribute("id"));
@@ -51,6 +51,8 @@ public class QAServlet extends HttpServlet {
 
 		Questions question = QList.get(0);
 		request.setAttribute("Qid",question);
+		String judge=question.getJudge();
+		request.setAttribute("Judge",judge);
 
 		AnswersDAO ADao = new AnswersDAO();
 		List<Answers> AList = ADao.select(questions_id);
@@ -78,13 +80,12 @@ public class QAServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String answer=request.getParameter("answer");
+		String answer=request.getParameter("answerForm");
 
 		Users users = (Users)session.getAttribute("id");
-		Questions questions = (Questions)session.getAttribute("");	//質問IDを格納したスコープを呼び出す
+		int questions_id = (int)session.getAttribute("q_id");	//質問IDを格納したスコープを呼び出す
 
 		int users_id = users.getUsers_id();
-		int questions_id = questions.getQuestions_id();	//スコープから呼び出したquestion_idを変数に格納する
 		AnswersDAO ADao = new AnswersDAO();
 
 		// 回答送信を行う
@@ -110,13 +111,13 @@ public class QAServlet extends HttpServlet {
 		String judge = request.getParameter("judge");
 
 		QuestionsDAO QDao = new QuestionsDAO();
-		if (request.getParameter("update_q").equals("更新")) {
-			QDao.update(new Questions(0, question, users_id, judge));
+		if (request.getParameter("submit").equals("更新")) {
+			QDao.update(new Questions(questions_id, question, users_id, judge));
 		}
 
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_a.jsp");
-		dispatcher.forward(request, response);
+		//詳細ページにリダイレクトする
+
+		response.sendRedirect("/D4/QAServlet");
 
 	}
 

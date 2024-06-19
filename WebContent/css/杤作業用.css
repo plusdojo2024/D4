@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.menu {
+	list-style-type: none;	/* 先頭の記号をなくす */
+	box-sizing: border-box;
+	background: #FFF;
+	margin-left: 20px;
+	position: sticky;
+	top: 25px;
+	bottom: 25px;
+	width: 17%;
+	height: 420px;
+	background-color: #88b5d3;
+	color: #FFFFFF;
+}
+
+.menu li {
+	list-style-type: none;	/* 先頭の記号をなくす */
+	padding-right: 30px;		/* 区切りを空ける */
+}
+
+.menu li a:link {
+	color: #fffff9;
+	text-decoration: none;
+}
+
+.menu li a:visited {
+	color: #fffff9;
+	text-decoration: none;
+}
+
+.menu li a:hover {
+	color: #191970;
+	text-decoration: underline;
+}
+
+.menu li a:active {
+  color: hotpink;
+  text-decoration: none;
+}

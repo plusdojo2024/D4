@@ -16,89 +16,137 @@ body {
 	background-color: #f0f8ff;
 }
 
+/* headerクラス */
+header {
+  font-size: 16px;
+
+}
+
 /* headersクラス */
 .headers {
   font-size: 16px;
 
 }
-
-/* headerクラス */
+/*headerクラス*/
 .header {
-  font-size: 16px;
-
+	text-align: right;
 }
 
-/**/
+/*logoクラス*/
 .logo img{
 	max-width: 200px;  /* 最大幅を500ピクセルに設定 */
 	height: auto;      /* 高さを自動調整 */
+	position: fixed;
 }
+
 
 /* メニューバー */
-.nav {
-	box-sizing: border-box;
-	background: #FFF;
-	margin-left: 20px;
-	position: sticky;
-	top: 25px;
-	bottom: 25px;
-	width: 30%;
-	height: 420px;
-	background-color: #88b5d3;
-	color: #FFFFFF;
+@import url("https://fontawesome.com/search?m=free&o=r");
+.menu {
+  position: fixed;
+  top: 150px;
+  left: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 17%;
+}
+.menu li a{
+    display:block;
+    height:em;
+    width: 4em;
+    text-indent:-500em;
+    line-height:4em;
+    text-align:center;
+    color: #ffffff;
+    background-color: #00bfff;
+    position: relative;
+    border-bottom: 1px solid #00bfff;
+    transition: background 0.3s ease-in-out;
+}
+.menu li a:before {
+  font-family: FontAwesome;
+  text-indent: 0em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1.4em;
+}
+.menu li a.home:before {
+  content: "\f015";
+}
+.menu li a.qlist:before {
+  content: "\f46d";
+}
+.menu li a.que:before {
+  content: "\e542";
+}
+.menu li a.rlist:before {
+  content: "\f187";
+}
+.menu li a.req:before {
+  content: "\f1d8";
+}
+.menu li a.chara:before {
+  content: "\f1d6";
+}
+.menu li a.reach:before {
+  content: "\e561";
+}
+.menu li a.regist:before {
+  content: "\f47f";
+}
+.menu li a:hover{
+  background-color: #1e90ff;
+  color: #fff;
+}
+.menu li.current a {
+  background-color: #1e90ff;
+  color: #fff;
+}
+.menu li{
+    position: relative;
+}
+.menu li:after{
+    content: attr(title);
+    position:absolute;
+    left:4em;
+    top:0;
+    height:4em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1e90ff;
+    color: #ffffff;
+    padding:20px 16px 20px 16px;
+    transition: all 0.3s ease-in-out;
+    visibility:hidden;
+    opacity:0;
+}
+.menu li:hover:after{
+    visibility:visible;
+    opacity:1;
+}
+@media screen and (max-height: 34em){
+  .menu li{
+    font-size:70%;
+  }
 }
 
-.menu li {
-	list-style-type: none;	/* 先頭の記号をなくす */
-	padding-right: 30px;		/* 区切りを空ける */
+.menuli {
+	margin: 10px 0 0 0;
+	left: 0;
+	font-size: 20px;
+	color: #00608d;
 }
 
-.menu li a:link {
-	color: #fffff9;
-	text-decoration: none;
+/* main */
+main {
+	margin: 110px 0 0 18%;
 }
-
-.menu li a:visited {
-	color: #fffff9;
-	text-decoration: none;
-}
-
-.menu li a:hover {
-	color: #191970;
-	text-decoration: underline;
-}
-
-.menu li a:active {
-  color: hotpink;
-  text-decoration: none;
-}
-
-.major {
-	font-size: 30px;
-	
-}
-
-.mejor.home li a:link {
-	color: #fffff9;
-	text-decoration: none;
-}
-
-.mejor.home li a:visited {
-	color: #fffff9;
-	text-decoration: none;
-}
-
-.mejor.home li a:hover {
-	color: #191970;
-	text-decoration: underline;
-}
-
-.mejor.home li a:active {
-  color: hotpink;
-  text-decoration: none;
-}
-
-
 /* h1タグの見出し */
 h1 {
   font-size: 16px;
@@ -107,7 +155,8 @@ h1 {
 
 /* h2タグの見出し */
 h2 {
-  font-size: 16px;
+  font-size: 18px;
+  color: #191970;
 }
 
 /* h3タグの見出し */
@@ -116,15 +165,14 @@ h3 {
 }
 
 
-
 /* copyright */
 .copyright {
   /*background-image: url(/D4/img/footer-bg.png);
   background-repeat: repeat-x;*/
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-bottom: 0;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background-color: #4682b4;
 	color: #ffffff;
 	text-align: center;
@@ -135,7 +183,47 @@ h3 {
   color: red;
 }
 
+/*テキストボックスの設定*/
+.formtext {
+	width: 90%;
+    height: 3em;
+    padding: 0 10px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.formtext:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+/*テキストエリアの設定*/
+.formta {
+    display: block;
+    width: 20%;
+    height: 100px;
+    padding: 4px 16px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    resize: vertical;
+	font-family: 'Dela Gothic One';
+}
+
+.formta:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+
 /* 送信ボタンなど */
+/*
 input[type="submit"] {
   border: none;
   padding: 10px;
@@ -152,7 +240,33 @@ input[type="reset"] {
   color: #000000;
   font-size: 15px;
 }
+*/
+.button {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    padding: 10px 100px 10px 100px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #00608d;
+    color: #fff;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
 
+.button:hover {
+    background-color: #202f55;
+}
+
+.button:focus {
+    outline: 0;
+    background-color: #202f55;
+    border: 2px solid rgb(33, 150, 243);
+}
 /*もっと見るボタン*/
 .list_item {
     opacity: 1;
@@ -166,14 +280,15 @@ input[type="reset"] {
     margin: 0;
 }
 
-
 /* login.jsp */
 #login_form {
 
 }
 
 /* home.jsp */
-
+.homeanoni {
+	margin: 0 0 0 60%;
+}
 
 /* q_list.jsp */
 

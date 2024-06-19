@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>ホーム | とくめぇ～</title>
 <link rel="stylesheet" href="/D4/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
 </head>
 <body>
 <header>
@@ -19,29 +20,32 @@
             <input type="button" onclick="window.location='/D4/LogoutServlet'" value="ログアウト" class="lobutton">
         </div>
     </div>
+    
 </header>
-<main>
-<nav class="nav">
-    <ul class="menu">
-        <li><a href="/D4/HomeServlet" class="major home">ホーム</a></li>
-        
-        <li><a class="major">質問</a><br>
-        <a href="/D4/QListServlet" class="link">一覧</a><br>
-        <a href="/D4/QFormServlet" class="link">質問をする</a></li>
-        
-        <li><a class="major">目安箱</a><br>
-        <a href="/D4/RListServlet" class="link">一覧</a><br>
-        <a href="/D4/RFormServlet" class="link">要望を送る</a></li>
-        
-        <li><a class="major">育成</a><br>
-        <a href="/D4/CharacterServlet" class="link">アノニくんに会いに行く</a><br>
-        <a href="/D4/ReachedServlet" class="link">アノニくん到達段階</a></li>
-        
+
+<nav>
+	<ul class="menu">
+        <li title="ホーム"><a href="/D4/HomeServlet" class="home">ホーム</a></li>
+
+    <%-- <div class="menuli">質問</div> --%>
+        <li title="質問一覧"><a href="/D4/QListServlet" class="qlist">一覧</a></li>
+        <li title="質問をする"><a href="/D4/QFormServlet" class="que">質問をする</a></li>
+
+    <%-- <div class="menuli">目安箱</div> --%>
+        <li title="要望一覧"><a href="/D4/RListServlet" class="rlist">一覧</a></li>
+        <li title="要望を送る"><a href="/D4/RFormServlet" class="req">要望を送る</a></li>
+
+    <%-- <div class="menuli">育成：アノニくん</div> --%>
+        <li title="アノニくんに会う"><a href="/D4/CharacterServlet" class="chara">アノニくんに会う</a></li>
+        <li title="みんなの到達度"><a href="/D4/ReachedServlet" class="reach">みんなの到達度</a></li>
+
         <c:if test="${id.master_code == 1}">
-        <li class="major"><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        <li title="ユーザー登録"><a href="/D4/RegistServlet" class="regist">ユーザー登録</a></li>
         </c:if>
     </ul>
 </nav>
+
+<main>
 
 <!-- ここにプログラムを記入 -->
 <h2>新規質問通知欄</h2>
@@ -50,7 +54,7 @@
 	</c:if>
 
 	<c:forEach var="e" items="${questionList}" >
-	  	<input type="text" name="requestList" value="${e.question}">
+	  	<input type="text" name="requestList" value="${e.question}" class="formtext">
 	  	<br>
 	</c:forEach>
 
@@ -62,7 +66,7 @@
 	</c:if>
 
 	<c:forEach var="e" items="${requestsList}" >
-	  	<input type="text" name="requestList" value="${e.request}">
+	  	<input type="text" name="requestList" value="${e.request}" class="formtext">
 	  	<br>
 	</c:forEach>
 
@@ -70,15 +74,16 @@
 
 <h2>質問フォーム</h2>
 <form id="question" method="post">
-    <textarea name="question" placeholder="質問フォーム"></textarea>
-    <p><input type="submit" name="submit" value="送信"></p>
+    <textarea name="question" placeholder="質問フォーム" class="formta"></textarea>
+    <p><input type="submit" name="submit" value="送信" class="button"></p>
     <span id="error_message"><a id ="result">${result.message}</a></span>
 </form>
 
 <!-- レベル別アノニくんの画像表示 -->
+<div class="homeanoni">
 <p>育成ptの説明</p>
 <c:if test="${id.grow_point < 25}">
-<img src="/D4/img/homeanoni1.png" alt="ホームアノニくんの画像1">
+<img src="/D4/img/homeanoni1.png" width="300px" alt="ホームアノニくんの画像1">
 </c:if>
 <c:if test="${25<= id.grow_point && id.grow_point < 75}">
 <img src="/D4/img/homeanoni2.png" alt="ホームアノニくんの画像2">
@@ -92,7 +97,7 @@
 <c:if test="${400<= id.grow_point}">
 <img src="/D4/img/homeanoni5.png" alt="ホームアノニくんの画像5">
 </c:if>
-
+</div>
 
 </main>
 <footer>

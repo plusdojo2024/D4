@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>質問フォーム | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>
@@ -13,7 +14,7 @@
 		  <img src="/D4/img/icon.png" alt="アプリロゴ">
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
@@ -36,8 +37,8 @@
 
 <!-- ここにプログラムを記入 -->
 
-<form method="post" action="/D4/QFormServlet">
-  <textarea name="question" rows="5" cols="100" value="" placeholder="1000字以内で入力してください" ></textarea>
+<form method="post" action="/D4/QFormServlet" id = "question">
+  <textarea id = "question_text" name="question" rows="5" cols="100" placeholder="1000字以内で入力してください" ></textarea>
   <br>
   <input type="submit" value="送信">
   <span id="error_message"></span>
@@ -47,5 +48,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+<script src="./js/q_form.js"></script>
 </body>
 </html>

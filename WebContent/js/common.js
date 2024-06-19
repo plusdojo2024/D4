@@ -3,15 +3,16 @@
 	let formObj = document.getElementById('request');
 	let textboxObj = document.getElementById('request_text');
     let errorMessageObj = document.getElementById('errorMessage');
-
-	formObj.onsubmit = function() {
-	if(textboxObj.value.length === 0 || textboxObj.value.length > 1000) {
-	errorMessageObj.textContent = '※1～1000字で入力してください';
-		// alert('※1～1000字で入力してください');
-		return false;
+	if(formObj&&textboxObj&&errorMessageObj){
+		formObj.onsubmit = function() {
+			if(textboxObj.value.length === 0 || textboxObj.value.length > 1000) {
+				errorMessageObj.textContent = '※1～1000字で入力してください';
+				// alert('※1～1000字で入力してください');
+				return false;
+			}
+			errorMessageObj.textContent = null;
+		};
 	}
-	errorMessageObj.textContent = null;
-};
 
 /*
 //[要望送信]ボタンをクリックしたときの処理

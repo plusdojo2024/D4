@@ -9,6 +9,7 @@
 <title>ホーム | とくめぇ～</title>
 <link rel="stylesheet" href="/D4/css/common.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<link rel="stylesheet" href="/D4/css/home.css">
 </head>
 <body>
 <header>
@@ -72,33 +73,36 @@
 
 	<a href="/D4/RListServlet">もっと見る</a>
 
-<h2>質問フォーム</h2>
-<form id="question" method="post">
-    <textarea name="question" placeholder="質問フォーム" class="formta"></textarea>
-    <p><input type="submit" name="submit" value="送信" class="button"></p>
-    <span id="error_message"><a id ="result">${result.message}</a></span>
-</form>
-
-<!-- レベル別アノニくんの画像表示 -->
-<div class="homeanoni">
-<p>育成ptの説明</p>
-<c:if test="${id.grow_point < 25}">
-<img src="/D4/img/homeanoni1.png" width="300px" alt="ホームアノニくんの画像1">
-</c:if>
-<c:if test="${25<= id.grow_point && id.grow_point < 75}">
-<img src="/D4/img/homeanoni2.png" alt="ホームアノニくんの画像2">
-</c:if>
-<c:if test="${75<= id.grow_point && id.grow_point < 225}">
-<img src="/D4/img/homeanoni3.png" alt="ホームアノニくんの画像3">
-</c:if>
-<c:if test="${225<= id.grow_point && id.grow_point < 400}">
-<img src="/D4/img/homeanoni4.png" alt="ホームアノニくんの画像4">
-</c:if>
-<c:if test="${400<= id.grow_point}">
-<img src="/D4/img/homeanoni5.png" alt="ホームアノニくんの画像5">
-</c:if>
+<div class="qf_ha qf">
+	<h2>質問フォーム</h2>
+	<form id="question" method="post">
+	    <textarea name="question" placeholder="質問フォーム" class="formta"></textarea>
+	    <p><input type="submit" name="submit" value="送信" class="button"></p>
+	    <span id="error_message"><a id ="result">${result.message}</a></span>
+	</form>
 </div>
-
+	
+<div class="qf_ha ha">
+	<!-- レベル別アノニくんの画像表示 -->
+	<div class="homeanoni">
+	<p class="h2">育成ptの説明</p>
+	<c:if test="${id.grow_point < 25}">
+	<img src="/D4/img/homeanoni1.png" width="300px" alt="ホームアノニくんの画像1">
+	</c:if>
+	<c:if test="${25<= id.grow_point && id.grow_point < 75}">
+	<img src="/D4/img/homeanoni2.png" alt="ホームアノニくんの画像2">
+	</c:if>
+	<c:if test="${75<= id.grow_point && id.grow_point < 225}">
+	<img src="/D4/img/homeanoni3.png" alt="ホームアノニくんの画像3">
+	</c:if>
+	<c:if test="${225<= id.grow_point && id.grow_point < 400}">
+	<img src="/D4/img/homeanoni4.png" alt="ホームアノニくんの画像4">
+	</c:if>
+	<c:if test="${400<= id.grow_point}">
+	<img src="/D4/img/homeanoni5.png" alt="ホームアノニくんの画像5">
+	</c:if>
+	</div>
+</div>
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>

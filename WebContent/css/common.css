@@ -156,7 +156,6 @@ h1 {
 /* h2タグの見出し */
 h2 {
   font-size: 18px;
-  color: #191970;
 }
 
 /* h3タグの見出し */
@@ -169,6 +168,9 @@ h3 {
 .copyright {
   /*background-image: url(/D4/img/footer-bg.png);
   background-repeat: repeat-x;*/
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 	margin-top: 20px;
 	margin-bottom: 0;
 	padding-top: 10px;
@@ -185,7 +187,6 @@ h3 {
 
 /*テキストボックスの設定*/
 .formtext {
-	width: 90%;
     height: 3em;
     padding: 0 10px;
     border-radius: 4px;
@@ -203,8 +204,6 @@ h3 {
 /*テキストエリアの設定*/
 .formta {
     display: block;
-    width: 20%;
-    height: 100px;
     padding: 4px 16px;
     border-radius: 4px;
     border: none;

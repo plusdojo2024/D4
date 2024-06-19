@@ -13,15 +13,10 @@
 <header>
     <div class="headers">
         <div class="logo">
-          <c:if test="${id.master_code == 0}">
-          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
-          </c:if>
-          <c:if test="${id.master_code == 1}">
-          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
-          </c:if>
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
-            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
+            <a href="/D4/LogoutServlet">ログアウト</a>
         </div>
     </div>
 </header>
@@ -44,18 +39,18 @@
     </ul>
 </nav>
 
-
 <!-- ここにプログラムを記入 -->
 <span id="error_message">
   <a id ="Request_result">${Request_result.message}</a>
 </span>
-
 <div id="moreload">
 <ul class="r_list">
 	<c:forEach var="e" items="${requestList}" >
 		  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
 
 		<li class="list_item is-hidden"><a>${e.request}</a></li>
+
+		  	<br>
 	</c:forEach>
 </ul>
 <div id="more">
@@ -68,7 +63,7 @@
     <p class="copyright">&copy; DIV</p>
 </footer>
 
-<script src="./js/r_list.js"></script>
+<script src="./js/common.js"></script>
 
 </body>
 </html>

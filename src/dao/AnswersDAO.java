@@ -26,7 +26,7 @@ public class AnswersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM Answers WHERE questions_id = ? ORDER BY answers_id DESC ";
+			String sql = "SELECT * FROM Answers WHERE questions_id = ? ORDER BY answers_id ASC ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, questions_id);
 
@@ -82,7 +82,7 @@ public class AnswersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
 
 			// SQL文を準備する（AUTO_INCREMENTのNUMBER列にはNULLを指定する）
-			String sql = "INSERT INTO Bc VALUES (NULL, ?, ?, ?)";
+			String sql = "INSERT INTO Answers VALUES (NULL, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる

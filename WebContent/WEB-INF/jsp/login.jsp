@@ -7,14 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン | とくめぇ～</title>
-<link rel="stylesheet" href="/D4/css/common.css">
 </head>
 <body>
 <header>
-    <div class="headers">
-        <div class="logo">
+	<div class="logo">
 		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
-        </div>
     </div>
 </header>
 <main>
@@ -42,7 +39,7 @@
                     <input type="submit" name="submit" value="ログイン">
                     <input type="reset" name="reset" value="リセット">
                     <span id="error_message">
-                  <%-- <a id ="result">${result.message}</a> --%>
+                    <a id ="result">${result.message}</a>
                     </span>
                 </td>
             </tr>
@@ -52,8 +49,5 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
-
-<script src="./js/login.js"></script>
-
 </body>
 </html>

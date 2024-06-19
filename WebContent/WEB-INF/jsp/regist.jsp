@@ -13,15 +13,10 @@
 <header>
     <div class="headers">
         <div class="logo">
-          <c:if test="${id.master_code == 0}">
-          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
-          </c:if>
-          <c:if test="${id.master_code == 1}">
-          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
-          </c:if>
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
-            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
+            <a href="/D4/LogoutServlet">ログアウト</a>
         </div>
     </div>
 </header>
@@ -44,7 +39,6 @@
     </ul>
 </nav>
 
-
 	<main>
 		<form id="regist" method="post" action="/D4/RegistServlet">
         <table>
@@ -52,7 +46,7 @@
                 <td>
                     <label>
                         メールアドレス<br>
-                        <input type="text" name="mail" id = "mail">
+                        <input type="text" name="mail">
                     </label>
                 </td>
             </tr>
@@ -60,7 +54,7 @@
                 <td>
                     <label>
                         パスワード<span> ※パスワードは50字まで使用可能です</span><br>
-                        <input type="password" name="password" id = "password">
+                        <input type="password" name="password">
                     </label>
                 </td>
             </tr>
@@ -69,7 +63,7 @@
                     <input type="submit" name="submit" value="登録">
                     <input type="reset" name="reset" value="リセット">
                     <span id="error_message">
-                   <%-- <a id ="result">${result.message}</a> --%>
+                    <a id ="result">${result.message}</a>
                     </span>
                 </td>
             </tr>
@@ -80,6 +74,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
-<script src="./js/regist.js"></script>
+<script src="./js/common.js"></script>
 </body>
 </html>

@@ -40,18 +40,39 @@
 <form method="post" action="/D4/QAServlet">
 	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
 	<c:if var="t" test="${id.users_id == Qid.users_id}">
+	<c:if test="${Judge=='回答募集中'}">
+	    <input type="radio" name="judge" value="回答募集中" checked="checked">回答募集中
+		<input type="radio" name="judge" value="解決済み">解決済み
+	</c:if>
+	<c:if test="${Judge=='解決済み'}">
+	    <input type="radio" name="judge" value="回答募集中" >回答募集中
+		<input type="radio" name="judge" value="解決済み" checked="checked">解決済み
+	</c:if>
+
+		<br>
 		<textarea name="question">${QList.question}</textarea>
-		<input type="radio" name="unresolved">回答募集中
-		<input type="radio" name="resolved">解決済み
-		<input type="submit" name="update_q" value="更新">
+
+		<!-- ラジオボタンのname をcheckに変更しました。-->
+
+
+		<input type="submit" name="submit" value="更新">
 	</c:if>
 	<c:if var="t" test="${id.users_id != Qid.users_id}">
+	    <c:if test="${Judge=='回答募集中'}">
+	    <input type="radio" name="judge" value="回答募集中" checked="checked">回答募集中
+		<input type="radio" name="judge" value="解決済み">解決済み
+	</c:if>
+	<c:if test="${Judge=='解決済み'}">
+	    <input type="radio" name="judge" value="回答募集中" >回答募集中
+		<input type="radio" name="judge" value="解決済み" checked="checked">解決済み
+	</c:if>
+		<br>
 		<textarea name="question" readonly="readonly">${QList.question}</textarea>
-		<input type="radio" name="unresolved" readonly="readonly">回答募集中
-		<input type="radio" name="resolved" readonly="readonly">解決済み
+
 	</c:if>
 
 	<!-- 過去の回答を編集不可で表示 -->
+	<br>
 	<c:forEach var="e" items="${AList}">
 		<textarea name="postAnswer" readonly="readonly">${e.answer}</textarea><br>
 	</c:forEach>

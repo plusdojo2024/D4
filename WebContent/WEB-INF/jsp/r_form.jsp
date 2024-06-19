@@ -14,7 +14,7 @@
 		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
@@ -59,13 +59,13 @@
 <input type = "submit" name="submit" value="送信">
 
 <!-- エラーメッセージ -->
-<span id="errorMessage">
+<span id="error_message">
 </span>
 </form>
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
-<script src="./js/common.js"></script>
+<script src="./js/r_form.js"></script>
 </body>
 </html>

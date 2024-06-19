@@ -11,7 +11,7 @@
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
             <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">

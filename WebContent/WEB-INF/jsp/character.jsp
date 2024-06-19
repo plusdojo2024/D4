@@ -16,7 +16,7 @@
 		  <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
@@ -75,6 +75,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
-<script src="./js/common.js"></script>
+<script src="./js/character.js"></script>
 </body>
 </html>

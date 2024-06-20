@@ -55,7 +55,7 @@
 <!-- ここにプログラムを記入 -->
     <div class="anonis">
         <div class="anoni">
- 			<img src="/D4/img/anoni1.png" width=300px alt="アノニくん1">
+ 			<img src="/D4/img/reached_anoni1.png" class="anoni_png" alt="アノニくん1">
 			<p>
 			現在<br>
 			<strong class="cnt">${human[0]}人育成中</strong>
@@ -63,10 +63,10 @@
 		</div>
         <div class="anoni">
           <c:if test="${id.grow_point >= 25}">
- 			<img src="/D4/img/anoni2.png" width=200px alt="アノニくん2">
+ 			<img src="/D4/img/reached_anoni2.png" class="anoni_png" alt="アノニくん2">
  		  </c:if>
           <c:if test="${id.grow_point < 25}">
- 			<img src="/D4/img/secret.png" width=200px alt="未到達です">
+ 			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
 			現在<br>
@@ -75,10 +75,10 @@
 		</div>
         <div class="anoni">
           <c:if test="${id.grow_point >= 75}">
- 			<img src="/D4/img/anoni3.png" width=200px alt="アノニくん3">
+ 			<img src="/D4/img/reached_anoni3.png" class="anoni_png" alt="アノニくん3">
  		  </c:if>
           <c:if test="${id.grow_point < 75}">
- 			<img src="/D4/img/secret.png" width=200px alt="未到達です">
+ 			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
 			現在<br>
@@ -87,10 +87,10 @@
 		</div>
         <div class="anoni">
           <c:if test="${id.grow_point >= 225}">
- 			<img src="/D4/img/anoni4.png" width=200px alt="アノニくん4">
+ 			<img src="/D4/img/reached_anoni4.png" class="anoni_png" alt="アノニくん4">
  		  </c:if>
           <c:if test="${id.grow_point < 225}">
- 			<img src="/D4/img/secret.png" width=200px alt="未到達です">
+ 			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
 			現在<br>
@@ -99,10 +99,10 @@
 		</div>
         <div class="anoni">
           <c:if test="${id.grow_point >= 400}">
- 			<img src="/D4/img/anoni5.png" width=200px alt="アノニくん5">
+ 			<img src="/D4/img/reached_anoni5.png" class="anoni_png" alt="アノニくん5">
  		  </c:if>
           <c:if test="${id.grow_point < 400}">
- 			<img src="/D4/img/secret.png" width=200px alt="未到達です">
+ 			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
 			現在<br>
@@ -110,7 +110,7 @@
 			</p>
 		</div>
         <div class="anoni">
- 			<img src="/D4/img/coming_soon.png" width=200px alt="coming soon...">
+ 			<img src="/D4/img/coming_soon.png" class="anoni_png" alt="coming soon...">
 			<p><br>
 			</p>
 		</div>

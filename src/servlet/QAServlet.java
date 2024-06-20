@@ -44,6 +44,11 @@ public class QAServlet extends HttpServlet {
 			session.removeAttribute("result");
 		}
 
+		if(session.getAttribute("update") != null) {
+			request.setAttribute("update", (Result)session.getAttribute("update"));
+			session.removeAttribute("update");
+		}
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		int questions_id = (int)session.getAttribute("q_id");
@@ -116,12 +121,15 @@ public class QAServlet extends HttpServlet {
 
 		QuestionsDAO QDao = new QuestionsDAO();
 		if (request.getParameter("submit").equals("更新")) {
-			QDao.update(new Questions(questions_id, question, users_id, judge));
+			if (QDao.update(new Questions(questions_id, question, users_id, judge))) {
+				session.setAttribute("update", new Result("質問内容を更新しました。", "/D4/QAServlet"));
+			}
+			else {
+				session.setAttribute("update",
+				new Result("予期しないエラーが発生しました。", "/D4/home.jsp"));
+			}
 		}
-		else {
-			session.setAttribute("result",
-			new Result("予期しないエラーが発生しました。", "/D4/home.jsp"));
-		}
+
 
 		//詳細ページにリダイレクトする
 		response.sendRedirect("/D4/QAServlet");

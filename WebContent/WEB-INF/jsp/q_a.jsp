@@ -52,10 +52,16 @@
 		<br>
 		<textarea name="question">${QList.question}</textarea>
 
+
 		<!-- ラジオボタンのname をcheckに変更しました。-->
 
 
-		<input type="submit" name="submit" value="更新">
+		<input type="submit" name="submit" value="更新"><br>
+
+		<span>
+	  		<a id ="update">${update.message}</a>
+		</span>
+
 	</c:if>
 	<c:if var="t" test="${id.users_id != Qid.users_id}">
 	    <c:if test="${Judge=='回答募集中'}">
@@ -78,7 +84,7 @@
 	</c:forEach>
 
 	<!-- 回答入力欄＆送信ボタン -->
-	<input type="text" name="answerForm">
+	<textarea name="answerForm"></textarea>
 	<input type="submit" name="submit" value="回答する"><br>
 	<span id="error_message">
 	  <a id ="Question_result">${result.message}</a>

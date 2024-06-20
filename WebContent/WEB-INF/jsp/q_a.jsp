@@ -58,9 +58,9 @@
 	</c:if>
 
 		<br>
-		<textarea id="question_text" name="question">${QList.question}</textarea>
+		<textarea id="question_text" name="question" class="formta">${QList.question}</textarea>
 
-		<input type="submit" name="submit" value="更新"><br>
+		<input type="submit" name="submit" value="更新" class="button"><br>
 
 		<span id="update">${update.message}</span>
 	</c:if>
@@ -84,12 +84,12 @@
 	<!-- 過去の回答を編集不可で表示 -->
 	<br>
 	<c:forEach var="e" items="${AList}">
-		<textarea name="postAnswer" readonly="readonly">${e.answer}</textarea><br>
+		<textarea name="postAnswer" readonly="readonly" class="formta">${e.answer}</textarea><br>
 	</c:forEach>
 
 	<!-- 回答入力欄＆送信ボタン -->
 	<textarea id="answer_text" name="answerForm"></textarea>
-	<input type="submit" name="submit" value="回答する"><br>
+	<input type="submit" name="submit" value="回答する" class="button"><br>
 	<span id="error_message">${result.message}</span>
 </form>
 

@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
-#search {
-  text-align: right;
+#searchbutton {
+  top: 150px;
+  left: 20px;
+  margin: 0 10% 0 0;
+  padding: 0;
+  width: 17%;
+}
+
+#searchwindow {
+	text-align: right;
 }
 
 #moreload ul{

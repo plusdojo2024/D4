@@ -96,6 +96,10 @@ public class HomeServlet extends HttpServlet {
 			session.setAttribute("result",
 			new Result("質問送信！3ptゲット！", "/D4/home.jsp"));
 		}
+		else {
+			session.setAttribute("result",
+			new Result("予期しないエラーが発生しました。", "/D4/home.jsp"));
+		}
 
 		// ホームページにリダイレクトする
 		response.sendRedirect("/D4/HomeServlet");

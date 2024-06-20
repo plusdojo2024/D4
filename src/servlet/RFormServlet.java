@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,7 +26,7 @@ public class RFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
@@ -42,39 +41,33 @@ public class RFormServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// もしもログインしていなかったらログインサーブレットにリダイレクトする
-			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/D4/LoginServlet");
-				return;
-			}
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String address_order = request.getParameter("address_order");
 		String request_text = request.getParameter("request_text");
 
-		// HttpSession session = request.getSession();
 		Users users = (Users)session.getAttribute("id");
-
 		int users_id = users.getUsers_id();
 
 		// 登録処理を行う
 		RequestsDAO rDao = new RequestsDAO();
-		rDao.insert(new Requests(0,address_order,request_text,users_id));
-
-
+		if(rDao.insert(new Requests(0,address_order,request_text,users_id))){
 
 		session.setAttribute("R_result",
 				new Result("要望送信！ご意見ありがとうございます。", "/D4/RListServlet"));
-
-		List<Requests> requestsList = rDao.select();
-
-		request.setAttribute("requestList", requestsList);
-
+		}else {
+			session.setAttribute("R_result",
+				new Result("予期しないエラーが発生しました。", "/D4/RListServlet"));
+		}
 		// 目安箱一覧ページにリダイレクトする
 		response.sendRedirect("/D4/RListServlet");
-
 	}
 
 

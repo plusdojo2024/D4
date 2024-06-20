@@ -59,8 +59,10 @@
   <input type="radio" name="selected" value="解決済み">解決済み
 
   <!-- 検索窓とボタン -->
-  <input type="text" name="questionWindow" id = "search">
-  <input type="submit" name="submit" value="検索" id = "search">
+
+    <input type="text" name="questionWindow" id = "searchwindow">
+    <input type="submit" name="submit" value="検索" id = "searchbutton">
+
 </form>
 
 

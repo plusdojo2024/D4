@@ -18,7 +18,7 @@
 		  <img src="/D4/img/icon.png" alt="アプリロゴ">
         </div>
         <div class="header">
-            <input type="button" onclick="window.location='/D4/LogoutServlet'" value="ログアウト" class="lobutton">
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
     
@@ -75,10 +75,10 @@
 
 <div class="qf_ha qf">
 	<h2>質問フォーム</h2>
-	<form id="question" method="post">
-	    <textarea name="question" placeholder="質問フォーム" class="formta"></textarea>
+	<form id="question" method="post" id = "question">
+	    <textarea id = "question_text" name="question"  placeholder="1000字以内で入力してください" class="formta"></textarea>
 	    <p><input type="submit" name="submit" value="送信" class="button"></p>
-	    <span id="error_message"><a id ="result">${result.message}</a></span>
+	    <span id="error_message">${result.message}</span>
 	</form>
 </div>
 	
@@ -107,5 +107,6 @@
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+<script src="./js/home.js"></script>
 </body>
 </html>

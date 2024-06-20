@@ -11,7 +11,7 @@ primary key (users_id)
 );
 
 /* questionsテーブルの作成 */
-drop table users if exists;
+drop table questions if exists;
 create table questions (
 questions_id	integer		auto_increment,
 question		varchar (1000)	not null,
@@ -34,7 +34,7 @@ primary key (answers_id)
 
 
 /* requestsテーブルの作成 */
-drop table users if exists;
+drop table requests if exists;
 create table requests (
 requests_id	    integer		    auto_increment,
 address_order 	varchar (20)	not null,

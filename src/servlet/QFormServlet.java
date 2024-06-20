@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,15 +50,10 @@ public class QFormServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String question = request.getParameter("question");
-		//String judge = request.getParameter("judge");
-
 		Users users = (Users)session.getAttribute("id");
 		int users_id = users.getUsers_id();
 
-
 		UsersDAO UDao = new UsersDAO();
-		//Users QUser = UDao.update(users);
-
 
 		// 質問送信を行う
 		QuestionsDAO qDao = new QuestionsDAO();
@@ -69,20 +63,9 @@ public class QFormServlet extends HttpServlet {
 			new Result("質問送信！3ptゲット！", "/D4/QListServlet"));
 
 
-			Users QUser = UDao.update(users);
-			QUser.setGrow_point(UDao.addPoint3(QUser)+ QUser.getGrow_point());
-			session.setAttribute("id",QUser);
+			users.setGrow_point(UDao.addPoint3(users)+ users.getGrow_point());
+			session.setAttribute("id",users);
 		}
-
-		 //
-
-
-		//同じ日にログインしてない
-		//.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
-
-		List<Questions> questionsList = qDao.select();
-
-		request.setAttribute("questionList", questionsList);
 
 		// 質問一覧ページにリダイレクトする
 		response.sendRedirect("/D4/QListServlet");

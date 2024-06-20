@@ -55,17 +55,18 @@
 <!-- 宛先指定 -->
 <form id="request" method="post" action="/D4/RFormServlet">
 
-<p>
-<div class="address">
-<h2>宛先指定</h2><br>
-</div>
-<select name = "address_order" class="order">
-  <option value = "all">全体</option>
-  <option value = "keiri">経理部</option>
-  <option value = "soumu">総務部</option>
-  <option value = "jinji">人事部</option>
-</select>
-</p>
+
+
+  <h2>宛先指定</h2>
+  <br>
+  <p>
+	<select name = "address_order" class="order">
+	  <option value = "all">全体</option>
+	  <option value = "keiri">経理部</option>
+	  <option value = "soumu">総務部</option>
+	  <option value = "jinji">人事部</option>
+	</select>
+  </p>
 
 <!-- 要望フォーム -->
 <p>

@@ -1,11 +1,16 @@
 @charset "UTF-8";
 
 
-.address {
+h2 {
 	font-size: 18px;
     color: #191970;
+    padding-top:50px;
+    margin-bottom:0px;
 }
 
+p{
+	margin-top:0px;
+}
 .order {
 	width:100px;
 	height:30px;

@@ -27,38 +27,30 @@ public class QListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
+
 		//もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-		*/
+
 
 		// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				/*
-				int questions_id = Integer.parseInt(request.getParameter("questions_id"));
-				String question = request.getParameter("question");
-				int users_id = Integer.parseInt(request.getParameter("users_id"));
-				String judge = request.getParameter("judge");
-				*/
+		request.setCharacterEncoding("UTF-8");
 
-				QuestionsDAO qDao = new QuestionsDAO();
-				//List<Bc> cardList = bDao.select(new Bc(0, "", companyName, "", department, position, "", name, "", note));
-				List<Questions> questionList = qDao.select();
+		// 検索処理を行う
+		QuestionsDAO qDao = new QuestionsDAO();
+		List<Questions> questionList = qDao.select();
+		request.setAttribute("questionList", questionList);
 
-				request.setAttribute("questionList", questionList);
+		// リダイレクト時のメッセージ表示
+		if(session.getAttribute("Q_result") != null) {
+			request.setAttribute("Question_result",
+					new Result("質問送信！3ptゲット！","/D4/QListServlet"));
+			session.removeAttribute("Q_result");
 
-
-				HttpSession session = request.getSession();
-				if(session.getAttribute("Q_result") != null) {
-					request.setAttribute("Question_result",
-							new Result("質問送信！3ptゲット！","/D4/QListServlet"));
-					session.removeAttribute("Q_result");
-
-				}
+		}
 
 		//質問一覧ページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
@@ -67,34 +59,38 @@ public class QListServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
+
         Users users = (Users)session.getAttribute("id");
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		//int questions_id = Integer.parseInt(request.getParameter("questions_id"));
+
 		String question = request.getParameter("questionWindow");
 		int users_id = users.getUsers_id();
 		String judge = request.getParameter("selected");
-		int questions_id = Integer.parseInt(request.getParameter("questions_id"));
 
-		if(request.getParameter("submit").equals("更新")){
-		// 検索処理を行う
-		QuestionsDAO qDao = new QuestionsDAO();
-		List<Questions> questionList = qDao.select(new Questions(0, question,users_id,judge));
+		if(request.getParameter("submit").equals("検索")){
 
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("questionList", questionList);
+			// 検索処理を行う
+			QuestionsDAO qDao = new QuestionsDAO();
+			List<Questions> questionList = qDao.select(new Questions(0, question,users_id,judge));
 
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
-		dispatcher.forward(request, response);
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("questionList", questionList);
+
+			// 結果ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
+			dispatcher.forward(request, response);
 		}
 		else {
+			int questions_id = Integer.parseInt(request.getParameter("questions_id"));
 			session.setAttribute("q_id",questions_id);
 			response.sendRedirect("/D4/QAServlet");
 		}

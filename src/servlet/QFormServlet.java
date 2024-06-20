@@ -66,6 +66,10 @@ public class QFormServlet extends HttpServlet {
 			users.setGrow_point(UDao.addPoint3(users)+ users.getGrow_point());
 			session.setAttribute("id",users);
 		}
+		else {
+			session.setAttribute("Q_result",
+			new Result("予期しないエラーが発生しました。", "/D4/QListServlet"));
+		}
 
 		// 質問一覧ページにリダイレクトする
 		response.sendRedirect("/D4/QListServlet");

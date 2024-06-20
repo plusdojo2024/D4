@@ -118,6 +118,10 @@ public class QAServlet extends HttpServlet {
 		if (request.getParameter("submit").equals("更新")) {
 			QDao.update(new Questions(questions_id, question, users_id, judge));
 		}
+		else {
+			session.setAttribute("result",
+			new Result("予期しないエラーが発生しました。", "/D4/home.jsp"));
+		}
 
 		//詳細ページにリダイレクトする
 		response.sendRedirect("/D4/QAServlet");

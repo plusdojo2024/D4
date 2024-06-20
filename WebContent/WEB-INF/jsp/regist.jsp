@@ -69,7 +69,7 @@
                     <input type="submit" name="submit" value="登録">
                     <input type="reset" name="reset" value="リセット">
                     <span id="error_message">
-                   <%-- <a id ="result">${result.message}</a> --%>
+                    <a id ="result">${result.message}</a>
                     </span>
                 </td>
             </tr>

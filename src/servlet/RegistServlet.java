@@ -61,11 +61,11 @@ public class RegistServlet extends HttpServlet {
 		if (UDao.insert(new Users(0, mail, password, 0, new Date(10000000000L), 0))) {
 			// 登録成功
 			request.setAttribute("result",
-			new Result("ユーザーを登録しました。", "/D4/RegistServlet"));
+			new Result("ユーザーを登録しました。", "/D4/regist.jsp"));
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("入力内容が正しくありません。", "/D4/regist.jsp"));
+			new Result("予期しないエラーが発生しました。", "/D4/regist.jsp"));
 		}
 
 		// 登録ページにフォワードする

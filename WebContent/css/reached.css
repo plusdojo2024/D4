@@ -1,16 +1,26 @@
 @charset "UTF-8";
 
+
+/*現在のナビゲーションをホバーせずにホバー状態にする*/
+/*.homeのクラス名をliタグのクラス名に変更してください*/
+.menu li.reach a {
+	background-color: #a0d8ef;
+	color: #4e454a;
+}
+.menu li.reach:after {
+    visibility:visible;
+    opacity:1;
+}
+
+/* アノニくんスタイル */
 .anonis{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px;
 }
-
-.anoni{
-	width: 100%;
-	height:auto;
+.anoni_png{
+	width:200px;
 }
-
 .cnt{
 	text-align:right;
 	font-size:25px;

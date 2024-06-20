@@ -39,11 +39,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		HttpSession session = request.getSession();
-		session.setAttribute("id", new Users(1, "メールアドレス", "パスワード", 100, new Date(10000000000L)));
-		response.sendRedirect("/D4/HomeServlet");
-        */
+
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -95,13 +91,10 @@ public class LoginServlet extends HttpServlet {
 				loginUser.setGrow_point(UDao.lessPoint(loginUser) + loginUser.getGrow_point());
 				session.setAttribute("id", loginUser);
 			}
-			// メニューサーブレットにリダイレクトする
+			// ホームサーブレットにリダイレクトする
 			response.sendRedirect("/D4/HomeServlet");
 		}
 		else {									// ログイン失敗
-			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result",
-			new Result("入力内容が正しくありません。", "/D4/LoginServlet"));
 
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");

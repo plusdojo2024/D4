@@ -96,15 +96,9 @@ public class UsersDAO {
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			if (user.getLast_login_date() != null && !user.getLast_login_date().equals("")) {
-			    //Date sqlDate = Date.valueOf(users.getLast_login_date()); // yyyy-MM-dd形式の文字列をjava.sql.Dateに変換
+			if (user.getLast_login_date() != null) {
 			    pStmt.setDate(3, user.getLast_login_date());
 			}
-			else {
-			    //Date sqlDate = Date.valueOf("2000-01-01"); // 未設定の場合でも何かしらの日付が必要
-			    pStmt.setString(3, "日付取得失敗！");
-			}
-
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

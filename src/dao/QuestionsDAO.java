@@ -132,8 +132,6 @@ public class QuestionsDAO {
 		Connection conn = null;
 		List<Questions> questionList = new ArrayList<Questions>();
 
-		//System.out.println(card.getNumber());
-
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -184,12 +182,10 @@ public class QuestionsDAO {
 		return questionList;
 	}
 
-	// 検索機能
-
+	// 質問一覧で選択された質問を表示する
 	public List<Questions> select(int questions_id) {
 		Connection conn = null;
 		List<Questions> QList = new ArrayList<Questions>();
-
 
 		try {
 			// JDBCドライバを読み込む
@@ -243,7 +239,7 @@ public class QuestionsDAO {
 	}
 
 
-	// 引数paramで検索項目を指定し、検索結果のリストを返す
+	// 引数paramaterで検索項目を指定し、検索結果のリストを返す
 	public List<Questions> select(Questions question) {
 		Connection conn = null;
 		List<Questions> questionList = new ArrayList<Questions>();

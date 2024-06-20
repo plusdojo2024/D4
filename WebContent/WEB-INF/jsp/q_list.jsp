@@ -7,62 +7,80 @@
 <head>
 	<meta charset="UTF-8">
 	<title>質問一覧 | とくめぇ～</title>
+<link rel="stylesheet" href="/D4/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<link rel="stylesheet" href="/D4/css/q_list.css">
 </head>
 <body>
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
+          <c:if test="${id.master_code == 0}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          </c:if>
+          <c:if test="${id.master_code == 1}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
+          </c:if>
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
-<main>
+
 <nav>
-    <ul>
-        <li><a href="/D4/HomeServlet">ホーム</a></li>
-        <a>質問</a>
-        <li><a href="/D4/QListServlet">一覧</a></li>
-        <li><a href="/D4/QFormServlet">質問をする</a></li>
-        <a>目安箱</a>
-        <li><a href="/D4/RListServlet">一覧</a></li>
-        <li><a href="/D4/RFormServlet">要望を送る</a></li>
-        <a>育成</a>
-        <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
-        <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
-        <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+	<ul class="menu">
+        <li title="ホーム"><a href="/D4/HomeServlet" class="home">ホーム</a></li>
+
+    <%-- <div class="menuli">質問</div> --%>
+        <li title="質問一覧"><a href="/D4/QListServlet" class="qlist">一覧</a></li>
+        <li title="質問をする"><a href="/D4/QFormServlet" class="que">質問をする</a></li>
+
+    <%-- <div class="menuli">目安箱</div> --%>
+        <li title="要望一覧"><a href="/D4/RListServlet" class="rlist">一覧</a></li>
+        <li title="要望を送る"><a href="/D4/RFormServlet" class="req">要望を送る</a></li>
+
+    <%-- <div class="menuli">育成：アノニくん</div> --%>
+        <li title="アノニくんに会う"><a href="/D4/CharacterServlet" class="chara">アノニくんに会う</a></li>
+        <li title="みんなの到達度"><a href="/D4/ReachedServlet" class="reach">みんなの到達度</a></li>
+
+        <c:if test="${id.master_code == 1}">
+        <li title="ユーザー登録"><a href="/D4/RegistServlet" class="regist">ユーザー登録</a></li>
+        </c:if>
     </ul>
 </nav>
+
+<main>
 
 <!-- ここにプログラムを記入 -->
 <form method="post" action="/D4/QListServlet">
   <!-- ラジオボタン -->
-  <input type="radio" name="selected" value="回答募集中">回答募集中<br>
-  <input type="radio" name="selected" value="解決済み">解決済み<br>
+  <input type="radio" name="selected" value="回答募集中">回答募集中
+  <input type="radio" name="selected" value="解決済み">解決済み
 
   <!-- 検索窓とボタン -->
-  <input type="text" name="questionWindow">
-  <input type="submit" name="submit" value="検索">
+  <input type="text" name="questionWindow" id = "search">
+  <input type="submit" name="submit" value="検索" id = "search">
 </form>
 
 
-<c:if test="${empty questionList}">
+  <c:if test="${empty questionList}">
 	<p>まだデータがありません。</p>
-</c:if>
+  </c:if>
 
-<span id="error_message">
-  <a id ="Question_result">${Question_result.message}</a>
-</span>
+  <span id="error_message">
+    <a id ="Question_result">${Question_result.message}</a>
+  </span>
 
-<c:forEach var="e" items="${questionList}">
+<div id="moreload">
+ <ul class="r_list">
+  <c:forEach var="e" items="${questionList}">
 	<form class="q_list" name="q_list" method="post" action="/D4/QListServlet">
-	    <input type="text" name="questions_id" value="${e.questions_id}">
-	  	<input type="submit" name="submit" value="${e.question}">
-	  	<br>
+	    <li class="list_item is-hidden"><input type="text" name="questions_id" value="${e.questions_id}">
+	    <input type="submit" name="submit" value="${e.question}"></li>
 	</form>
-</c:forEach>
+  </c:forEach>
+  </ul>
 <%--
 <c:forEach var="e" items=" ${questionList}" >
 	<form class="q_list" method="get" action="/D4/QListServlet">
@@ -71,13 +89,17 @@
 </c:forEach>
 --%>
 
-<form>
-	<input type="button" name="moreLoad" value="さらに表示">
-</form>
+  <div id="more">
+	<button>もっと見る</button>
+  </div>
+</div>
 
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+
+<script src="./js/q_list.js"></script>
+
 </body>
 </html>

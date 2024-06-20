@@ -1,1 +1,13 @@
 @charset "UTF-8";
+
+.copyright {
+  /*background-image: url(/D4/img/footer-bg.png);
+  background-repeat: repeat-x;*/
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #4682b4;
+	color: #ffffff;
+	text-align: center;
+}

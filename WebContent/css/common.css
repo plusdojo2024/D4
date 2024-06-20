@@ -51,6 +51,7 @@ header {
   padding: 0;
   width: 17%;
 }
+/*
 .menu li a{
     display:block;
     height:em;
@@ -64,6 +65,7 @@ header {
     border-bottom: 1px solid #00bfff;
     transition: background 0.3s ease-in-out;
 }
+*/
 .menu li a:before {
   font-family: FontAwesome;
   text-indent: 0em;
@@ -73,6 +75,71 @@ header {
   width: 100%;
   height: 100%;
   font-size: 1.4em;
+}
+.menu li.home a{
+    display:block;
+    height:em;
+    width: 4em;
+    text-indent:-500em;
+    line-height:4em;
+    text-align:center;
+    color: #ffffff;
+    background-color: #001e43;
+    position: relative;
+    border-bottom: 1px solid #a3b9e0;
+    transition: background 0.3s ease-in-out;
+}
+.menu li.q a{
+    display:block;
+    height:em;
+    width: 4em;
+    text-indent:-500em;
+    line-height:4em;
+    text-align:center;
+    color: #ffffff;
+    background-color: #6495ed;
+    position: relative;
+    border-bottom: 1px solid #a3b9e0;
+    transition: background 0.3s ease-in-out;
+}
+.menu li.r a{
+    display:block;
+    height:em;
+    width: 4em;
+    text-indent:-500em;
+    line-height:4em;
+    text-align:center;
+    color: #ffffff;
+    background-color: #25b7c0;
+    position: relative;
+    border-bottom: 1px solid #a3b9e0;
+    transition: background 0.3s ease-in-out;
+}
+.menu li.chara a{
+    display:block;
+    height:em;
+    width: 4em;
+    text-indent:-500em;
+    line-height:4em;
+    text-align:center;
+    color: #ffffff;
+    background-color: #0075c2;
+    position: relative;
+    border-bottom: 1px solid #a3b9e0;
+    transition: background 0.3s ease-in-out;
+}
+.menu li.regist a{
+    display:block;
+    height:em;
+    width: 4em;
+    text-indent:-500em;
+    line-height:4em;
+    text-align:center;
+    color: #ffffff;
+    background-color: #8da0b6;
+    position: relative;
+    border-bottom: 1px solid #a3b9e0;
+    transition: background 0.3s ease-in-out;
 }
 .menu li a.home:before {
   content: "\f015";
@@ -99,12 +166,12 @@ header {
   content: "\f47f";
 }
 .menu li a:hover{
-  background-color: #1e90ff;
-  color: #fff;
+  background-color: #a0d8ef;
+  color: #4e454a;
 }
 .menu li.current a {
-  background-color: #1e90ff;
-  color: #fff;
+  background-color: #a0d8ef;
+  color: #4e454a;
 }
 .menu li{
     position: relative;
@@ -119,8 +186,8 @@ header {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     text-align: center;
-    background-color: #1e90ff;
-    color: #ffffff;
+    background-color: #a0d8ef;
+    color: #4e454a;
     padding:20px 16px 20px 16px;
     transition: all 0.3s ease-in-out;
     visibility:hidden;
@@ -136,12 +203,6 @@ header {
   }
 }
 
-.menuli {
-	margin: 10px 0 0 0;
-	left: 0;
-	font-size: 20px;
-	color: #00608d;
-}
 
 /* main */
 main {

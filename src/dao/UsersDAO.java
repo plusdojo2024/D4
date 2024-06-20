@@ -311,6 +311,7 @@ public class UsersDAO {
 
 			rs.next();
 			Result[2] = rs.getInt("COUNT(*)");
+
 			// SELECT文を準備する
 			sql = "SELECT COUNT(*) FROM Users WHERE grow_point BETWEEN 225 AND 399";
 			pStmt = conn.prepareStatement(sql);

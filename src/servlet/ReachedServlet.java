@@ -41,7 +41,15 @@ public class ReachedServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-
-
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+	}
 }

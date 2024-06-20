@@ -15,7 +15,7 @@
 		  <img src="/D4/img/icon.png" alt="アプリロゴ">
         </div>
         <div class="header">
-            <a href="/D4/LogoutServlet">ログアウト</a>
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
         </div>
     </div>
 </header>
@@ -37,7 +37,7 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
-<form method="post" action="/D4/QAServlet">
+<form method="post" action="/D4/QAServlet" id="update_text">
 	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
 	<c:if var="t" test="${id.users_id == Qid.users_id}">
 	<c:if test="${Judge=='回答募集中'}">
@@ -50,19 +50,13 @@
 	</c:if>
 
 		<br>
-		<textarea name="question">${QList.question}</textarea>
-
-
-		<!-- ラジオボタンのname をcheckに変更しました。-->
-
+		<textarea id="question_text" name="question">${QList.question}</textarea>
 
 		<input type="submit" name="submit" value="更新"><br>
 
-		<span>
-	  		<a id ="update">${update.message}</a>
-		</span>
-
+		<span id="update">${update.message}</span>
 	</c:if>
+
 	<c:if var="t" test="${id.users_id != Qid.users_id}">
 	    <c:if test="${Judge=='回答募集中'}">
 	    <input type="radio" name="judge" value="回答募集中" checked="checked">回答募集中
@@ -76,7 +70,9 @@
 		<textarea name="question" readonly="readonly">${QList.question}</textarea>
 
 	</c:if>
+</form>
 
+<form method="post" action="/D4/QAServlet" id="answer">
 	<!-- 過去の回答を編集不可で表示 -->
 	<br>
 	<c:forEach var="e" items="${AList}">
@@ -84,16 +80,15 @@
 	</c:forEach>
 
 	<!-- 回答入力欄＆送信ボタン -->
-	<textarea name="answerForm"></textarea>
+	<textarea id="answer_text" name="answerForm"></textarea>
 	<input type="submit" name="submit" value="回答する"><br>
-	<span id="error_message">
-	  <a id ="Question_result">${result.message}</a>
-	</span>
+	<span id="error_message">${result.message}</span>
 </form>
 
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>
+<script src="./js/q_a.js"></script>
 </body>
 </html>

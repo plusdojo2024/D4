@@ -23,21 +23,24 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// セッションスコープを破棄する
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+
 		UsersDAO UDao = new UsersDAO();
 		Users loginUser = (Users)session.getAttribute("id");
 
 		long miliseconds = System.currentTimeMillis();
 		long now_time = (miliseconds + 32400000)% 86400000;
 
-		//時刻確認用
-		//System.out.println(now_time/3600000+":"+(now_time/60000-now_time/3600000*60)+":"+ now_time%60000);
-
 		if(now_time<=64800000) {
 			loginUser.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
 		}
 
+		// セッションスコープを破棄する
 		session.invalidate();
 
 		// ログインページにリダイレクトする

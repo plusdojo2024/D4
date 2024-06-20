@@ -85,4 +85,18 @@ h2 {
 	padding: 0 0 10px 0;
 }
 
+.copyright {
+  /*background-image: url(/D4/img/footer-bg.png);
+  background-repeat: repeat-x;*/
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #4682b4;
+	color: #ffffff;
+	text-align: center;
+}
 

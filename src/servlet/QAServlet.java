@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.AnswersDAO;
 import dao.QuestionsDAO;
+import dao.UsersDAO;
 import model.Answers;
 import model.Questions;
 import model.Result;
@@ -37,11 +38,15 @@ public class QAServlet extends HttpServlet {
 			return;
 		}
 
+		// リダイレクト時のメッセージ表示
+		if(session.getAttribute("result") != null) {
+			request.setAttribute("result", (Result)session.getAttribute("result"));
+			session.removeAttribute("result");
+		}
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		int questions_id = (int)session.getAttribute("q_id");
-
-
 
 		request.setAttribute("id",session.getAttribute("id"));
 
@@ -51,7 +56,7 @@ public class QAServlet extends HttpServlet {
 
 		Questions question = QList.get(0);
 		request.setAttribute("Qid",question);
-		String judge=question.getJudge();
+		String judge = question.getJudge();
 		request.setAttribute("Judge",judge);
 
 		AnswersDAO ADao = new AnswersDAO();
@@ -82,6 +87,7 @@ public class QAServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String answer=request.getParameter("answerForm");
 
+		UsersDAO UDao = new UsersDAO();
 		Users users = (Users)session.getAttribute("id");
 		int questions_id = (int)session.getAttribute("q_id");	//質問IDを格納したスコープを呼び出す
 
@@ -91,17 +97,15 @@ public class QAServlet extends HttpServlet {
 		// 回答送信を行う
 		if(request.getParameter("submit").equals("回答する")) {
 			if (ADao.insert(new Answers(0, questions_id, answer, users_id))) {
-				request.setAttribute("result",
+				session.setAttribute("result",
 				new Result("回答送信！3ptゲット！", "/D4/QAServlet"));
+				users.setGrow_point(UDao.addPoint3(users)+ users.getGrow_point());
+				session.setAttribute("id",users);
 			}
 			else {
-				request.setAttribute("result",
+				session.setAttribute("result",
 				new Result("※1～1000字で入力してください", "/D4/QAServlet"));
-
 			}
-
-			List<Answers> AList = ADao.select(questions_id);
-			request.setAttribute("AList", AList);
 		}
 
 		//更新を行う
@@ -116,9 +120,6 @@ public class QAServlet extends HttpServlet {
 		}
 
 		//詳細ページにリダイレクトする
-
 		response.sendRedirect("/D4/QAServlet");
-
 	}
-
 }

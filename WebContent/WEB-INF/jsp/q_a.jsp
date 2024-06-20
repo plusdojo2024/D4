@@ -79,7 +79,10 @@
 
 	<!-- 回答入力欄＆送信ボタン -->
 	<input type="text" name="answerForm">
-	<input type="submit" name="submit" value="回答する">
+	<input type="submit" name="submit" value="回答する"><br>
+	<span id="error_message">
+	  <a id ="Question_result">${result.message}</a>
+	</span>
 </form>
 
 </main>

@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>ログイン | とくめぇ～</title>
 <link rel="stylesheet" href="/D4/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<link rel="stylesheet" href="/D4/css/login.css">
 </head>
 <body>
 <header>
@@ -18,6 +20,7 @@
     </div>
 </header>
 <main>
+	<div>
     <h2>ログイン</h2>
     <form id="login_form" method="post" action="/D4/LoginServlet">
         <table>
@@ -25,7 +28,7 @@
                 <td>
                     <label>
                         メールアドレス<br>
-                        <input type="text" name="mail">
+                        <input type="text" name="mail" class="formtext">
                     </label>
                 </td>
             </tr>
@@ -33,13 +36,13 @@
                 <td>
                     <label>
                         パスワード<br>
-                        <input type="password" name="password">
+                        <input type="password" name="password" class="formtext">
                     </label>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="submit" value="ログイン">
+                    <input type="submit" name="submit" value="ログイン" class="button">
                     <input type="reset" name="reset" value="リセット">
                     <span id="error_message">
                   <%-- <a id ="result">${result.message}</a> --%>
@@ -48,6 +51,7 @@
             </tr>
         </table>
     </form>
+    </div>
 </main>
 <footer>
     <p class="copyright">&copy; DIV</p>

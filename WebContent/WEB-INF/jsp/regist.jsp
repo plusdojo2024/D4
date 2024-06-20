@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>登録フォーム | とくめぇ～</title>
 <link rel="stylesheet" href="/D4/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<link rel="stylesheet" href="/D4/css/regist.css">
 </head>
 <body>
 <header>
@@ -25,34 +27,40 @@
         </div>
     </div>
 </header>
-<main>
+
 <nav>
-    <ul>
-        <li><a href="/D4/HomeServlet">ホーム</a></li>
-        <a>質問</a>
-        <li><a href="/D4/QListServlet">一覧</a></li>
-        <li><a href="/D4/QFormServlet">質問をする</a></li>
-        <a>目安箱</a>
-        <li><a href="/D4/RListServlet">一覧</a></li>
-        <li><a href="/D4/RFormServlet">要望を送る</a></li>
-        <a>育成</a>
-        <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
-        <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
+    <ul class="menu">
+        <li title="ホーム" class="home"><a href="/D4/HomeServlet" class="home">ホーム</a></li>
+
+    <%-- <div class="menuli">質問</div> --%>
+        <li title="質問一覧" class="q"><a href="/D4/QListServlet" class="qlist">一覧</a></li>
+        <li title="質問をする" class="q"><a href="/D4/QFormServlet" class="que">質問をする</a></li>
+
+    <%-- <div class="menuli">目安箱</div> --%>
+        <li title="要望一覧" class="r"><a href="/D4/RListServlet" class="rlist">一覧</a></li>
+        <li title="要望を送る" class="r"><a href="/D4/RFormServlet" class="req">要望を送る</a></li>
+
+    <%-- <div class="menuli">育成：アノニくん</div> --%>
+        <li title="アノニくんに会う" class="chara"><a href="/D4/CharacterServlet" class="chara">アノニくんに会う</a></li>
+        <li title="みんなの到達度" class="chara"><a href="/D4/ReachedServlet" class="reach">みんなの到達度</a></li>
+
         <c:if test="${id.master_code == 1}">
-        <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        <li title="ユーザー登録" class="regist"><a href="/D4/RegistServlet" class="regist">ユーザー登録</a></li>
         </c:if>
     </ul>
 </nav>
 
 
 	<main>
+		<div>
+		<h2>ユーザー登録</h2>
 		<form id="regist" method="post" action="/D4/RegistServlet">
         <table>
             <tr>
                 <td>
                     <label>
                         メールアドレス<br>
-                        <input type="text" name="mail" id = "mail">
+                        <input type="text" name="mail" id = "mail" class="formtext">
                     </label>
                 </td>
             </tr>
@@ -60,13 +68,13 @@
                 <td>
                     <label>
                         パスワード<span> ※パスワードは50字まで使用可能です</span><br>
-                        <input type="password" name="password" id = "password">
+                        <input type="password" name="password" id = "password" class="formtext">
                     </label>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="submit" value="登録">
+                    <input type="submit" name="submit" value="登録" class="button">
                     <input type="reset" name="reset" value="リセット">
                     <span id="error_message">
                     <a id ="result">${result.message}</a>
@@ -76,6 +84,7 @@
         </table>
 
 		</form>
+		</div>
 	</main>
 <footer>
     <p class="copyright">&copy; DIV</p>

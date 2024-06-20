@@ -8,7 +8,10 @@
 <meta charset="UTF-8">
 <title>アノニくん到達度一覧 | とくめぇ～</title>
 <link rel="stylesheet" href="/D4/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<link rel="stylesheet" href="/D4/css/reached.css">
 </head>
+
 <body>
 <header>
     <div class="headers">
@@ -25,32 +28,37 @@
         </div>
     </div>
 </header>
-<main>
+
 <nav>
-    <ul>
-        <li><a href="/D4/HomeServlet">ホーム</a></li>
-        <a>質問</a>
-        <li><a href="/D4/QListServlet">一覧</a></li>
-        <li><a href="/D4/QFormServlet">質問をする</a></li>
-        <a>目安箱</a>
-        <li><a href="/D4/RListServlet">一覧</a></li>
-        <li><a href="/D4/RFormServlet">要望を送る</a></li>
-        <a>育成</a>
-        <li><a href="/D4/CharacterServlet">アノニくんに会いに行く</a></li>
-        <li><a href="/D4/ReachedServlet">アノニくん到達段階</a></li>
+	<ul class="menu">
+        <li title="ホーム"><a href="/D4/HomeServlet" class="home">ホーム</a></li>
+
+    <%-- <div class="menuli">質問</div> --%>
+        <li title="質問一覧"><a href="/D4/QListServlet" class="qlist">一覧</a></li>
+        <li title="質問をする"><a href="/D4/QFormServlet" class="que">質問をする</a></li>
+
+    <%-- <div class="menuli">目安箱</div> --%>
+        <li title="要望一覧"><a href="/D4/RListServlet" class="rlist">一覧</a></li>
+        <li title="要望を送る"><a href="/D4/RFormServlet" class="req">要望を送る</a></li>
+
+    <%-- <div class="menuli">育成：アノニくん</div> --%>
+        <li title="アノニくんに会う"><a href="/D4/CharacterServlet" class="chara">アノニくんに会う</a></li>
+        <li title="みんなの到達度"><a href="/D4/ReachedServlet" class="reach">みんなの到達度</a></li>
+
         <c:if test="${id.master_code == 1}">
-        <li><a href="/D4/RegistServlet">ユーザー登録フォーム</a></li>
+        <li title="ユーザー登録"><a href="/D4/RegistServlet" class="regist">ユーザー登録</a></li>
         </c:if>
     </ul>
 </nav>
 
+<main>
 <!-- ここにプログラムを記入 -->
     <div class="anonis">
         <div class="anoni">
  			<img src="/D4/img/anoni1.png" width=300px alt="アノニくん1">
 			<p>
 			現在<br>
-			<strong>${human[0]}人育成中</strong>
+			<strong class="cnt">${human[0]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
@@ -62,7 +70,7 @@
  		  </c:if>
 			<p>
 			現在<br>
-			<strong>${human[1]}人育成中</strong>
+			<strong class="cnt">${human[1]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
@@ -74,7 +82,7 @@
  		  </c:if>
 			<p>
 			現在<br>
-			<strong>${human[2]}人育成中</strong>
+			<strong class="cnt">${human[2]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
@@ -86,7 +94,7 @@
  		  </c:if>
 			<p>
 			現在<br>
-			<strong>${human[3]}人育成中</strong>
+			<strong class="cnt">${human[3]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">
@@ -98,7 +106,7 @@
  		  </c:if>
 			<p>
 			現在<br>
-			<strong>${human[4]}人育成中</strong>
+			<strong class="cnt">${human[4]}人育成中</strong>
 			</p>
 		</div>
         <div class="anoni">

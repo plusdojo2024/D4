@@ -38,18 +38,16 @@ public class HomeServlet extends HttpServlet {
 
 		request.setAttribute("id", (Users)session.getAttribute("id"));
 
-		/*
-		HttpSession session = request.getSession();
-		Users loginUser = (Users)session.getAttribute("id");
-		int users_id = loginUser.getUsers_id();
-		*/
+		// リダイレクト時のメッセージ表示
+		if(session.getAttribute("result") != null) {
+			request.setAttribute("result", (Result)session.getAttribute("result"));
+			session.removeAttribute("result");
+		}
+
 
 		//新規質問
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		//String question = request.getParameter("question");
-		//int users_id = request.getParameter("users_id");
-		//String judge = request.getParameter("judge");
 
 		// 検索処理を行う
 		QuestionsDAO QDao = new QuestionsDAO();
@@ -60,12 +58,6 @@ public class HomeServlet extends HttpServlet {
 
 
 		//新規要望
-		// リクエストパラメータを取得する
-		//request.setCharacterEncoding("UTF-8");
-		//String address_order = request.getParameter("address_order");
-		//String request = request.getParameter("request");
-		//int users_id = request.getParameter("users_id");
-
 		// 検索処理を行う
 		RequestsDAO RDao = new RequestsDAO();
 		List<Requests> requestsList = RDao.select_home();
@@ -98,51 +90,15 @@ public class HomeServlet extends HttpServlet {
 
 		//質問送信を行う
 		QuestionsDAO QDao = new QuestionsDAO();
-		//QDao.insert(new Questions(0, question, users_id, "回答募集中")) ;
+
 		if (QDao.insert(new Questions(0, question, users_id, "回答募集中"))) {
 			// 送信成功
-			request.setAttribute("result",
+			session.setAttribute("result",
 			new Result("質問送信！3ptゲット！", "/D4/home.jsp"));
 		}
-		//else {												// 登録失敗
-			//request.setAttribute("result",
-			//new Result("※1～1000字で入力してください", "/D4/home.jsp"));
-		//}
 
-				//新規質問
-				// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				//String question = request.getParameter("question");
-				//int users_id = request.getParameter("users_id");
-				//String judge = request.getParameter("judge");
-
-				// 検索処理を行う
-				QDao = new QuestionsDAO();
-				List<Questions> questionList = QDao.select_home();
-
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("questionList", questionList);
-
-
-				//新規要望
-				// リクエストパラメータを取得する
-				//request.setCharacterEncoding("UTF-8");
-				//String address_order = request.getParameter("address_order");
-				//String request = request.getParameter("request");
-				//int users_id = request.getParameter("users_id");
-
-				// 検索処理を行う
-				RequestsDAO RDao = new RequestsDAO();
-				List<Requests> requestsList = RDao.select_home();
-
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("requestsList", requestsList);
-
-		// ホームページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-		dispatcher.forward(request, response);
-
-
+		// ホームページにリダイレクトする
+		response.sendRedirect("/D4/HomeServlet");
 	}
 
 }

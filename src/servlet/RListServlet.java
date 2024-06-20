@@ -38,29 +38,16 @@ public class RListServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		/*
-		int requests_id = Integer.parseInt(request.getParameter("requests_id"));
-		String address_order = request.getParameter("address_order");
-		String request_text = request.getParameter("request_text");
-		int users_id = Integer.parseInt(request.getParameter("users_id"));
-		*/
+
 		RequestsDAO rDao = new RequestsDAO();
-		//List<Bc> cardList = bDao.select(new Bc(0, "", companyName, "", department, position, "", name, "", note));
 		List<Requests> requestsList = rDao.select();
 
 		request.setAttribute("requestList", requestsList);
 
-		//request.getAttribute("R_result");
-
-
-		// HttpSession session = request.getSession();
 		if(session.getAttribute("R_result") != null) {
-			request.setAttribute("Request_result",
-					new Result("要望送信！ご意見ありがとうございます。","/D4/RListServlet"));
+			request.setAttribute("Request_result", (Result)session.getAttribute("R_result"));
 			session.removeAttribute("R_result");
-
 		}
-
 
 		// 目安箱一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_list.jsp");
@@ -76,11 +63,8 @@ public class RListServlet extends HttpServlet {
 			return;
 		}
 
-
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/r_list.jsp");
 		dispatcher.forward(request, response);
-
 	}
-
 }

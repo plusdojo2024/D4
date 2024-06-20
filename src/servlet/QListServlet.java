@@ -46,10 +46,8 @@ public class QListServlet extends HttpServlet {
 
 		// リダイレクト時のメッセージ表示
 		if(session.getAttribute("Q_result") != null) {
-			request.setAttribute("Question_result",
-					new Result("質問送信！3ptゲット！","/D4/QListServlet"));
+			request.setAttribute("Question_result", (Result)session.getAttribute("Q_result"));
 			session.removeAttribute("Q_result");
-
 		}
 
 		//質問一覧ページにフォワードする。

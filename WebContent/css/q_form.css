@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+.menu li.que a {
+	background-color: #a0d8ef;
+	color: #4e454a;
+}
+.menu li.que:after {
+    visibility:visible;
+    opacity:1;
+}
+
 main{
 	margin-top:200px;
 }

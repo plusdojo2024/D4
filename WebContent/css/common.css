@@ -74,7 +74,7 @@ header {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 17%;
+  width: 230px;
 }
 /*
 .menu li a{
@@ -361,37 +361,3 @@ input[type="reset"] {
     height: 0;
     margin: 0;
 }
-
-/* login.jsp */
-#login_form {
-
-}
-
-/* home.jsp */
-.homeanoni {
-	margin: 0 0 0 60%;
-}
-
-/* q_list.jsp */
-
-
-/* q_form.jsp */
-
-
-/* q_a.jsp */
-
-
-/* r_list.jsp */
-
-
-/* r_form.jsp */
-
-
-/* character.jsp */
-
-
-/* reached.jsp */
-
-
-/* regist.jsp */
-

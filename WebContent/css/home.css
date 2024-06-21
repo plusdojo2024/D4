@@ -65,7 +65,7 @@ h2::after {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    resize: vertical;
+    resize: none;
 	font-size: 18px;
 }
 

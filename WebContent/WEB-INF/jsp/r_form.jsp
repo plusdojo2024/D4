@@ -54,20 +54,20 @@
 <!-- 宛先指定 -->
 <h2>要望を記入してください</h2><br>
 <form id="request" method="post" action="/D4/RFormServlet">
-  <h3>宛先指定</h3>
-  <br>
-  <p>
-	<select name = "address_order" class="order">
+  <div class="rform">
+  <h3 class="h3">宛先指定</h3>
+  <div class="address formselect">
+	<select name = "address_order">
 	  <option value = "all">全体</option>
 	  <option value = "keiri">経理部</option>
 	  <option value = "soumu">総務部</option>
 	  <option value = "jinji">人事部</option>
 	</select>
-  </p>
-
+  </div>
+  </div>
 <!-- 要望フォーム -->
 <p>
-  <textarea id ="request_text" name="request_text" rows="5" cols="100" placeholder="1000字以内で入力してください" ></textarea>
+  <textarea id ="request_text" name="request_text" class="formta" rows="5" cols="100" placeholder="1000字以内で入力してください" ></textarea>
 </p>
 
 <!-- 送信ボタン -->

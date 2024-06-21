@@ -12,6 +12,10 @@
     opacity:1;
 }
 
+main{
+	margin-top:35px;
+}
+
 /* アノニくんスタイル */
 .anonis{
 	width:100%;
@@ -25,4 +29,20 @@
 .cnt{
 	text-align:right;
 	font-size:25px;
+}
+
+/* フッター */
+.copyright {
+  /*background-image: url(/D4/img/footer-bg.png);
+  background-repeat: repeat-x;*/
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #4682b4;
+	color: #ffffff;
+	text-align: center;
 }

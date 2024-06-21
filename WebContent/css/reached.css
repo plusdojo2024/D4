@@ -3,7 +3,7 @@
 
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
-.menu li.reach a {
+.menu li.chara a {
 	background-color: #a0d8ef;
 	color: #4e454a;
 }
@@ -12,8 +12,13 @@
     opacity:1;
 }
 
+main{
+	margin-top:35px;
+}
+
 /* アノニくんスタイル */
 .anonis{
+	width:100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px;
@@ -24,4 +29,20 @@
 .cnt{
 	text-align:right;
 	font-size:25px;
+}
+
+/* フッター */
+.copyright {
+  /*background-image: url(/D4/img/footer-bg.png);
+  background-repeat: repeat-x;*/
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #4682b4;
+	color: #ffffff;
+	text-align: center;
 }

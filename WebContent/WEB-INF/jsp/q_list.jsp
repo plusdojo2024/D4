@@ -49,13 +49,12 @@
         </c:if>
     </ul>
 </nav>
-<main>
 
 <!-- ここにプログラムを記入 -->
-<div class = search>
+
 <form method="post" action="/D4/QListServlet" id = "searchform">
   <!-- ラジオボタン -->
-  <input type="radio" name="selected" value="回答募集中" id ="still">回答募集中
+  <input type="radio" name="selected" value="回答募集中" id ="still"><a id = "still_text">回答募集中</a>
   <input type="radio" name="selected" value="解決済み" id = "done">解決済み
 
   <!-- 検索窓とボタン -->
@@ -64,7 +63,9 @@
     <input type="submit" name="submit" value="検索" id = "searchbutton">
 
 </form>
-</div>
+
+<main>
+
 
   <c:if test="${empty questionList}">
 	<p>まだデータがありません。</p>
@@ -75,11 +76,11 @@
   </span>
 
 <div id="moreload">
- <ul class="r_list">
+ <ul class="question_list">
   <c:forEach var="e" items="${questionList}">
 	<form class="q_list" name="q_list" method="post" action="/D4/QListServlet">
-	    <li class="list_item is-hidden">質問No.<input type="text" name="questions_id" value="${e.questions_id}">
-	    <input type="submit" name="submit" value="${e.question}"></li>
+	    <li class="list_item is-hidden"><a id = "q_number">質問No.</a><input type="text" name="questions_id" value="${e.questions_id}" id ="questions_id" size ="3" readonly="readonly">
+	    <input type="submit" name="submit" value="${e.question}" id ="questions" ></li>
 	</form>
   </c:forEach>
   </ul>
@@ -90,11 +91,9 @@
 	</form>
 </c:forEach>
 --%>
-
-  <div id="more">
-	<button>もっと見る</button>
+  <div id ="more">
+	<button class ="morebutton">もっと見る</button>
   </div>
-</div>
 
 </main>
 <footer>

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+main {
+	margin: 150px 150px 0 15%;
+}
+
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
 .menu li.qlist a {
@@ -20,15 +24,19 @@
 */
 
 #still {
-	margin: 0 5px 0 5%;
+  margin: 0 5px 0 10%;
+}
+
+#still_text {
+	color: #dc143c;
 }
 
 #done {
-	margin: 0 5px 0 5%;
+  margin: 0 5px 0 5%;
 }
 
 #searchwindow {
-    margin: 0 0 0 25%;
+    margin: 0 0 0 30%;
 }
 
 #searchbutton  {
@@ -50,18 +58,91 @@
 
 
 #searchform {
+	width: 65%;
 	position: fixed;
-	width: 100%;
+	top:0px;
+	left: 15%;
+    background-color: #f0f8ff;
+    padding: 90px 100px 10px 60px;
+    font-size: 18px;
+    color: #191970;
+    font-weight: bold;
 }
 
 #moreload ul{
   list-style-type: none;	/* 先頭の記号をなくす */
 }
 
-#moreload{
-   	margin: 500px 0 0 0;
+#questions_id{
+   	border:none;
+}
+
+#q_number{
+	display: grid;
+}
+
+#questions{
+  border:none;
+  background-color: #ffffff;
+  font-size: 16px;
+  line-break: anywhere;
+  width: 930px;
+  text-align: left;
+  padding: 0 0 0 0;
+  cursor: pointer;
+}
+
+.question_list{
+  font-size: 13px;
+
 }
 
 
-#more {
+
+   /*
+.q_list {
+ border-width: 1px;
+  border-style: solid;
+  border-color: #00608d;
+  background-color: #ffffff;
+  padding: 0 0 0 10px;
+  display:flex;
+  border-radius: 4px;
+  line-height: 1.2em;
+  list-style: none;
+  border: 0 0 5px 0;
 }
+*/
+
+.list_item {
+  margin: 0 0 5px 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #00608d;
+  background-color: #ffffff;
+  display:flex;
+  padding: 0 0 0 10px;
+  border-radius: 4px;
+}
+
+.list_item.is-hidden{
+	margin: 0 0 0 0;
+
+}
+
+.morebutton {
+	margin: 0 0 20px 45%;
+
+	display: block;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #696969;
+    color: #fff;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+

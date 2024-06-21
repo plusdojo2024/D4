@@ -1,17 +1,67 @@
 @charset "UTF-8";
 
-#searchbutton {
-  top: 150px;
-  left: 20px;
-  margin: 0 10% 0 0;
-  padding: 0;
-  width: 17%;
+/*現在のナビゲーションをホバーせずにホバー状態にする*/
+/*.homeのクラス名をliタグのクラス名に変更してください*/
+.menu li.qlist a {
+	background-color: #a0d8ef;
+	color: #4e454a;
+}
+.menu li.qlist:after {
+    visibility:visible;
+    opacity:1;
+}
+/*
+.search {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+*/
+
+#still {
+	margin: 0 5px 0 5%;
+}
+
+#done {
+	margin: 0 5px 0 5%;
 }
 
 #searchwindow {
-	text-align: right;
+    margin: 0 0 0 25%;
+}
+
+#searchbutton  {
+	display: inline-block;
+    margin: 0 0 0 2%;
+    padding: 10px 30px 10px 30px;
+    border: none;
+    text-align: center;
+    background-color: #00608d;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+}
+
+
+#searchform {
+	position: fixed;
+	width: 100%;
 }
 
 #moreload ul{
   list-style-type: none;	/* 先頭の記号をなくす */
+}
+
+#moreload{
+   	margin: 500px 0 0 0;
+}
+
+
+#more {
 }

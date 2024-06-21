@@ -8,10 +8,12 @@ main {
 }
 h2 {
 	font-size: 24px;
-    margin: 200px 0 0 0;
+    margin: 200px 0 20px 0;
     color: #191970;
-    border-bottom-style: solid;
-    border-bottom-color: #191970;
+}
+
+h2::after {
+  width: 100px;
 }
 
 /*テキストボックスの設定*/

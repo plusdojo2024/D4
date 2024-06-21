@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+main {
+	margin: 110px 40px 0 300px;
+}
+
 h2 {
   font-size: 18px;
   color: #191970;
@@ -22,7 +26,7 @@ h2 {
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
 
-/*テキストエリアの設定*/
+/*質問のほうのテキストエリアの設定*/
 .formta {
     display: block;
     width: 20%;
@@ -36,6 +40,10 @@ h2 {
     -moz-appearance: none;
     resize: vertical;
 	font-family: 'Dela Gothic One';
+	width: 80%;
+	height: 150px;
+	font-size:20px;
+	border-radius: 4px;
 }
 
 .formta:focus {
@@ -43,11 +51,37 @@ h2 {
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
 
+/*過去の回答のほうのテキストエリアの設定*/
+.formtata {
+    display: block;
+    height: 100px;
+    padding: 4px 16px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    resize: vertical;
+	font-family: 'Dela Gothic One';
+	width: 80%;
+	height: 100px;
+	font-size:20px;
+	border-radius: 4px;
+	background-color:#EEEEEE;
+	border-size:20px;
+	border:2px solid #EEEEEE;
+}
 
-/* 送信ボタンなど */
-.button {
+.formtata:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+/* 更新ボタンのほう */
+input.button.upd {
     display: inline-block;
-    margin: 0 10px 0 10px;
+    margin: 5px 10px 0 845px;
     padding: 15px 50px 15px 50px;
     border: none;
     border-radius: 4px;
@@ -72,6 +106,36 @@ h2 {
     border: 2px solid rgb(33, 150, 243);
 }
 
+/* 回答ボタン */
+.button {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    padding: 15px 50px 15px 45px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #00608d;
+    color: #fff;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.button:hover {
+    background-color: #202f55;
+}
+
+.button:focus {
+    outline: 0;
+    background-color: #202f55;
+    border: 2px solid rgb(33, 150, 243);
+}
+
+
+
 /* h2クラス */
 .h2 {
   font-size: 18px;
@@ -83,6 +147,14 @@ h2 {
 	float: left;
 	margin: 10px 0 10px 0;
 	padding: 0 0 10px 0;
+}
+
+#answer_text{
+	width: 68%;
+	height: 50px;
+	font-family: 'Dela Gothic One';
+	font-size:15px;
+	border-radius: 4px;
 }
 
 .copyright {

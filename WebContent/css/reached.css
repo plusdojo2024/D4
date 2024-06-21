@@ -3,7 +3,7 @@
 
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
-.menu li.reach a {
+.menu li.chara a {
 	background-color: #a0d8ef;
 	color: #4e454a;
 }
@@ -14,6 +14,7 @@
 
 /* アノニくんスタイル */
 .anonis{
+	width:100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px;

@@ -13,12 +13,34 @@ h2 {
 h2 {
   position: relative;
 }
-h2::after {
+.h2_1::after {
   content: '';
   background-size: 10px 10px;
   background-color: #e1eef5;
   background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
-  width: 150px;
+  width: 126px;
+  height: 7px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+.h2_2::after {
+  content: '';
+  background-size: 10px 10px;
+  background-color: #e1eef5;
+  background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
+  width: 108px;
+  height: 7px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+.h2_3::after {
+  content: '';
+  background-size: 10px 10px;
+  background-color: #e1eef5;
+  background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
+  width: 198px;
   height: 7px;
   position: absolute;
   bottom: -5px;

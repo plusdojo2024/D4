@@ -54,7 +54,7 @@
 <main>
 
 <!-- ここにプログラムを記入 -->
-<h2>新規質問通知欄</h2>
+<h2 class="h2_1">新規質問通知欄</h2>
 <div class="newq">
 	<div>
 	<c:if test="${empty questionList}">
@@ -71,7 +71,7 @@
 	</div>
 </div>
 
-<h2>目安箱通知欄</h2>
+<h2 class="h2_2">目安箱通知欄</h2>
 <div class="newr">
 	<div>
 	<c:if test="${empty requestsList}">
@@ -90,7 +90,7 @@
 
 <div class="qf_ha qf">
 <div class="qf">
-	<h2>質問フォーム</h2>
+	<h2 class="h2_3">質問を記入してください</h2>
 	<form id="question" method="post" id = "question">
 	    <textarea id = "question_text" name="question"  placeholder="1000字以内で入力してください" class="formta"></textarea>
 		<div class="qsubmit">

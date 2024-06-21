@@ -15,8 +15,13 @@
 <header>
     <div class="headers">
         <div class="logo">
-		  <img src="/D4/img/icon.png" alt="アプリロゴ">
-        </div>
+          <c:if test="${id.master_code == 0}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/icon.png" alt="アプリロゴ"></a>
+          </c:if>
+          <c:if test="${id.master_code == 1}">
+          <a href="/D4/HomeServlet"><img src="/D4/img/akiramenai.png" alt="管理者用アプリロゴ"></a>
+          </c:if>
+     </div>
         <div class="header">
             <input type="button" onclick="MoveCheck();" value="ログアウト" class="logout">
         </div>
@@ -50,56 +55,67 @@
 
 <!-- ここにプログラムを記入 -->
 <h2>新規質問通知欄</h2>
+<div class="newq">
+	<div>
 	<c:if test="${empty questionList}">
 		<p>一致するデータはありません。</p>
 	</c:if>
 
 	<c:forEach var="e" items="${questionList}" >
-	  	<input type="text" name="requestList" value="${e.question}" class="formtext">
+	  	<input type="text" name="requestList" value="${e.question}" readonly="readonly" class="formtext">
 	  	<br>
 	</c:forEach>
-
-	<a href="/D4/QListServlet">もっと見る</a>
+	</div>
+	<div class="more">
+	<a href="/D4/QListServlet" class="button a">もっと見る</a>
+	</div>
+</div>
 
 <h2>目安箱通知欄</h2>
+<div class="newr">
+	<div>
 	<c:if test="${empty requestsList}">
 		<p>一致するデータはありません。</p>
 	</c:if>
 
 	<c:forEach var="e" items="${requestsList}" >
-	  	<input type="text" name="requestList" value="${e.request}" class="formtext">
+	  	<input type="text" name="requestList" value="${e.request}" readonly="readonly" class="formtext">
 	  	<br>
 	</c:forEach>
-
-	<a href="/D4/RListServlet">もっと見る</a>
+	</div>
+	<div class="more">
+	<a href="/D4/RListServlet" class="button a">もっと見る</a>
+	</div>
+</div>
 
 <div class="qf_ha qf">
+<div class="qf">
 	<h2>質問フォーム</h2>
 	<form id="question" method="post" id = "question">
 	    <textarea id = "question_text" name="question"  placeholder="1000字以内で入力してください" class="formta"></textarea>
-	    <p><input type="submit" name="submit" value="送信" class="button"></p>
-	    <span id="error_message">${result.message}</span>
+		<div class="qsubmit">
+	    <p class="sbutton"><input type="submit" name="submit" value="送信" class="button"></p>
+		<p id="error_message" class="message">${result.message}</p>
+		</div>
 	</form>
 </div>
-	
-<div class="qf_ha ha">
+<div class="ha">
 	<!-- レベル別アノニくんの画像表示 -->
-	<div class="homeanoni">
-	<p class="h2">育成ptの説明</p>
+	<%-- <p class="h2">育成ptの説明</p> --%>
 	<c:if test="${id.grow_point < 25}">
-	<img src="/D4/img/homeanoni1.png" width="300px" alt="ホームアノニくんの画像1">
+	<img src="/D4/img/home_anoni1.png" width="510px" alt="ホームアノニくんの画像1">
 	</c:if>
 	<c:if test="${25<= id.grow_point && id.grow_point < 75}">
-	<img src="/D4/img/homeanoni2.png" alt="ホームアノニくんの画像2">
+	<img src="/D4/img/home_anoni2.png" width="500px" alt="ホームアノニくんの画像2">
 	</c:if>
 	<c:if test="${75<= id.grow_point && id.grow_point < 225}">
-	<img src="/D4/img/homeanoni3.png" alt="ホームアノニくんの画像3">
+	<img src="/D4/img/home_anoni3.png" width="500px" alt="ホームアノニくんの画像3">
 	</c:if>
 	<c:if test="${225<= id.grow_point && id.grow_point < 400}">
-	<img src="/D4/img/homeanoni4.png" alt="ホームアノニくんの画像4">
+	<img src="/D4/img/home_anoni4.png" width="500px" alt="ホームアノニくんの画像4">
 	</c:if>
 	<c:if test="${400<= id.grow_point}">
-	<img src="/D4/img/homeanoni5.png" alt="ホームアノニくんの画像5">
+	<img src="/D4/img/home_anoni5.png" width="500px" alt="ホームアノニくんの画像5">
 	</c:if>
 	</div>
 </div>

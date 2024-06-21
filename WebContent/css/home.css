@@ -1,10 +1,29 @@
 @charset "UTF-8";
 
+/* main */
+main {
+	margin: 100px 40px 0 20%;
+}
+
+/* h2 */
 h2 {
   font-size: 18px;
   color: #191970;
 }
-
+h2 {
+  position: relative;
+}
+h2::after {
+  content: '';
+  background-size: 10px 10px;
+  background-color: #e1eef5;
+  background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
+  width: 150px;
+  height: 7px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
 .menu li.home a {
@@ -26,18 +45,19 @@ h2 {
     box-shadow: 0 0 0 1px #ccc inset;
     -webkit-appearance: none;
     -moz-appearance: none;
+    font-size: 14px;
 }
 
 .formtext:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+    box-shadow: 0 0 0 1px #ccc inset;
 }
 
 /*テキストエリアの設定*/
 .formta {
     display: block;
-    width: 20%;
-    height: 100px;
+    width: 80%;
+    height: 135px;
     padding: 4px 16px;
     border-radius: 4px;
     border: none;
@@ -46,7 +66,7 @@ h2 {
     -webkit-appearance: none;
     -moz-appearance: none;
     resize: vertical;
-	font-family: 'Dela Gothic One';
+	font-size: 18px;
 }
 
 .formta:focus {
@@ -58,8 +78,8 @@ h2 {
 /* 送信ボタンなど */
 .button {
     display: inline-block;
-    margin: 0 10px 0 10px;
-    padding: 15px 50px 15px 50px;
+    margin: 0;
+    padding: 13px 25px 13px 25px;
     border: none;
     border-radius: 4px;
     text-align: center;
@@ -83,17 +103,85 @@ h2 {
     border: 2px solid rgb(33, 150, 243);
 }
 
+.button.a {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #40e0d0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.button.a:hover {
+    background-color: #afeeee;
+}
+
+.button.a:focus {
+    outline: 0;
+    background-color: #202f55;
+    border: 2px solid rgb(33, 150, 243);
+}
+
+.qsubmit {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+}
+
+/*質問送信ボタン*/
+.sbutton {
+	display: flex;
+	flex-direction:column;
+	padding: 0;
+	width: fit-content;
+}
+
+/*送信ボタン押下時のメッセージ*/
+.message {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	width: fit-content;
+}
+
+/*もっと見るボタン*/
+.more {
+    display: flex;
+    align-items: center;
+    line-height: 80px;
+}
+
 /* h2クラス */
 .h2 {
   font-size: 18px;
   color: #191970;
 }
 
+/*新規質問通知*/
+.newq {
+	display: grid;
+	grid-template-columns: 80% 1fr;
+	gap: 5px;
+}
+
+/*新規要望通知*/
+.newr {
+	display: grid;
+	grid-template-columns: 80% 1fr;
+	gap: 5px;
+}
+
 /* 質問フォームとアノニくん */
 .qf_ha {
-	float: left;
-	margin: 10px 0 10px 0;
-	padding: 0 0 10px 0;
+	margin: 20px 0 0 0;
+	display: grid;
+	grid-template-columns: 45% 1fr;
+	gap: 10px;
 }
 
 .copyright {

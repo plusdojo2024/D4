@@ -2,7 +2,7 @@
 
 /* main */
 main {
-	margin: 50px 40px 0 20%;
+	margin: 50px 150px 0 20%;
 }
 
 /* h2 */
@@ -59,7 +59,7 @@ h2 {
 
 /*テキストボックスの設定*/
 .formtext {
-	width: 90%;
+	width: 95%;
     height: 30px;
     padding: 0 10px;
     border-radius: 4px;
@@ -176,6 +176,7 @@ h2 {
     display: flex;
     align-items: center;
     line-height: 60px;
+    justify-content: flex-end;
 }
 
 /* h2クラス */
@@ -187,14 +188,14 @@ h2 {
 /*新規質問通知*/
 .newq {
 	display: grid;
-	grid-template-columns: 80% 1fr;
+	grid-template-columns: 90% 10%;
 	gap: 5px;
 }
 
 /*新規要望通知*/
 .newr {
 	display: grid;
-	grid-template-columns: 80% 1fr;
+	grid-template-columns: 90% 10%;
 	gap: 5px;
 }
 

@@ -50,9 +50,9 @@
 </nav>
 <main>
 <!-- ここにプログラムを記入 -->
-<h1>質問を記入してください</h1><br>
+<h2>質問を記入してください</h2><br>
 <form method="post" action="/D4/QFormServlet" id = "question">
-  <textarea id = "question_text" name="question" rows="5" cols="100" placeholder="1000字以内で入力してください" ></textarea>
+  <textarea id = "question_text" name="question" class="formta" rows="5" cols="100" placeholder="1000字以内で入力してください" ></textarea>
   <br>
   <input type="submit" value="送信" class="submit">
   <span id="error_message"></span>

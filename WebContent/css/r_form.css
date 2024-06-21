@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 main{
-	margin-top:150px;
+	margin-top:180px;
+	margin-left: 20%;
 }
 
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
@@ -15,22 +16,9 @@ main{
     opacity:1;
 }
 
-h1 {
+h2 {
 	font-size: 20px;
 	color: #191970;
-}
-
-/* common.cssで指定している
-h2 {
-	font-size: 18px;
-    color:f000000;
-    margin-bottom:0px;
-}
-*/
-
-h2 {
-  font-size: 18px;
-  color: #191970;
 }
 h2 {
   position: relative;
@@ -40,27 +28,70 @@ h2::after {
   background-size: 10px 10px;
   background-color: #e1eef5;
   background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
-  width: 200px;
+  width: 230px;
   height: 7px;
   position: absolute;
   bottom: -5px;
   left: 0;
 }
 
-h3{
-	margin-bottom:0;
+/*宛先を横並びに*/
+.rform {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+.h3 {
+	margin: 0;
+	display: flex;
+}
+.address {
+	margin: 0;
+	display:flex;
+	align-items: center;
 }
 
-p{
-	margin-top:0px;
-}
-.order {
-	width:100px;
-	height:30px;
-	border-radius: 4px;
-	font-size:15px;
+.formselect {
+    position: relative;
+    text-align: center;
 }
 
+.formselect:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 12px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    transform: rotate(135deg);
+    pointer-events: none;
+}
+
+.formselect select {
+    height: 2.4em;
+    width: 100%;
+    padding: 0 40px 0 30px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.formselect select::-ms-expand {
+    display: none;
+}
+
+.formselect select:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
 #request_text{
 	width: 80%;
 	height: 150px;
@@ -84,6 +115,16 @@ p{
     cursor: pointer;
     border: 2px solid transparent;
 
+}
+
+.submit:hover {
+    background-color: #202f55;
+}
+
+.submit:focus {
+    outline: 0;
+    background-color: #202f55;
+    border: 2px solid rgb(33, 150, 243);
 }
 
 .copyright {

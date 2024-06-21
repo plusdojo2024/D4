@@ -18,7 +18,7 @@ function MoveCheck() {
 	if(formObj&&mailboxObj&&passwordboxObj&&errorMessageObj){
 		formObj.onsubmit = function() {
 			if(mailboxObj.value.length === 0 || mailboxObj.value.length > 100 || passwordboxObj.value.length === 0 || passwordboxObj.value.length >= 50) {
-				errorMessageObj.textContent = '入力内容が正しくありません';
+				errorMessageObj.textContent = '入力内容が正しくありません。';
 				return false;
 			}
 			errorMessageObj.textContent = null;

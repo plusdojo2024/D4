@@ -45,6 +45,8 @@
 </nav>
 <main>
 <!-- ここにプログラムを記入 -->
+<div class="back">
+<h1>選択した質問</h1>
 <form method="post" action="/D4/QAServlet" id="update_text">
 	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
 	<c:if var="t" test="${id.users_id == Qid.users_id}">
@@ -60,7 +62,7 @@
 		<br>
 		<textarea id="question_text" name="question" class="formta">${QList.question}</textarea>
 
-		<input type="submit" name="submit" value="更新" class="button"><br>
+		<input type="submit" name="submit" value="更新" class="button upd"><br>
 
 		<span id="update">${update.message}</span>
 	</c:if>
@@ -82,11 +84,12 @@
 
 <form method="post" action="/D4/QAServlet" id="answer">
 	<!-- 過去の回答を編集不可で表示 -->
-	<br>
-	<c:forEach var="e" items="${AList}">
-		<textarea name="postAnswer" readonly="readonly" class="formta">${e.answer}</textarea><br>
-	</c:forEach>
 
+	<h1>質問に対する過去の回答</h1>
+	<c:forEach var="e" items="${AList}">
+		<textarea name="postAnswer" readonly="readonly" class="formtata">${e.answer}</textarea><br>
+	</c:forEach>
+</div>
 	<!-- 回答入力欄＆送信ボタン -->
 	<textarea id="answer_text" name="answerForm"></textarea>
 	<input type="submit" name="submit" value="回答する" class="button"><br>

@@ -2,7 +2,7 @@
 
 /* main */
 main {
-	margin: 60px 40px 0 20%;
+	margin: 50px 40px 0 20%;
 }
 
 /* h2 */
@@ -153,7 +153,7 @@ h2::after {
 .more {
     display: flex;
     align-items: center;
-    line-height: 80px;
+    line-height: 60px;
 }
 
 /* h2クラス */

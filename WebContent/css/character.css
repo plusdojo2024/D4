@@ -3,7 +3,7 @@
 
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
-.menu li.chara a {
+.menu li.anoni a {
 	background-color: #a0d8ef;
 	color: #4e454a;
 }
@@ -13,7 +13,7 @@
 }
 
 main{
-	margin-right:120px;
+margin: 120px 105px 0 255px;
 }
 /* テキストスタイル */
 .nomal_text{
@@ -24,15 +24,16 @@ main{
 .now_point{
 	text-align:right;
 	font-weight:bold;
-	font-size:25px;
+	font-size:30px;
 }
 .user_point{
-	font-size:40px;
+	font-size:50px;
 }
 
 /* 画像 */
 .my_anoni{
-	height:370px;
+	max-height:370px;
+	max-width:105%;
 }
 
 /* フッター */

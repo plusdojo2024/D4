@@ -67,8 +67,7 @@
 </div>
 
 <!-- あなたのアノニくん -->
-<p>
-<div class="nomal_text">あなたのアノニくん</div><br>
+<div class="nomal_text">あなたのアノニくん</div>
   <c:if test="${id.grow_point < 25}">
 	    <img src = "/D4/img/mypage_anoni1.png" class="my_anoni" alt = "第一段階">
   </c:if>
@@ -84,7 +83,6 @@
   <c:if test="${id.grow_point >= 400}">
 	    <img src = "/D4/img/mypage_anoni5.png" class="my_anoni" alt = "第五段階">
   </c:if>
-</p>
 
 </main>
 <footer>

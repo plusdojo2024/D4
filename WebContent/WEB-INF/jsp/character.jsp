@@ -55,15 +55,16 @@
 
 <!-- ここにプログラムを記入 -->
 
+<div class="text">
 <!-- 次の段階まであと〇〇pt -->
 <div class="nomal_text">
 次の段階まであと${next_point}pt
 </div>
-
 <!-- 現在のポイント -->
 <div class="now_point">
 現在 &nbsp;　　&nbsp;<br>
 <strong class="user_point">${id.grow_point}</strong>pt
+</div>
 </div>
 
 <!-- あなたのアノニくん -->

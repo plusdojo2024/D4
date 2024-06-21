@@ -13,9 +13,16 @@
 }
 
 main{
-margin: 120px 105px 0 255px;
+margin: 120px 105px 0 280px;
 }
 /* テキストスタイル */
+.text{
+	width:100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
 .nomal_text{
 	font-size:20px;
 }
@@ -23,7 +30,6 @@ margin: 120px 105px 0 255px;
 /* 現在のポイント */
 .now_point{
 	text-align:right;
-	font-weight:bold;
 	font-size:30px;
 }
 .user_point{

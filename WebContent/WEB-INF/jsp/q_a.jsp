@@ -27,16 +27,16 @@
         <li title="ホーム" class="home"><a href="/D4/HomeServlet" class="home">ホーム</a></li>
 
     <%-- <div class="menuli">質問</div> --%>
-        <li title="質問一覧" class="q"><a href="/D4/QListServlet" class="qlist">一覧</a></li>
-        <li title="質問をする" class="q"><a href="/D4/QFormServlet" class="que">質問をする</a></li>
+        <li title="質問一覧" class="q qlist"><a href="/D4/QListServlet" class="qlist">一覧</a></li>
+        <li title="質問をする" class="q que"><a href="/D4/QFormServlet" class="que">質問をする</a></li>
 
     <%-- <div class="menuli">目安箱</div> --%>
-        <li title="要望一覧" class="r"><a href="/D4/RListServlet" class="rlist">一覧</a></li>
-        <li title="要望を送る" class="r"><a href="/D4/RFormServlet" class="req">要望を送る</a></li>
+        <li title="要望一覧" class="r rlist"><a href="/D4/RListServlet" class="rlist">一覧</a></li>
+        <li title="要望を送る" class="r req"><a href="/D4/RFormServlet" class="req">要望を送る</a></li>
 
     <%-- <div class="menuli">育成：アノニくん</div> --%>
-        <li title="アノニくんに会う" class="chara"><a href="/D4/CharacterServlet" class="chara">アノニくんに会う</a></li>
-        <li title="みんなの到達度" class="chara"><a href="/D4/ReachedServlet" class="reach">みんなの到達度</a></li>
+        <li title="アノニくんに会う" class="chara anoni"><a href="/D4/CharacterServlet" class="anoni">アノニくんに会う</a></li>
+        <li title="みんなの到達度" class="chara reach"><a href="/D4/ReachedServlet" class="reach">みんなの到達度</a></li>
 
         <c:if test="${id.master_code == 1}">
         <li title="ユーザー登録" class="regist"><a href="/D4/RegistServlet" class="regist">ユーザー登録</a></li>

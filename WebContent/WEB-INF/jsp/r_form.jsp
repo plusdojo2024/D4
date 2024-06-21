@@ -52,9 +52,9 @@
 <main>
 <!-- ここにプログラムを記入 -->
 <!-- 宛先指定 -->
-<h1>要望を記入してください</h1><br>
+<h2>要望を記入してください</h2><br>
 <form id="request" method="post" action="/D4/RFormServlet">
-  <h2>宛先指定</h2>
+  <h3>宛先指定</h3>
   <br>
   <p>
 	<select name = "address_order" class="order">

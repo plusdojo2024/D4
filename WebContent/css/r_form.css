@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+main{
+	margin-top:150px;
+}
+
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
 .menu li.req a {
@@ -16,10 +20,35 @@ h1 {
 	color: #191970;
 }
 
+/* common.cssで指定している
 h2 {
 	font-size: 18px;
     color:f000000;
     margin-bottom:0px;
+}
+*/
+
+h2 {
+  font-size: 18px;
+  color: #191970;
+}
+h2 {
+  position: relative;
+}
+h2::after {
+  content: '';
+  background-size: 10px 10px;
+  background-color: #e1eef5;
+  background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
+  width: 200px;
+  height: 7px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+h3{
+	margin-bottom:0;
 }
 
 p{

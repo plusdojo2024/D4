@@ -18,7 +18,7 @@
 		  <img src="/D4/img/icon.png" alt="アプリロゴ">
         </div>
         <div class="header">
-            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="logout">
         </div>
     </div>
 </header>
@@ -45,8 +45,7 @@
 </nav>
 <main>
 <!-- ここにプログラムを記入 -->
-<div class="back">
-<h1>選択した質問</h1>
+<h2>選択した質問</h2>
 <form method="post" action="/D4/QAServlet" id="update_text">
 	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
 	<c:if var="t" test="${id.users_id == Qid.users_id}">
@@ -85,15 +84,18 @@
 <form method="post" action="/D4/QAServlet" id="answer">
 	<!-- 過去の回答を編集不可で表示 -->
 
-	<h1>質問に対する過去の回答</h1>
+
 	<c:forEach var="e" items="${AList}">
+	<h2 class="htwo">質問に対する過去の回答</h2>
 		<textarea name="postAnswer" readonly="readonly" class="formtata">${e.answer}</textarea><br>
 	</c:forEach>
-</div>
 	<!-- 回答入力欄＆送信ボタン -->
-	<textarea id="answer_text" name="answerForm"></textarea>
-	<input type="submit" name="submit" value="回答する" class="button"><br>
+  <div class="waku">
+	<textarea id="answer_text" name="answerForm" class="fix"></textarea>
+	<input type="submit" name="submit" value="回答する" class="button fax"><br>
+  </div>
 	<span id="error_message">${result.message}</span>
+
 </form>
 
 </main>

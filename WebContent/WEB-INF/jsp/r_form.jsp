@@ -23,7 +23,7 @@
           </c:if>
         </div>
         <div class="header">
-            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="logout">
         </div>
     </div>
 </header>

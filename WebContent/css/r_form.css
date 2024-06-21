@@ -28,7 +28,7 @@ h2::after {
   background-size: 10px 10px;
   background-color: #e1eef5;
   background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
-  width: 230px;
+  width: 220px;
   height: 7px;
   position: absolute;
   bottom: -5px;

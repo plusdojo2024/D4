@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.QuestionsDAO;
 import dao.RequestsDAO;
+import dao.UsersDAO;
 import model.Questions;
 import model.Requests;
 import model.Result;
@@ -85,6 +86,7 @@ public class HomeServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String question = request.getParameter("question");
+		UsersDAO UDao = new UsersDAO();
 		Users users = (Users)session.getAttribute("id");
 		int users_id = users.getUsers_id();
 
@@ -95,6 +97,8 @@ public class HomeServlet extends HttpServlet {
 			// 送信成功
 			session.setAttribute("result",
 			new Result("質問送信！3ptゲット！", "/D4/home.jsp"));
+			users.setGrow_point(UDao.addPoint3(users)+ users.getGrow_point());
+			session.setAttribute("id",users);
 		}
 		else {
 			session.setAttribute("result",

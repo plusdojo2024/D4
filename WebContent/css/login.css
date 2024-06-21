@@ -13,7 +13,10 @@ h2 {
 }
 
 h2::after {
-  width: 100px;
+  	width: 270px;
+	background: none;
+	border-bottom-style: solid;
+    border-bottom-color: #191970;
 }
 
 /*テキストボックスの設定*/

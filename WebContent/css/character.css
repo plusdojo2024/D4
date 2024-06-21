@@ -13,7 +13,7 @@
 }
 
 main{
-margin: 120px 105px 0 280px;
+margin: 120px 120px 0 280px;
 }
 /* テキストスタイル */
 .text{
@@ -39,7 +39,7 @@ margin: 120px 105px 0 280px;
 /* 画像 */
 .my_anoni{
 	max-height:370px;
-	max-width:105%;
+	max-width:100%;
 }
 
 /* フッター */

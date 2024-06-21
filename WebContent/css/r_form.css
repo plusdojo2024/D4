@@ -1,10 +1,24 @@
 @charset "UTF-8";
 
+/*現在のナビゲーションをホバーせずにホバー状態にする*/
+/*.homeのクラス名をliタグのクラス名に変更してください*/
+.menu li.req a {
+	background-color: #a0d8ef;
+	color: #4e454a;
+}
+.menu li.req:after {
+    visibility:visible;
+    opacity:1;
+}
+
+h1 {
+	font-size: 20px;
+	color: #191970;
+}
 
 h2 {
 	font-size: 18px;
-    color: #191970;
-    padding-top:50px;
+    color:f000000;
     margin-bottom:0px;
 }
 

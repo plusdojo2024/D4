@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+main{
+	margin-top:200px;
+}
+
+h1{
+	font-size:20px;
+	color: #191970;
+}
+
 #question_text{
 	width: 80%;
 	height: 150px;

@@ -35,7 +35,7 @@ h2::after {
   left: 0;
 }
 
-/*テキストボックスの設定*/
+/*テキストボックスの設定
 .formtext {
 	width: 90%;
     height: 3em;
@@ -47,10 +47,13 @@ h2::after {
     -moz-appearance: none;
 }
 
+
 .formtext:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
+
+*/
 
 /*質問のほうのテキストエリアの設定*/
 .formta {

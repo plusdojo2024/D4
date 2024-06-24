@@ -40,6 +40,7 @@ main {
     text-align: center;
     width: 200px;
     height: 30px;
+    font-size: 16px;
 }
 
 #searchbutton  {
@@ -78,6 +79,11 @@ main {
 
 #questions_id{
    	border:none;
+}
+
+#questions_id:focus{
+    outline: 0;
+    box-shadow: 0 0 0 1px #fff inset;
 }
 
 #q_number{

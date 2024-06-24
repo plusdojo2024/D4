@@ -67,7 +67,7 @@
             <tr>
                 <td>
                     <label>
-                        パスワード<span> ※パスワードは50字まで使用可能です</span><br>
+                        パスワード<span> ※パスワードは100字まで使用可能です</span><br>
                         <input type="password" name="password" id = "password" class="formtext">
                     </label>
                 </td>

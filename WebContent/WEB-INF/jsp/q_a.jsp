@@ -85,9 +85,9 @@
 	<!-- 過去の回答を編集不可で表示 -->
 
 
-	<c:forEach var="e" items="${AList}">
-	<h2 class="htwo">質問に対する過去の回答</h2>
-		<textarea name="postAnswer" readonly="readonly" class="formtata">${e.answer}</textarea><br>
+	<c:forEach var="e" items="${AList}" >
+	<h2 class="htwo">質問に対する過去の回答${AList.indexOf(e)+1}</h2>
+		<textarea name="postAnswer" readonly="readonly" class="formtata" id="getget">${e.answer}</textarea><br>
 	</c:forEach>
 	<!-- 回答入力欄＆送信ボタン -->
   <div class="waku">

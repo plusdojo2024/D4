@@ -4,6 +4,17 @@ main {
 	margin: 110px 40px 150px 300px;
 }
 
+#waiting{
+  color: #dc143c;
+}
+
+#update_text{
+  font-size: 18px;
+  color: #191970;
+  font-weight: bold;
+}
+
+
 h2 {
   position: relative;
 }
@@ -35,7 +46,7 @@ h2::after {
   left: 0;
 }
 
-/*テキストボックスの設定*/
+/*テキストボックスの設定
 .formtext {
 	width: 90%;
     height: 3em;
@@ -47,10 +58,13 @@ h2::after {
     -moz-appearance: none;
 }
 
+
 .formtext:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
+
+*/
 
 /*質問のほうのテキストエリアの設定*/
 .formta {
@@ -194,6 +208,15 @@ input.button.upd {
 	margin-bottom: 65px;
 	margin-left:825px;
 	padding: 15px 40px 15px 40px;
+}
+
+#error_message {
+  position:fixed;
+  bottom: 0;
+  margin-top: 20px;
+  margin-bottom: 120px;
+  margin-left:0px;
+  padding: 15px 40px 15px 0px;
 }
 
 #answer_text{

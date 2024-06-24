@@ -4,6 +4,17 @@ main {
 	margin: 110px 40px 150px 300px;
 }
 
+#waiting{
+  color: #dc143c;
+}
+
+#update_text{
+  font-size: 18px;
+  color: #191970;
+  font-weight: bold;
+}
+
+
 h2 {
   position: relative;
 }
@@ -197,6 +208,15 @@ input.button.upd {
 	margin-bottom: 65px;
 	margin-left:825px;
 	padding: 15px 40px 15px 40px;
+}
+
+#error_message {
+  position:fixed;
+  bottom: 0;
+  margin-top: 20px;
+  margin-bottom: 120px;
+  margin-left:0px;
+  padding: 15px 40px 15px 0px;
 }
 
 #answer_text{

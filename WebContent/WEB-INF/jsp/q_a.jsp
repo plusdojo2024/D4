@@ -50,11 +50,11 @@
 	<!-- 質問の詳細表示、ID==質問IDならば編集可能 -->
 	<c:if var="t" test="${id.users_id == Qid.users_id}">
 	<c:if test="${Judge=='回答募集中'}">
-	    <input type="radio" name="judge" value="回答募集中" checked="checked">回答募集中
+	    <input type="radio" name="judge" value="回答募集中" checked="checked"><a id="waiting">回答募集中</a>
 		<input type="radio" name="judge" value="解決済み">解決済み
 	</c:if>
 	<c:if test="${Judge=='解決済み'}">
-	    <input type="radio" name="judge" value="回答募集中" >回答募集中
+	    <input type="radio" name="judge" value="回答募集中"><a id="waiting">回答募集中</a>
 		<input type="radio" name="judge" value="解決済み" checked="checked">解決済み
 	</c:if>
 
@@ -68,15 +68,15 @@
 
 	<c:if var="t" test="${id.users_id != Qid.users_id}">
 	    <c:if test="${Judge=='回答募集中'}">
-	    <input type="radio" name="judge" value="回答募集中" checked="checked">回答募集中
+	    <input type="radio" name="judge" value="回答募集中" checked="checked"><a id="waiting">回答募集中</a>
 		<input type="radio" name="judge" value="解決済み">解決済み
 	</c:if>
 	<c:if test="${Judge=='解決済み'}">
-	    <input type="radio" name="judge" value="回答募集中" >回答募集中
+	    <input type="radio" name="judge" value="回答募集中"><a id="waiting">回答募集中</a>
 		<input type="radio" name="judge" value="解決済み" checked="checked">解決済み
 	</c:if>
 		<br>
-		<textarea name="question" readonly="readonly">${QList.question}</textarea>
+		<textarea name="question" readonly="readonly"class="formta">${QList.question}</textarea>
 
 	</c:if>
 </form>

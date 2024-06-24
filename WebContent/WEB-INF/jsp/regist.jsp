@@ -50,8 +50,11 @@
     </ul>
 </nav>
 
-
 	<main>
+	  <c:if test="${id.master_code == 0}">
+         	<h1>権限がありません</h1>
+      </c:if>
+	  <c:if test="${id.master_code == 1}">
 		<div>
 		<h2>ユーザー登録</h2>
 		<form id="regist" method="post" action="/D4/RegistServlet">
@@ -85,7 +88,9 @@
 
 		</form>
 		</div>
+      </c:if>
 	</main>
+
 <footer>
     <p class="copyright">&copy; DIV</p>
 </footer>

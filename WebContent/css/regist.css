@@ -6,6 +6,11 @@ main {
     align-items: center;
 	margin: 0 0 120px 0;
 }
+
+h1{
+	font-size:30px;
+	margin: 20% 0 0 0;
+}
 h2 {
 	font-size: 24px;
     margin: 200px 0 20px 0;

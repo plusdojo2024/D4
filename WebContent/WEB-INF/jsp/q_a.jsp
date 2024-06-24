@@ -59,7 +59,7 @@
 	</c:if>
 
 		<br>
-		<textarea id="question_text" name="question" class="formta">${QList.question}</textarea>
+		<textarea id="question_text" name="question" class="formta"><c:out value="${QList.question}" /></textarea>
 
 		<input type="submit" name="submit" value="更新" class="button upd"><br>
 
@@ -76,7 +76,7 @@
 		<input type="radio" name="judge" value="解決済み" checked="checked">解決済み
 	</c:if>
 		<br>
-		<textarea name="question" readonly="readonly"class="formta">${QList.question}</textarea>
+		<textarea name="question" readonly="readonly"class="formta"><c:out value="${QList.question}" /></textarea>
 
 	</c:if>
 </form>
@@ -103,5 +103,11 @@
     <p class="copyright">&copy; DIV</p>
 </footer>
 <script src="./js/q_a.js"></script>
+<script>
+form.onsubmit=function(){
+	const text = document.getElementById('question_text');
+	text.innerHTML = text.value;
+}
+</script>
 </body>
 </html>

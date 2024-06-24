@@ -36,7 +36,7 @@ public class LogoutServlet extends HttpServlet {
 		long miliseconds = System.currentTimeMillis();
 		long now_time = (miliseconds + 32400000)% 86400000;
 
-		if(now_time<=64800000) {
+		if(now_time<=64800000L) {
 			loginUser.setGrow_point(UDao.addPoint(loginUser) + loginUser.getGrow_point());
 		}
 

@@ -23,7 +23,7 @@
           </c:if>
         </div>
         <div class="header">
-            <input type="button" onclick="MoveCheck();" value="ログアウト" class="lobutton">
+            <input type="button" onclick="MoveCheck();" value="ログアウト" class="logout">
         </div>
     </div>
 </header>
@@ -53,6 +53,7 @@
 <main>
 
 <!-- ここにプログラムを記入 -->
+<h2>要望一覧</h2>
 <span id="error_message">
   <a id ="Request_result">${Request_result.message}</a>
 </span>
@@ -62,11 +63,11 @@
 	<c:forEach var="e" items="${requestList}" >
 		  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
 
-		<li class="list_item is-hidden"><a>${e.request}</a></li>
+		<li class="list_item is-hidden"><a id = "requests">${e.request}</a></li>
 	</c:forEach>
   </ul>
   <div id="more">
-	<button>もっと見る</button>
+	<button class ="morebutton">もっと見る<br>↓</button>
   </div>
 </div>
 

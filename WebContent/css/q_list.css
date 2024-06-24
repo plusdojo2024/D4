@@ -36,7 +36,10 @@ main {
 }
 
 #searchwindow {
-    margin: 0 0 0 30%;
+    margin: 0 0 0 20%;
+    text-align: center;
+    width: 200px;
+    height: 30px;
 }
 
 #searchbutton  {
@@ -78,7 +81,7 @@ main {
 }
 
 #q_number{
-	display: grid;
+	margin: 6px 0 0 0;
 }
 
 #questions{
@@ -135,14 +138,17 @@ main {
 
 	display: block;
     padding: 10px;
-    border-radius: 4px;
-    background-color: #696969;
-    color: #fff;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #00608d;
     font-weight: bold;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
     border: 2px solid transparent;
+    border-width: 4px;
+  border-style: solid;
+  border-color: #00608d;
 }
 

@@ -92,7 +92,7 @@
 </c:forEach>
 --%>
   <div id ="more">
-	<button class ="morebutton">もっと見る</button>
+	<button class ="morebutton">もっと見る<br>↓</button>
   </div>
 
 </main>

@@ -1,5 +1,30 @@
 @charset "UTF-8";
 
+main {
+	margin: 150px 150px 0 15%;
+}
+
+h2 {
+	margin: 150px 150px 0 5%;
+	font-size: 20px;
+	color: #191970;
+}
+
+h2::after {
+  width: 90px;
+}
+
+/*現在のナビゲーションをホバーせずにホバー状態にする*/
+/*.homeのクラス名をliタグのクラス名に変更してください*/
+.menu li.rlist a {
+	background-color: #a0d8ef;
+	color: #4e454a;
+}
+.menu li.rlist:after {
+    visibility:visible;
+    opacity:1;
+}
+
 .copyright {
   /*background-image: url(/D4/img/footer-bg.png);
   background-repeat: repeat-x;*/
@@ -10,4 +35,42 @@
 	background-color: #4682b4;
 	color: #ffffff;
 	text-align: center;
+}
+
+.morebutton {
+	margin: 0 0 20px 45%;
+
+	display: block;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #00608d;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-width: 4px;
+  border-style: solid;
+  border-color: #00608d;
+}
+
+#moreload ul{
+  list-style-type: none;	/* 先頭の記号をなくす */
+}
+
+.list_item {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #00608d;
+  background-color: #ffffff;
+  display:flex;
+  padding: 0 0 0 10px;
+  border-radius: 4px;
+}
+
+#requests{
+ display:flex;
+ margin: 5px 0 0 0;
 }

@@ -49,7 +49,7 @@
             </tr>
         </table>
     </form>
-    <span id="error_message"></span>
+    <span id="error_message">${result.message}</span>
     </div>
 </main>
 <footer>

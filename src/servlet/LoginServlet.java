@@ -95,6 +95,9 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/D4/HomeServlet");
 		}
 		else {									// ログイン失敗
+			request.setAttribute("result",
+			new Result("入力内容が正しくありません。", "/D4/regist.jsp"));
+
 
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");

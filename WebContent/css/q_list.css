@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 main {
-	margin: 150px 150px 0 15%;
+	margin: 150px 150px 60px 15%;
 }
 
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
@@ -152,3 +152,15 @@ main {
   border-color: #00608d;
 }
 
+.copyright {
+	position:fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #4682b4;
+	color: #ffffff;
+	text-align: center;
+}

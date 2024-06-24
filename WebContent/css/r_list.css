@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 main {
-	margin: 150px 150px 0 15%;
+	margin: 150px 150px 60px 15%;
 }
 
 h2 {
@@ -28,6 +28,9 @@ h2::after {
 .copyright {
   /*background-image: url(/D4/img/footer-bg.png);
   background-repeat: repeat-x;*/
+  	position:fixed;
+	bottom: 0;
+	width: 100%;
 	margin-top: 20px;
 	margin-bottom: 0;
 	padding-top: 10px;

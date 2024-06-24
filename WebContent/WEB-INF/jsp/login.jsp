@@ -44,13 +44,12 @@
                 <td colspan="2">
                     <input type="submit" name="submit" value="ログイン" class="button">
                     <input type="reset" name="reset" value="リセット" class="button">
-                    <span id="error_message">
-                  <%-- <a id ="result">${result.message}</a> --%>
-                    </span>
+
                 </td>
             </tr>
         </table>
     </form>
+    <span id="error_message"></span>
     </div>
 </main>
 <footer>

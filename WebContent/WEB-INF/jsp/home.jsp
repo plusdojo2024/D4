@@ -26,7 +26,7 @@
             <input type="button" onclick="MoveCheck();" value="ログアウト" class="logout">
         </div>
     </div>
-    
+
 </header>
 
 <nav>
@@ -62,7 +62,7 @@
 	</c:if>
 
 	<c:forEach var="e" items="${questionList}" >
-	  	<input type="text" name="requestList" value="${e.question}" readonly="readonly" class="formtext">
+	  	<input type="text" name="requestList" value="<c:out value='${e.question}'></c:out>" readonly="readonly" class="formtext">
 	  	<br>
 	</c:forEach>
 	</div>
@@ -79,7 +79,7 @@
 	</c:if>
 
 	<c:forEach var="e" items="${requestsList}" >
-	  	<input type="text" name="requestList" value="${e.request}" readonly="readonly" class="formtext">
+	  	<input type="text" name="requestList" value="<c:out value='${e.request}'></c:out>" readonly="readonly" class="formtext">
 	  	<br>
 	</c:forEach>
 	</div>

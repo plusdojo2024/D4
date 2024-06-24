@@ -63,7 +63,7 @@
 	<c:forEach var="e" items="${requestList}" >
 		  	<!-- <textarea  name="requestList" rows="5" cols="100" readonly="readonly">${e.request}</textarea> -->
 
-		<li class="list_item is-hidden"><a id = "requests">${e.request}</a></li>
+		<li class="list_item is-hidden"><a id = "requests"><c:out value="${e.request}" /></a></li>
 	</c:forEach>
   </ul>
   <div id="more">

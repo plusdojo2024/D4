@@ -80,7 +80,7 @@
   <c:forEach var="e" items="${questionList}">
 	<form class="q_list" name="q_list" method="post" action="/D4/QListServlet">
 	    <li class="list_item is-hidden"><a id = "q_number">質問No.</a><input type="text" name="questions_id" value="${e.questions_id}" id ="questions_id" size ="3" readonly="readonly">
-	    <input type="submit" name="submit" value="${e.question}" id ="questions" ></li>
+	    <input type="submit" name="submit" value="<c:out value='${e.question}'></c:out>" id ="questions" ></li>
 	</form>
   </c:forEach>
   </ul>

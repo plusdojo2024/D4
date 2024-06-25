@@ -4,6 +4,19 @@ main {
 	margin: 150px 150px 60px 15%;
 }
 
+/* データが０件の場合のメッセージ */
+.noneData{
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left:40px;
+}
+
+/* 質問フォーム送信後のメッセージ表示 */
+#Question_result{
+	margin-left:40px;
+}
+
 /*現在のナビゲーションをホバーせずにホバー状態にする*/
 /*.homeのクラス名をliタグのクラス名に変更してください*/
 .menu li.qlist a {

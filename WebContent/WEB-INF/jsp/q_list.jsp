@@ -68,7 +68,7 @@
 
 
   <c:if test="${empty questionList}">
-	<p>まだデータがありません。</p>
+	<p class="noneData">まだデータがありません。</p>
   </c:if>
 
   <span id="error_message">

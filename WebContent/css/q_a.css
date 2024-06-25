@@ -44,7 +44,7 @@ h2::after {
   background-size: 10px 10px;
   background-color: #e1eef5;
   background-image: repeating-linear-gradient(-45deg, #4d9bc1 0, #4d9bc1 3px, #f0f8ff 0, #f0f8ff 50%);
-  width: 200px;
+  width: 223px;
   height: 7px;
   position: absolute;
   bottom: -5px;
@@ -88,13 +88,14 @@ h2::after {
 	width: 80%;
 	height: 150px;
 	font-size:20px;
-	border-radius: 4px;
 }
+
 
 .formta:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
+
 
 /*過去の回答のほうのテキストエリアの設定*/
 .formtata {
@@ -118,10 +119,12 @@ h2::after {
 	border:2px solid #EEEEEE;
 }
 
+
 .formtata:focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+    outline: none;
+   /* box-shadow: 0 0 0 2px rgb(33, 150, 243) inset; */
 }
+
 
 /* 更新ボタンのほう */
 input.button.upd {
@@ -205,6 +208,13 @@ input.button.upd {
 	margin-bottom: 60px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	box-shadow: 0 0 0 1px #ccc inset;
+	border:none;
+}
+
+.fix:focus{
+	outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
 
 /* 回答ボタン固定用 ボツかな */

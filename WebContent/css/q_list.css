@@ -72,6 +72,10 @@ main {
     border: 2px solid transparent;
     border-radius: 4px;
 }
+#searchbutton:hover {
+    background-color: #202f55;
+}
+
 
 
 #searchform {
@@ -94,10 +98,12 @@ main {
    	border:none;
 }
 
+
 #questions_id:focus{
     outline: 0;
-    box-shadow: 0 0 0 1px #fff inset;
+    box-shadow: 0 0 0 1px #ffffff inset;
 }
+
 
 #q_number{
 	margin: 6px 0 0 0;
@@ -114,9 +120,10 @@ main {
   cursor: pointer;
 }
 
+
+
 .question_list{
   font-size: 13px;
-
 }
 
 
@@ -147,6 +154,10 @@ main {
   border-radius: 4px;
 }
 
+.list_item:hover {
+	border-width: 4px;
+}
+
 .list_item.is-hidden{
 	margin: 0 0 0 0;
 
@@ -169,6 +180,10 @@ main {
     border-width: 4px;
   border-style: solid;
   border-color: #00608d;
+}
+
+.morebutton:hover {
+    background-color: #afeeee;
 }
 
 .copyright {

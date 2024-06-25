@@ -5,6 +5,14 @@ main {
 	margin: 50px 150px 0 20%;
 }
 
+/* 質問データ・要望データが0件の場合のメッセージ */
+.noneData{
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left:40px;
+}
+
 /* h2 */
 h2 {
   font-size: 18px;

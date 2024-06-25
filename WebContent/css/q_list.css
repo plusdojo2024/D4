@@ -7,9 +7,9 @@ main {
 /* データが０件の場合のメッセージ */
 .noneData{
   color: red;
-  font-size: 18px;
   font-weight: bold;
-  margin-left:40px;
+  font-size:30px;
+  margin: 300px 0 0 380px;
 }
 
 /* 質問フォーム送信後のメッセージ表示 */

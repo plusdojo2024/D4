@@ -58,7 +58,7 @@
 <div class="newq">
 	<div>
 	<c:if test="${empty questionList}">
-		<p>まだデータがありません</p>
+		<p class="noneData">まだデータがありません</p>
 	</c:if>
 
 	<c:forEach var="e" items="${questionList}" >
@@ -75,7 +75,7 @@
 <div class="newr">
 	<div>
 	<c:if test="${empty requestsList}">
-		<p>まだデータがありません</p>
+		<p class="noneData">まだデータがありません</p>
 	</c:if>
 
 	<c:forEach var="e" items="${requestsList}" >

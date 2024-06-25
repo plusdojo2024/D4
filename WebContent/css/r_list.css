@@ -76,6 +76,7 @@ h2::after {
   display:flex;
   padding: 0 0 0 10px;
   border-radius: 4px;
+  height:auto;
 }
 
 #requests{

@@ -54,7 +54,15 @@ main {
     width: 200px;
     height: 30px;
     font-size: 16px;
+    box-shadow: 0 0 0 1px #ccc inset;
+	border:none;
 }
+
+#searchwindow:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
 
 #searchbutton  {
 	display: inline-block;
@@ -89,6 +97,7 @@ main {
     color: #191970;
     font-weight: bold;
 }
+
 
 #moreload ul{
   list-style-type: none;	/* 先頭の記号をなくす */

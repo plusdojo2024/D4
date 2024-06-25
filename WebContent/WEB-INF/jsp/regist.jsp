@@ -52,7 +52,7 @@
 
 	<main>
 	  <c:if test="${id.master_code == 0}">
-         	<h1>権限がありません</h1>
+         	<h1>権限がありません。</h1>
       </c:if>
 	  <c:if test="${id.master_code == 1}">
 		<div>

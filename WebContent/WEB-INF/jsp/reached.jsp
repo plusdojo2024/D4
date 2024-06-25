@@ -57,8 +57,9 @@
         <div class="anoni">
  			<img src="/D4/img/reached_anoni1.png" class="anoni_png" alt="アノニくん1">
 			<p>
-			現在<br>
+			<h2>現在<br>
 			<strong class="cnt">${human[0]}人育成中</strong>
+			</h2>
 			</p>
 		</div>
         <div class="anoni">
@@ -69,8 +70,9 @@
  			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
-			現在<br>
+			<h2>現在<br>
 			<strong class="cnt">${human[1]}人育成中</strong>
+			</h2>
 			</p>
 		</div>
         <div class="anoni">
@@ -81,8 +83,9 @@
  			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
-			現在<br>
+			<h2>現在<br>
 			<strong class="cnt">${human[2]}人育成中</strong>
+			</h2>
 			</p>
 		</div>
         <div class="anoni">
@@ -93,8 +96,10 @@
  			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
+			<h2>
 			現在<br>
 			<strong class="cnt">${human[3]}人育成中</strong>
+			</h2>
 			</p>
 		</div>
         <div class="anoni">
@@ -105,8 +110,10 @@
  			<img src="/D4/img/secret.png" class="anoni_png" alt="未到達です">
  		  </c:if>
 			<p>
+			<h2>
 			現在<br>
 			<strong class="cnt">${human[4]}人育成中</strong>
+			</h2>
 			</p>
 		</div>
         <div class="anoni">

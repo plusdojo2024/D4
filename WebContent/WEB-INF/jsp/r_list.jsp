@@ -53,11 +53,15 @@
 <main>
 
 <!-- ここにプログラムを記入 -->
-<h2>要望一覧</h2>
+  <c:if test="${empty requestList}">
+	<p class="noneData">まだデータがありません。</p>
+  </c:if>
+
 <span id="error_message">
   <a id ="Request_result">${Request_result.message}</a>
 </span>
 
+<div class="anoni_background"></div>
 <div id="moreload">
   <ul class="r_list">
 	<c:forEach var="e" items="${requestList}" >

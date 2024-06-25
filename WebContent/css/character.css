@@ -21,11 +21,13 @@ margin: 120px 120px 0 280px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
+	font-weight: bold;
 }
 
 .nomal_text{
 	font-size:20px;
 	color: #191970;
+	font-weight: bold;
 }
 
 /* 現在のポイント */

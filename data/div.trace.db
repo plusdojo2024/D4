@@ -1813,3 +1813,31 @@ INSERT INTO Bc VALUES (NULL, ?, ?, ?) [42102-199]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "BC" が見つかりません
 Table "BC" not found; SQL statement:
 INSERT INTO Bc VALUES (NULL, ?, ?, ?) [42102-199]
+2024-06-26 15:53:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUESTS" はすでに存在します
+Table "REQUESTS" already exists; SQL statement:
+/* requestsテーブルの作成 */
+create table requests(
+    requests_id     integer auto_increment,
+    address_order   varchar (20)    not null,
+    request         varchar (1000)  not null,
+    users_id        integer         not null,
+    primary key (requests_id)
+    /*foreign key (users_id) references users(users_id)*/
+) [42101-200]
+2024-06-26 15:54:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUEST" が見つかりません
+Table "REQUEST" not found; SQL statement:
+drop table request [42102-200]
+2024-06-26 15:54:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "REQUESTS" はすでに存在します
+Table "REQUESTS" already exists; SQL statement:
+/* requestsテーブルの作成 */
+create table requests(
+    requests_id     integer auto_increment,
+    address_order   varchar (20)    not null,
+    request         varchar (1000)  not null,
+    users_id        integer         not null,
+    primary key (requests_id)
+    /*foreign key (users_id) references users(users_id)*/
+) [42101-200]

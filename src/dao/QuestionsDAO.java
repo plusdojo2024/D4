@@ -182,6 +182,75 @@ public class QuestionsDAO {
 		return questionList;
 	}
 
+	public List<Questions> select_mine(int users_id,String question,String judge) {
+		Connection conn = null;
+		List<Questions> QList = new ArrayList<Questions>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D4/data/div", "sa", "");
+
+			// SQL文を準備する
+			String sql = "SELECT * FROM Questions WHERE users_id = ? AND question LIKE ? AND judge LIKE ? ORDER BY questions_id DESC";;
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, users_id);
+			// SQL文を完成させる
+			if (question != null) {
+				pStmt.setString(2, "%" + question+ "%");
+			}
+			else {
+				pStmt.setString(2, "%");
+			}
+			if (judge != null) {
+				pStmt.setString(3, "%" + judge + "%");
+			}
+			else {
+				pStmt.setString(3, "%");
+			}
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Questions record = new Questions(
+				rs.getInt("questions_id"),
+				rs.getString("question"),
+				rs.getInt("users_id"),
+				rs.getString("judge")
+				);
+				QList.add(record);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			QList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			QList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					QList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return QList;
+	}
+
+
 	// 質問一覧で選択された質問を表示する
 	public List<Questions> select(int questions_id) {
 		Connection conn = null;

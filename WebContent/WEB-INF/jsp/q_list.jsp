@@ -51,17 +51,20 @@
 </nav>
 
 <!-- ここにプログラムを記入 -->
-
 <form method="post" action="/D4/QListServlet" id = "searchform">
-  <!-- ラジオボタン -->
-  <input type="radio" name="selected" value="回答募集中" id ="still"><a id = "still_text">回答募集中</a>
-  <input type="radio" name="selected" value="解決済み" id = "done">解決済み
-
-  <!-- 検索窓とボタン -->
-
-    <input type="text" name="questionWindow" id = "searchwindow">
-    <input type="submit" name="submit" value="検索" id = "searchbutton">
-
+	<div class="search">
+		<div>
+		  <!-- ラジオボタン -->
+		  <input type="radio" name="selected" value="回答募集中" id ="still"><a id = "still_text">回答募集中</a>
+		  <input type="radio" name="selected" value="解決済み" id = "done">解決済み
+		</div>
+		<div class="mytext">
+		  <!-- 検索窓とボタン -->
+			<input type="checkbox" name="mine" value="mine">自分の投稿した質問のみ表示<br>
+			<input type="text" name="questionWindow" id = "searchwindow">
+		    <input type="submit" name="submit" value="検索" id = "searchbutton">
+		</div>
+	</div>
 </form>
 
 <main>
@@ -79,8 +82,14 @@
  <ul class="question_list">
   <c:forEach var="e" items="${questionList}">
 	<form class="q_list" name="q_list" method="post" action="/D4/QListServlet">
-	    <li class="list_item is-hidden"><a id = "q_number">質問No.</a><input type="text" name="questions_id" value="${e.questions_id}" id ="questions_id" size ="3" readonly="readonly">
-	    <input type="submit" name="submit" value="<c:out value='${e.question}'></c:out>" id ="questions" ></li>
+		<c:if test="${id.users_id != Qid.users_id}">
+		    <li class="list_item is-hidden"><a id = "q_number">質問No.</a><input type="text" name="questions_id" value="${e.questions_id}" id ="questions_id" size ="3" readonly="readonly">
+			<input type="submit" name="submit" value="<c:out value='${e.question}'></c:out>" id ="questions" ></li>
+		</c:if>
+		<c:if test="${id.users_id == Qid.users_id}">
+		    <li class="list_item is-hidden"><a id = "q_number">質問No.</a><input type="text" name="questions_id" value="${e.questions_id}" id ="questions_id" size ="3" readonly="readonly">
+			<input type="submit" name="submit" value="<c:out value='${e.question}'></c:out>" id ="questions" ></li>
+		</c:if>
 	</form>
   </c:forEach>
   </ul>

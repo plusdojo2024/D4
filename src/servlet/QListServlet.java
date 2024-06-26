@@ -58,26 +58,38 @@ public class QListServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-			// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
 
-        Users users = (Users)session.getAttribute("id");
+		Users users = (Users)session.getAttribute("id");
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-
 		String question = request.getParameter("questionWindow");
 		int users_id = users.getUsers_id();
 		String judge = request.getParameter("selected");
+		String checked = request.getParameter("mine");
+		request.setAttribute("checked", checked);
 
-		if(request.getParameter("submit").equals("検索")){
+		QuestionsDAO qDao = new QuestionsDAO();
+
+		if(checked!=null){
+			List<Questions> questionList = qDao.select_mine(users_id,question,judge);
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("questionList", questionList);
+
+			// 結果ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/q_list.jsp");
+			dispatcher.forward(request, response);
+		}
+		else if(request.getParameter("submit").equals("検索")){
 
 			// 検索処理を行う
-			QuestionsDAO qDao = new QuestionsDAO();
 			List<Questions> questionList = qDao.select(new Questions(0, question,users_id,judge));
 
 			// 検索結果をリクエストスコープに格納する

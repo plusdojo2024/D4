@@ -4,6 +4,16 @@ main {
 	margin: 150px 150px 60px 15%;
 }
 
+/* 検索ボックス付近 */
+.search{
+	display: grid;
+	grid-template-columns: 30% 60%;
+}
+.mytext{
+	text-align:right;
+	margin:0,25% 0 0;
+}
+
 /* データが０件の場合のメッセージ */
 .noneData{
   color: red;
@@ -87,12 +97,12 @@ main {
 
 
 #searchform {
-	width: 65%;
+	width: 70%;
 	position: fixed;
 	top:0px;
 	left: 15%;
     background-color: #f0f8ff;
-    padding: 90px 100px 10px 60px;
+    padding: 80px 10px 0 60px;
     font-size: 18px;
     color: #191970;
     font-weight: bold;

@@ -463,11 +463,3 @@ INSERT INTO requests VALUES(
     '昼休みを10分延ばしてもらいたいです',    /* request */
     5          /* users_id */
 );
-
-INSERT INTO requests VALUES(
-    null,       /*requests_id*/
-    '全体',     /* address_order */
-    '目安箱の中身ですううううううううううううううう
-    ううううううううううううううううううううううう',    /* request */
-    5          /* users_id */
-);

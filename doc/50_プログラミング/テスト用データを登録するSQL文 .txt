@@ -1,0 +1,312 @@
+/* usersテーブルにテスト用データを登録するSQL文 */
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anoni@div.jp', hash('sha256', stringtoutf8('password1')), '2024-06-12');
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonikun@div.jp', hash('sha256', stringtoutf8('password2')), '2024-06-12');
+
+INSERT INTO users (users_id, mail, password, last_login_date, master_code) 
+    VALUES (NULL, 'anonichan@div.jp', hash('sha256', stringtoutf8('password3')), '2024-06-20', 1);
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonisan@div.jp', hash('sha256', stringtoutf8('password4')), '2024-06-23');
+
+INSERT INTO users (users_id, mail, password, last_login_date) 
+    VALUES (NULL, 'anonisama@div.jp', hash('sha256', stringtoutf8('password5')), '2024-05-25');
+
+SELECT * FROM users;
+
+---------------------------------------------------------------------------
+/*questionsテーブルテストデータ*/
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    1,
+    '回答募集中'
+
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    2,
+    '解決済み'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    3,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    4,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    5,
+    '解決済み'
+    
+);
+
+
+---------------------------------------------------------------------------
+/*answersテーブルテストデータ*/
+
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    1,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    1              /* users_id */
+);
+
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    2,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    2              /* users_id */
+);
+
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    3,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    3              /* users_id */
+);
+
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    4,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    4              /* users_id */
+);
+
+INSERT INTO answers VALUES(
+    null,           /* answers_id */
+    5,              /* questions_id */
+    '回答ですううううううううううううううううううううううううう
+    うううううううううううううううううううううううううううううう',  /* answer */
+    5              /* users_id */
+);
+
+
+---------------------------------------------------------------------------
+
+/* requestテーブルテストデータ */
+/* 宛先（全体・経理部・総務部・人事部） */
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '2階の冷房が強いです',    /* request */
+    1          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '経理部',     /* address_order */
+    '研修を受けている部屋に窓がなくて辛いです',    /* request */
+    2          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '総務部',     /* address_order */
+    'オフィスにも自販機を設置してください',    /* request */
+    3          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '人事部',     /* address_order */
+    '社員食堂が欲しいです',    /* request */
+    4          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '車通勤したいです',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '出社日を減らしてください',    /* request */
+    1          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '経理部',     /* address_order */
+    '出社時間を遅らせてください',    /* request */
+    2          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '総務部',     /* address_order */
+    '備品のPCを新しくしてください',    /* request */
+    3          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '人事部',     /* address_order */
+    '会議室の西日が強いのでカーテンを設置してください',    /* request */
+    4          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    'オフィスグリコをやってほしいです',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '申請の手続きが複雑です',    /* request */
+    1          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '経理部',     /* address_order */
+    'ネット環境がよくありません。何とかしてください。',    /* request */
+    2          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '総務部',     /* address_order */
+    'お局様が怖いです',    /* request */
+    3          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '人事部',     /* address_order */
+    '雨の日はテレワークにしてください',    /* request */
+    4          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '売店でpaypayを使えるようにしてください',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    'アンケートに協力していただきたいです。',    /* request */
+    1          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '経理部',     /* address_order */
+    'ホワイトボードのマーカーのインクがありません',    /* request */
+    2          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '総務部',     /* address_order */
+    'ホワイトボードのクリーナーの替えが足りないので購入して頂きたいです。',    /* request */
+    3          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '人事部',     /* address_order */
+    '自販機をもう一台増やしてほしいです',    /* request */
+    4          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '会議室は綺麗に使うようにしてください。',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '階段の手すりを低くしてほしいです',    /* request */
+    1          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '経理部',     /* address_order */
+    '電話を無くしてほしいです',    /* request */
+    2          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '総務部',     /* address_order */
+    '延長コードの数を増やしてほしいです',    /* request */
+    3          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '人事部',     /* address_order */
+    '時計が5分遅れているのを直してください',    /* request */
+    4          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    'コンセントの数が足りません。増設してください。',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '社員証の写真を撮り直したいです。',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    'ゴミはきちんと分別して捨ててください',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '昼休みを10分延ばしてもらいたいです',    /* request */
+    5          /* users_id */
+);
+
+INSERT INTO requests VALUES(
+    null,       /*requests_id*/
+    '全体',     /* address_order */
+    '目安箱の中身ですううううううううううううううう
+    ううううううううううううううううううううううう',    /* request */
+    5          /* users_id */
+);

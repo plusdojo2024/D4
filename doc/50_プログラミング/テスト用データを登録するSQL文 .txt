@@ -20,7 +20,7 @@ SELECT * FROM users;
 /*questionsテーブルテストデータ*/
 INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
-    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    '備品の借り方を教えてください',
     1,
     '回答募集中'
 
@@ -28,15 +28,15 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
 
 INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
-    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    '育成ptとは何ですか？',
     2,
-    '解決済み'
+    '回答募集中'
     
 );
 
 INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
-    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    'アノニくんの好きな食べ物は何ですか？',
     3,
     '回答募集中'
     
@@ -44,7 +44,7 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
 
 INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
-    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    'アノニくんの誕生日が知りたいです！',
     4,
     '回答募集中'
     
@@ -52,9 +52,170 @@ INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
 
 INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
     null,
-    '質問内容ですうううううううううううううううううううううううううううううううううううううううううう',
+    'アノニくんの名前の由来を教えてください。',
     5,
-    '解決済み'
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '経費申請の締切はいつですか？',
+    1,
+    '回答募集中'
+
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '有給はいつ使うことができますか。',
+    2,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '福利厚生でお得になるお店はありますか。',
+    3,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    'コピー機の使い方を教えてください
+',
+    4,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '給料日はいつですか。',
+    5,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '会社付近のおいしいごはん屋さんを教えてください。',
+    1,
+    '回答募集中'
+
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '社内のフロアマップはありますか。また、どこで見れますか。',
+    2,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '研修内容で質問です！オブジェクト指向とは何ですか。',
+    3,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '迷惑メールの対処方法を教えてください。',
+    4,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '皆さんのやりがいを教えてください。',
+    5,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '息抜きにこのスレッドをどうぞ。皆さんの休みの日の過ごし方を教えてください。',
+    1,
+    '回答募集中'
+
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '会社の経営理念は何ですか？',
+    2,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '新製品の開発計画はどこまで進んでいますか？',
+    3,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '環境保護に関する取り組みはありますか？',
+    4,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    'クライアントの満足度向上策はどのようにしていますか？',
+    5,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '次の業績目標はどのくらいですか？',
+    1,
+    '回答募集中'
+
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '会社の今後の戦略について教えてください。',
+    2,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    '社員のワークライフバランスの改善策はありますか？',
+    3,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    'オフィスカジュアルはどこまで許されますか？',
+    4,
+    '回答募集中'
+    
+);
+
+INSERT INTO questions(questions_id,question,users_id,judge) VALUES(
+    null,
+    'デジタル化の推進計画は進んでいますか？',
+    5,
+    '回答募集中'
     
 );
 
